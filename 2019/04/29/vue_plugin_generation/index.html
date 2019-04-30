@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/carotx32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/carotx16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、UI组件及框架element - 饿了么出品的Vue2的web UI工具套件mint-ui - Vue 2的移动UI元素iview - 基于 Vuejs 的开源 UI 组件库Keen-UI - 轻量级的基本UI组件合集vue-material - 通过Vue Material和Vue 2建立精美的app应用muse-ui - 三端样式一致的响应式 UI 库vuetify - 为移动而生的Vue">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue插件汇总 [learn]">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/vue_plugin_generation/index.html">
+<meta property="og:site_name" content="李子栗子梨">
+<meta property="og:description" content="一、UI组件及框架element - 饿了么出品的Vue2的web UI工具套件mint-ui - Vue 2的移动UI元素iview - 基于 Vuejs 的开源 UI 组件库Keen-UI - 轻量级的基本UI组件合集vue-material - 通过Vue Material和Vue 2建立精美的app应用muse-ui - 三端样式一致的响应式 UI 库vuetify - 为移动而生的Vue">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-29T02:19:54.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue插件汇总 [learn]">
+<meta name="twitter:description" content="一、UI组件及框架element - 饿了么出品的Vue2的web UI工具套件mint-ui - Vue 2的移动UI元素iview - 基于 Vuejs 的开源 UI 组件库Keen-UI - 轻量级的基本UI组件合集vue-material - 通过Vue Material和Vue 2建立精美的app应用muse-ui - 三端样式一致的响应式 UI 库vuetify - 为移动而生的Vue">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/29/vue_plugin_generation/"/>
+
+
+
+
+
+  <title>vue插件汇总 [learn] | 李子栗子梨</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaodanli123" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">李子栗子梨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/vue_plugin_generation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue插件汇总 [learn]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T09:58:00+08:00">
+                2019-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一、UI组件及框架"><a href="#一、UI组件及框架" class="headerlink" title="一、UI组件及框架"></a>一、UI组件及框架</h4><p>element - 饿了么出品的Vue2的web UI工具套件<br>mint-ui - Vue 2的移动UI元素<br>iview - 基于 Vuejs 的开源 UI 组件库<br>Keen-UI - 轻量级的基本UI组件合集<br>vue-material - 通过Vue Material和Vue 2建立精美的app应用<br>muse-ui - 三端样式一致的响应式 UI 库<br>vuetify - 为移动而生的Vue JS 2组件框架<br>vonic - 快速构建移动端单页应用<br>vue-blu - 帮助你轻松创建web应用<br>vue-multiselect - Vue.js选择框解决方案<br>VueCircleMenu - 漂亮的vue圆环菜单<br>vue-chat - vuejs和vuex及webpack的聊天示例<br>radon-ui - 快速开发产品的Vue组件库<br>vue-waterfall - Vue.js的瀑布布局组件<br>vue-carbon - 基于 vue 开发MD风格的移动端<br>vue-beauty - 由vue和ant design创建的优美UI组件<br>bootstrap-vue - 应用于Vuejs2的Twitter的Bootstrap 4组件<br>vueAdmin - 基于vuejs2和element的简单的管理员模板<br>vue-ztree - 用 vue 写的树层级组件<br>vue-tree - vue树视图组件<br>vue-tabs - 多tab页轻型框架</p>
+<h4 id="二、滚动scroll组件"><a href="#二、滚动scroll组件" class="headerlink" title="二、滚动scroll组件"></a>二、滚动scroll组件</h4><p>vue-scroller - Vonic UI的功能性组件<br>vue-mugen-scroll - 无限滚动组件<br>vue-infinite-loading - VueJS的无限滚动插件<br>vue-virtual-scroller - 带任意数目数据的顺畅的滚动<br>vue-infinite-scroll - VueJS的无限滚动指令<br>vue-scrollbar - 最简单的滚动区域组件<br>vue-scroll - vue滚动<br>vue-pull-to-refresh - Vue2的上拉下拉<br>mint-loadmore - VueJS的双向下拉刷新组件<br>vue-smoothscroll - smoothscroll的VueJS版本</p>
+<h4 id="三、slider组件"><a href="#三、slider组件" class="headerlink" title="三、slider组件"></a>三、slider组件</h4><p>vue-awesome-swiper - vue.js触摸滑动组件<br>vue-slick - 实现流畅轮播框的vue组件<br>vue-swipe - VueJS触摸滑块<br>vue-swiper - 易于使用的滑块组件<br>vue-images - 显示一组图片的lightbox组件<br>vue-carousel-3d - VueJS的3D轮播组件<br>vue-slide - vue轻量级滑动组件<br>vue-slider - vue 滑动组件<br>vue-m-carousel - vue 移动端轮播组件<br>dd-vue-component - 订单来了的公共组件库<br>vue-easy-slider - Vue 2.x的滑块组件</p>
+<h4 id="四、编辑器"><a href="#四、编辑器" class="headerlink" title="四、编辑器"></a>四、编辑器</h4><p>markcook - 好看的markdown编辑器<br>eme - 优雅的Markdown编辑器<br>vue-syntax-highlight - Sublime Text语法高亮<br>vue-quill-editor - 基于Quill适用于Vue2的富文本编辑器<br>Vueditor - 所见即所得的编辑器<br>vue-html5-editor - html5所见即所得编辑器<br>vue2-editor - HTML编辑器<br>vue-simplemde - VueJS的Markdown编辑器组件<br>vue-quill - vue组件构建quill编辑器</p>
+<h4 id="五、图表"><a href="#五、图表" class="headerlink" title="五、图表"></a>五、图表</h4><p>vue-table - 简化数据表格<br>vue-chartjs - vue中的Chartjs的封装<br>vue-charts - 轻松渲染一个图表<br>vue-chart - 强大的高速的vue图表解析<br>vue-highcharts - HighCharts组件<br>chartjs - Vue Bulma的chartjs组件<br>vue-chartkick - VueJS一行代码实现优美图表</p>
+<h4 id="六、日历"><a href="#六、日历" class="headerlink" title="六、日历"></a>六、日历</h4><p>vue-calendar - 日期选择插件<br>vue-datepicker - 日历和日期选择组件<br>vue-datetime-picker - 日期时间选择控件<br>vue2-calendar - 支持lunar和日期事件的日期选择器<br>vue-fullcalendar - 基于vue.js的全日历组件<br>vue-datepicker - 漂亮的Vue日期选择器组件<br>datepicker - 基于flatpickr的时间选择组件<br>vue2-timepicker - 下拉时间选择器<br>vue-date-picker - VueJS日期选择器组件<br>vue-datepicker-simple - 基于vue的日期选择器</p>
+<h4 id="七、地址选择"><a href="#七、地址选择" class="headerlink" title="七、地址选择"></a>七、地址选择</h4><p>vue-city - 城市选择器<br>vue-region-picker - 选择中国的省份市和地区</p>
+<h4 id="八、地图"><a href="#八、地图" class="headerlink" title="八、地图"></a>八、地图</h4><p>vue-amap - 基于Vue 2和高德地图的地图组件<br>vue-google-maps - 带有双向数据绑定Google地图组件<br>vue-baidu-map- 基于 Vue 2的百度地图组件库<br>vue-cmap - Vue China map可视化组件</p>
+<h4 id="九、播放器"><a href="#九、播放器" class="headerlink" title="九、播放器"></a>九、播放器</h4><p>vue-video-player - VueJS视频及直播播放器<br>vue-video - Vue.js的HTML5视频播放器<br>vue-music-master - vue手机端网页音乐播放器</p>
+<h4 id="十、文件上传"><a href="#十、文件上传" class="headerlink" title="十、文件上传"></a>十、文件上传</h4><p>vue-upload-component - Vuejs文件上传组件<br>vue-core-image-upload - 轻量级的vue上传插件<br>vue-dropzone - 用于文件上传的Vue组件</p>
+<h4 id="十一、图片处理"><a href="#十一、图片处理" class="headerlink" title="十一、图片处理"></a>十一、图片处理</h4><p>vue-lazyload-img - 移动优化的vue图片懒加载插件<br>vue-image-crop-upload - vue图片剪裁上传组件<br>vue-svgicon - 创建svg图标组件的工具<br>vue-img-loader - 图片加载UI组件<br>vue-image-clip- 基于vue的图像剪辑组件<br>vue-progressive-image - Vue的渐进图像加载插件</p>
+<h4 id="十二、提示"><a href="#十二、提示" class="headerlink" title="十二、提示"></a>十二、提示</h4><p>vue-toast-mobile - VueJS的toast插件<br>vue-msgbox - vuejs的消息框<br>vue-tooltip - 带绑定信息提示的提示工具<br>vue-verify-pop - 带气泡提示的vue校验插件</p>
+<h4 id="十三、进度条"><a href="#十三、进度条" class="headerlink" title="十三、进度条"></a>十三、进度条</h4><p>vue-radial-progress - Vue.js放射性进度条组件<br>vue-progressbar - vue轻量级进度条<br>vue2-loading-bar - 最简单的仿Youtube加载条视图</p>
+<h4 id="十四、开发框架汇总"><a href="#十四、开发框架汇总" class="headerlink" title="十四、开发框架汇总"></a>十四、开发框架汇总</h4><p>vue-admin - Vue管理面板框架<br>electron-vue - Electron及VueJS快速启动样板<br>vue-2.0-boilerplate - Vue2单页应用样板<br>vue-webgulp - 仿VueJS Vue loader示例<br>vue-bulma - 轻量级高性能MVVM Admin UI框架<br>vue-spa-template - 前后端分离后的单页应用开发<br>Framework7-Vue - VueJS与Framework7结合<br>vue-element-starter - vue启动页</p>
+<h4 id="十五、实用库汇总"><a href="#十五、实用库汇总" class="headerlink" title="十五、实用库汇总"></a>十五、实用库汇总</h4><p>vuelidate - 简单轻量级的基于模块的Vue.js验证<br>qingcheng - qingcheng主题<br>vuex - 专为 Vue.js 应用程序开发的状态管理模式<br>vue-axios - 将axios整合到VueJS的封装<br>vue-desktop - 创建管理面板网站的UI库<br>vue-meta - 管理app的meta信息<br>avoriaz - VueJS测试实用工具库<br>vue-framework7 - 结合VueJS使用的Framework7组件<br>vue-lazy-render - 用于Vue组件的延迟渲染<br>vue-svg-icon - vue2的可变彩色svg图标方案<br>vue-online - reactive的在线和离线组件<br>vue-password-strength-meter - 交互式密码强度计<br>vuep - 用实时编辑和预览来渲染Vue组件<br>vue-bootstrap-modal - vue的Bootstrap样式组件<br>element-admin - 支持 vuecli 的 Element UI 的后台模板<br>vue-shortkey - 应用于Vue.js的Vue-ShortKey 插件<br>cleave - 基于cleave.js的Cleave组件<br>vue-events - 简化事件的VueJS插件<br>http-vue-loader - 从html及js环境加载vue文件<br>vue-electron - 将选择的API封装到Vue对象中的插件<br>vue-router-transition - 页面过渡插件<br>vuemit - 处理VueJS事件<br>vue-cordova - Cordova的VueJS插件<br>vue-qart - 用于qartjs的Vue2指令<br>vue-websocket - VueJS的Websocket插件<br>vue-gesture - VueJS的手势事件插件<br>vue-local-storage - 具有类型支持的Vuejs本地储存插件<br>lazy-vue - 懒加载图片<br>vue-lazyloadImg - 图片懒加载插件<br>vue-bus - VueJS的事件总线<br>vue-observe-visibility - 当元素在页面上可见或隐藏时检测<br>vue-notifications - 非阻塞通知库<br>v-media-query - vue中添加用于配合媒体查询的方法<br>vuex-shared-mutations - 分享某种Vuex mutations<br>vue-lazy-component - 懒加载组件或者元素的Vue指令<br>vue-reactive-storage - vue插件的Reactive层<br>vue-ts-loader - 在Vue装载机检查脚本<br>vue-pagination-2 - 简单通用的分页组件<br>vuex-i18n - 定位插件<br>Vue.resize - 检测HTML调整大小事件的vue指令<br>vue-zoombox - 一个高级zoombox<br>leo-vue-validator - 异步的表单验证组件<br>modal - Vue Bulma的modal组件<br>Famous-Vue - Famous库的vue组件<br>vue-input-autosize - 基于内容自动调整文本输入的大小<br>vue-file-base64 - 将文件转换为Base64的vue组件<br>Vue-Easy-Validator - 简单的表单验证<br>vue-truncate-filter - 截断字符串的VueJS过滤器</p>
+<h4 id="十六、服务端"><a href="#十六、服务端" class="headerlink" title="十六、服务端"></a>十六、服务端</h4><p>vue-ssr - 结合Express使用Vue2服务端渲染<br>nuxt.js - 用于服务器渲染Vue app的最小化框架<br>vue-ssr - 非常简单的VueJS服务器端渲染模板<br>vue-easy-renderer - Nodejs服务端渲染<br>express-vue - 简单的使用服务器端渲染vue.js</p>
+<h4 id="十七、辅助工具"><a href="#十七、辅助工具" class="headerlink" title="十七、辅助工具"></a>十七、辅助工具</h4><p>DejaVue - Vuejs可视化及压力测试<br>vue-generate-component - 轻松生成Vue js组件的CLI工具<br>vscode-VueHelper - 目前vscode最好的vue代码提示插件<br>vue-play - 展示Vue组件的最小化框架<br>VuejsStarterKit - vuejs starter套件<br>vue-multipage-cli - 简单的多页CLI</p>
+<h4 id="十八、应用实例"><a href="#十八、应用实例" class="headerlink" title="十八、应用实例"></a>十八、应用实例</h4><p>pagekit - 轻量级的CMS建站系统<br>vuedo - 博客平台<br>koel - 基于网络的个人音频流媒体服务<br>CMS-of-Blog - 博客内容管理器<br>vue-cnode - 重写vue版cnode社区<br>vue-ghpages-blog - 依赖GitHub Pages无需本地生成的静态博客<br>swoole-vue-webim - Web版的聊天应用<br>fewords - 功能极其简单的笔记本<br>jackblog-vue - 个人博客系统<br>vue-blog - 使用Vue2.0 和Vuex的vue-blog<br>vue-dashing-js - nuvo-dashing-js的fork<br>rss-reader - 简单的rss阅读器</p>
+<h4 id="声明："><a href="#声明：" class="headerlink" title="声明："></a>声明：</h4><p>作者：尹先生code<br>链接：<a href="https://www.jianshu.com/p/3147c5b76f15" target="_blank" rel="noopener">https://www.jianshu.com/p/3147c5b76f15</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/github_gitlab_ssh/" rel="next" title="如何在一台机器上同时使用github与gitlab服务?">
+                <i class="fa fa-chevron-left"></i> 如何在一台机器上同时使用github与gitlab服务?
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/29/sublime_quick_find/" rel="prev" title="sublime常见快捷键">
+                sublime常见快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="zhaodanli" />
+            
+              <p class="site-author-name" itemprop="name">zhaodanli</p>
+              <p class="site-description motion-element" itemprop="description">追风路上的少年</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、UI组件及框架"><span class="nav-number">1.</span> <span class="nav-text">一、UI组件及框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、滚动scroll组件"><span class="nav-number">2.</span> <span class="nav-text">二、滚动scroll组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、slider组件"><span class="nav-number">3.</span> <span class="nav-text">三、slider组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、编辑器"><span class="nav-number">4.</span> <span class="nav-text">四、编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、图表"><span class="nav-number">5.</span> <span class="nav-text">五、图表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、日历"><span class="nav-number">6.</span> <span class="nav-text">六、日历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、地址选择"><span class="nav-number">7.</span> <span class="nav-text">七、地址选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、地图"><span class="nav-number">8.</span> <span class="nav-text">八、地图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、播放器"><span class="nav-number">9.</span> <span class="nav-text">九、播放器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十、文件上传"><span class="nav-number">10.</span> <span class="nav-text">十、文件上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十一、图片处理"><span class="nav-number">11.</span> <span class="nav-text">十一、图片处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十二、提示"><span class="nav-number">12.</span> <span class="nav-text">十二、提示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十三、进度条"><span class="nav-number">13.</span> <span class="nav-text">十三、进度条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十四、开发框架汇总"><span class="nav-number">14.</span> <span class="nav-text">十四、开发框架汇总</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十五、实用库汇总"><span class="nav-number">15.</span> <span class="nav-text">十五、实用库汇总</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十六、服务端"><span class="nav-number">16.</span> <span class="nav-text">十六、服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十七、辅助工具"><span class="nav-number">17.</span> <span class="nav-text">十七、辅助工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十八、应用实例"><span class="nav-number">18.</span> <span class="nav-text">十八、应用实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明："><span class="nav-number">19.</span> <span class="nav-text">声明：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaodanli</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+  -->
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

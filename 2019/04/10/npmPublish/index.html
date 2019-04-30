@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/carotx32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/carotx16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,npm," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文章源自发布 npm 包, 如有侵权 请联系删除 1.项目初始化vue init webpack-simple 项目名称 项目结构如下  项目结构 2.components/index.js 文件下 引入文件组件import zlCalendar from &amp;apos;./zl-calendar&amp;apos; import zlRange from &amp;apos;./zl-range&amp;apos; im">
+<meta name="keywords" content="前端,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发布 npm 包">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/npmPublish/index.html">
+<meta property="og:site_name" content="李子栗子梨">
+<meta property="og:description" content="文章源自发布 npm 包, 如有侵权 请联系删除 1.项目初始化vue init webpack-simple 项目名称 项目结构如下  项目结构 2.components/index.js 文件下 引入文件组件import zlCalendar from &amp;apos;./zl-calendar&amp;apos; import zlRange from &amp;apos;./zl-range&amp;apos; im">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11624051-b0d22d63565ea1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/225/format/webp">
+<meta property="og:updated_time" content="2019-04-13T13:02:36.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="发布 npm 包">
+<meta name="twitter:description" content="文章源自发布 npm 包, 如有侵权 请联系删除 1.项目初始化vue init webpack-simple 项目名称 项目结构如下  项目结构 2.components/index.js 文件下 引入文件组件import zlCalendar from &amp;apos;./zl-calendar&amp;apos; import zlRange from &amp;apos;./zl-range&amp;apos; im">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11624051-b0d22d63565ea1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/225/format/webp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/10/npmPublish/"/>
+
+
+
+
+
+  <title>发布 npm 包 | 李子栗子梨</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaodanli123" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">李子栗子梨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/npmPublish/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">发布 npm 包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T14:38:56+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/npm/" itemprop="url" rel="index">
+                    <span itemprop="name">npm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文章源自<a href="https://www.jianshu.com/p/d1ed202c9409" target="_blank" rel="noopener">发布 npm 包</a>, 如有侵权 请联系删除</p>
+<h3 id="1-项目初始化"><a href="#1-项目初始化" class="headerlink" title="1.项目初始化"></a>1.项目初始化</h3><pre><code>vue init webpack-simple 项目名称
+</code></pre><p>项目结构如下</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11624051-b0d22d63565ea1b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/225/format/webp" alt=""></p>
+<p>项目结构</p>
+<h3 id="2-components-index-js-文件下-引入文件组件"><a href="#2-components-index-js-文件下-引入文件组件" class="headerlink" title="2.components/index.js 文件下 引入文件组件"></a>2.components/index.js 文件下 引入文件组件</h3><pre><code>import zlCalendar from &apos;./zl-calendar&apos;
+import zlRange from &apos;./zl-range&apos;
+import zlSlideDelete from &apos;./zl-slide-delete&apos;
+const comment = {
+  install:function(Vue){
+    Vue.component(&apos;zlCalendar&apos;, zlCalendar)
+    Vue.component(&apos;zlRange&apos;, zlRange)
+    Vue.component(&apos;zlSlideDelete&apos;, zlSlideDelete)
+  }
+}
+// global 的状态下自动安装
+if(typeof window !== &apos;undefined&apos; &amp;&amp; window.Vue){
+  window.Vue.use(comment)
+}
+// 导出模块
+export default comment
+</code></pre><h3 id="3-修改-package-json"><a href="#3-修改-package-json" class="headerlink" title="3. 修改 package.json"></a>3. 修改 package.json</h3><pre><code>{
+  &quot;name&quot;: &quot;zl-vue-ui&quot;,
+  &quot;description&quot;: &quot;A Vue.js project&quot;,
+  &quot;version&quot;: &quot;1.0.3&quot;,
+  &quot;author&quot;: &quot;徐其闯 &lt;xqc1319681561@163.com&gt;&quot;,
+  &quot;main&quot;: &quot;dist/zl-vue-ui.js&quot;,// 配置main结点，如果不配置，我们在其他项目中就不用import XX from &apos;包名&apos;来引用了，只能以包名作为起点来指定相对的路径
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;private&quot;: false, // 因为组件包是公用的，所以private为false
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;cross-env NODE_ENV=development webpack-dev-server --open --hot&quot;,
+    &quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --progress --hide-modules&quot;
+  },
+  &quot;repository&quot;: { // 指定代码所在的仓库地址
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;git+https://github.com/xuqichuang/zl-vue-ui.git&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;better-scroll&quot;: &quot;^1.14.1&quot;,
+    &quot;moment&quot;: &quot;^2.24.0&quot;,
+    &quot;vue&quot;: &quot;^2.5.11&quot;
+  },
+  &quot;browserslist&quot;: [
+    &quot;&gt; 1%&quot;,
+    &quot;last 2 versions&quot;,
+    &quot;not ie &lt;= 8&quot;
+  ],
+  &quot;keywords&quot;: [// 指定关键字
+    &quot;vue&quot;,
+    &quot;vue-ui&quot;
+  ],
+  &quot;devDependencies&quot;: {
+    &quot;babel-core&quot;: &quot;^6.26.0&quot;,
+    &quot;babel-loader&quot;: &quot;^7.1.2&quot;,
+    &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,
+    &quot;babel-preset-stage-3&quot;: &quot;^6.24.1&quot;,
+    &quot;cross-env&quot;: &quot;^5.0.5&quot;,
+    &quot;css-loader&quot;: &quot;^0.28.7&quot;,
+    &quot;file-loader&quot;: &quot;^1.1.4&quot;,
+    &quot;node-sass&quot;: &quot;^4.9.3&quot;,
+    &quot;sass-loader&quot;: &quot;^7.1.0&quot;,
+    &quot;vue-loader&quot;: &quot;^13.0.5&quot;,
+    &quot;vue-template-compiler&quot;: &quot;^2.4.4&quot;,
+    &quot;webpack&quot;: &quot;^3.6.0&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^2.9.1&quot;
+  }
+}
+</code></pre><h3 id="4-修改webpack-config-js"><a href="#4-修改webpack-config-js" class="headerlink" title="4.修改webpack.config.js"></a>4.修改webpack.config.js</h3><pre><code>// entry: &apos;./src/main.js&apos;,
+  entry: &apos;./src/components/index.js&apos;,
+  output: {
+    path: path.resolve(__dirname, &apos;./dist&apos;),
+    publicPath: &apos;/dist/&apos;,
+    // filename: &apos;build.js&apos;
+    filename: &apos;zl-vue-ui.js&apos;,
+    library: &apos;zl-vue-ui&apos;,
+    libraryTarget: &apos;umd&apos;,
+    umdNamedDefine: true
+  },
+</code></pre><h3 id="5-修改-gitignore-文件"><a href="#5-修改-gitignore-文件" class="headerlink" title="5.修改.gitignore 文件"></a>5.修改.gitignore 文件</h3><p>因为要用dist文件夹，所以在.gitignore文件中把dist/去掉。</p>
+<h3 id="6-修改index-html"><a href="#6-修改index-html" class="headerlink" title="6.修改index.html"></a>6.修改index.html</h3><pre><code>&lt;!-- &lt;script src=&quot;/dist/build.js&quot;&gt;&lt;/script&gt; --&gt;
+    &lt;script src=&quot;/dist/zl-vue-ui.js&quot;&gt;&lt;/script&gt;
+</code></pre><h3 id="7-测试插件"><a href="#7-测试插件" class="headerlink" title="7.测试插件"></a>7.测试插件</h3><p>在发正式包之前可以在本地先打一个包，然后测试下有没有问题，如果没问题再发布到npm上。</p>
+<ul>
+<li>首先，打包到本地 npm run build</li>
+<li>npm pack</li>
+<li>npm pack 之后，就会在当前目录下生成 一个tgz 的文件。<br>打开一个新的vue项目，在当前路径下执行(‘路径’ 表示文件所在的位置)</li>
+<li><p>npm install 路径/组件名称.tgz</p>
+<p>//使用方法<br>import 变量名 from ‘组件名称’<br>Vue.use(变量名)</p>
+</li>
+</ul>
+<h3 id="8-发布到NPM"><a href="#8-发布到NPM" class="headerlink" title="8.发布到NPM"></a>8.发布到NPM</h3><ol>
+<li>在 npm官网 注册一个npm账号</li>
+<li>切换到需要发包的项目根目录下，npm login登录npm账号，输入用户名、密码、邮箱</li>
+<li>最后一步，执行npm publish即可</li>
+</ol>
+<p>发布到NPM后，使用插件时可以用npm install 组件名称 来安装</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/vuebasic/" rel="next" title="vue源码分析笔记">
+                <i class="fa fa-chevron-left"></i> vue源码分析笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/11/webpack_bug_fix/" rel="prev" title="webpack打包时会打包其他独立页面的js文件[走查纠错]">
+                webpack打包时会打包其他独立页面的js文件[走查纠错] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avator.png"
+                alt="zhaodanli" />
+            
+              <p class="site-author-name" itemprop="name">zhaodanli</p>
+              <p class="site-description motion-element" itemprop="description">追风路上的少年</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-项目初始化"><span class="nav-number">1.</span> <span class="nav-text">1.项目初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-components-index-js-文件下-引入文件组件"><span class="nav-number">2.</span> <span class="nav-text">2.components/index.js 文件下 引入文件组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-修改-package-json"><span class="nav-number">3.</span> <span class="nav-text">3. 修改 package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-修改webpack-config-js"><span class="nav-number">4.</span> <span class="nav-text">4.修改webpack.config.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-修改-gitignore-文件"><span class="nav-number">5.</span> <span class="nav-text">5.修改.gitignore 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-修改index-html"><span class="nav-number">6.</span> <span class="nav-text">6.修改index.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-测试插件"><span class="nav-number">7.</span> <span class="nav-text">7.测试插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-发布到NPM"><span class="nav-number">8.</span> <span class="nav-text">8.发布到NPM</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaodanli</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+  -->
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
