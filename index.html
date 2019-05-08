@@ -294,6 +294,367 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/vue_cli_feature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/07/vue_cli_feature/" itemprop="url">vue-cli3都有些什么特异功能？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T16:40:00+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为了快速开发，少走弯路，决定好好研读下vue-cli3官方文档</p>
+<h2 id="一、使用命令"><a href="#一、使用命令" class="headerlink" title="一、使用命令"></a>一、使用命令</h2><p>在vue cli中，会默认安装@vue/cli-service，@vue/cli-service中有vue-cli-service命令。<br>项目中的package.json文件中的script表示可执行命令，可通过npm 或 yarn 调用这些script:<br>package.json ↓</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;vue-cli-service build&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>terminal ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br><span class="line">yarn serve</span><br></pre></td></tr></table></figure></p>
+<p>serve 命令会启动一个开发服务器 (基于 webpack-dev-server) 并附带开箱即用的模块热重载</p>
+<h3 id="1-1-vue-cli-service-serve命令"><a href="#1-1-vue-cli-service-serve命令" class="headerlink" title="1.1 vue-cli-service serve命令"></a>1.1 vue-cli-service serve命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service serve [options] [entry]</span><br><span class="line"></span><br><span class="line">options：</span><br><span class="line"></span><br><span class="line">  --open    在服务器启动时打开浏览器</span><br><span class="line">  --copy    在服务器启动时将 URL 复制到剪切版</span><br><span class="line">  --mode    指定环境模式 (默认值：development)</span><br><span class="line">  --host    指定 host (默认值：0.0.0.0)</span><br><span class="line">  --port    指定 port (默认值：8080)</span><br><span class="line">  --https   使用 https (默认值：false)</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">entry:</span><br><span class="line"></span><br><span class="line">  唯一入口 ↓ 设置src/main.js文件为唯一入口</span><br><span class="line">  package.json</span><br><span class="line"></span><br><span class="line">  &quot;scripts&quot;:&#123;</span><br><span class="line">	  &quot;dev&quot;: &quot;vue-cli-service serve --open --copy ./src/main.js&quot;,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>除了通过命令行参数，还可使用 vue.config.js中的devServer字段配置开发服务器</p>
+<h3 id="1-2-vue-cli-service-build命令"><a href="#1-2-vue-cli-service-build命令" class="headerlink" title="1.2 vue-cli-service build命令"></a>1.2 vue-cli-service build命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service build [options] [entry|pattern]</span><br><span class="line"></span><br><span class="line">options：</span><br><span class="line"></span><br><span class="line">  --mode        指定环境模式 (默认值：production)</span><br><span class="line">  --dest        指定输出目录 (默认值：dist)</span><br><span class="line">  --modern      面向现代浏览器带自动回退地构建应用</span><br><span class="line">  --target      app | lib | wc | wc-async (默认值：app)</span><br><span class="line">  --name        库或 Web Components 模式下的名字 (默认值：package.json 中的 &quot;name&quot; 字段或入口文件名)</span><br><span class="line">  --no-clean    在构建项目之前不清除目标目录</span><br><span class="line">  --report      生成 report.html 以帮助分析包内容</span><br><span class="line">  --report-json 生成 report.json 以帮助分析包内容</span><br><span class="line">  --watch       监听文件变化</span><br><span class="line">  </span><br><span class="line">  --report 和 --report-json 会根据构建统计生成报告，它会帮助你分析包中包含的模块们的大小。</span><br><span class="line">  --target 允许你将项目中的任何组件以一个库或 Web Components 组件的方式进行构建</span><br><span class="line">  --modern 使用现代模式构建应用，为现代浏览器交付原生支持的 ES2015 代码，并生成一个兼容老浏览器的包用来自动回退。</span><br></pre></td></tr></table></figure>
+<p>栗子 🌰  package.json ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &quot;scripts&quot;:&#123;</span><br><span class="line">&quot;build&quot;: &quot;vue-cli-service build --dest output --report --report-json&quot;,  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如图：<br><img src="/img/vue-cli-feature/1.png" alt="1.png"></p>
+<h3 id="1-3-vue-cli-service-inspect命令"><a href="#1-3-vue-cli-service-inspect命令" class="headerlink" title="1.3 vue-cli-service inspect命令"></a>1.3 vue-cli-service inspect命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service inspect [options] [...paths]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line"></span><br><span class="line">  --mode    指定环境模式 (默认值：development)</span><br><span class="line">  </span><br><span class="line">可使用 vue-cli-service inspect 来审查一个 Vue CLI 项目的 webpack config</span><br></pre></td></tr></table></figure>
+<h2 id="二、配置参考"><a href="#二、配置参考" class="headerlink" title="二、配置参考"></a>二、配置参考</h2><h3 id="2-1-全局配置-👏👏👏"><a href="#2-1-全局配置-👏👏👏" class="headerlink" title="2.1 全局配置 👏👏👏"></a>2.1 全局配置 👏👏👏</h3><p>命令行中输入<code>vue config</code>可审查、修改全局的cli配置<br>(我的.vuerc文件内容) ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  &quot;presets&quot;: &#123;</span><br><span class="line">    &quot;base&quot;: &#123;</span><br><span class="line">      &quot;useConfigFiles&quot;: false,</span><br><span class="line">      &quot;plugins&quot;: &#123;</span><br><span class="line">        &quot;@vue/cli-plugin-babel&quot;: &#123;&#125;,</span><br><span class="line">        &quot;@vue/cli-plugin-eslint&quot;: &#123;</span><br><span class="line">          &quot;config&quot;: &quot;standard&quot;,</span><br><span class="line">          &quot;lintOn&quot;: [</span><br><span class="line">            &quot;save&quot;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;router&quot;: true,</span><br><span class="line">      &quot;routerHistoryMode&quot;: true,</span><br><span class="line">      &quot;vuex&quot;: true,</span><br><span class="line">      &quot;cssPreprocessor&quot;: &quot;less&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;useTaobaoRegistry&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-vue-config-js"><a href="#2-2-vue-config-js" class="headerlink" title="2.2 vue.config.js"></a>2.2 vue.config.js</h3><p>该文件是一个可选的配置文件，如果项目的根目录中存在这个文件，那么它会被@vue/cli-service自动加载</p>
+<p>这个文件应该导出一个包含了选项的对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">	//选项...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="publicPath-type-sring-Default-’-‘"><a href="#publicPath-type-sring-Default-’-‘" class="headerlink" title="publicPath  [type:sring][Default:’/‘]"></a>publicPath  [type:sring][Default:’/‘]</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/js_methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/06/js_methods/" itemprop="url">js常用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T09:56:00+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.监听滚动到底部+节流阀</p>
+<p>2.canvas绘图</p>
+<p>3.HTML代码中&lt;%%&gt;、&lt;%=%&gt;、&lt;%:%&gt;各是什么意思?分别用来实现什么的?</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/md_config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1893,416 +2254,13 @@ export default comment
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/vuebasic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaodanli">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李子栗子梨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/23/vuebasic/" itemprop="url">vue源码分析笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T10:37:56+08:00">
-                2019-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>vue中的computed原理:set/get方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//元素值变化的监听</span><br><span class="line">const obj = &#123;</span><br><span class="line">    fName:&apos;ZHAO&apos;,</span><br><span class="line">    lName:&apos;Danli&apos;,</span><br><span class="line">&#125;</span><br><span class="line">//obj.fullName = obj.fName + &apos;-&apos; + obj.lName;</span><br><span class="line">Object.defineProperty(obj,&apos;fullName&apos;,&#123;</span><br><span class="line">    get()&#123;  //根据其他相关的属性动态计算得到当前属性值 [被动]</span><br><span class="line">        return this.fName + &apos;-&apos; + this.lName;</span><br><span class="line">    &#125;,</span><br><span class="line">    set(value)&#123;  //监听当前属性值变化，更新其他相关属性 [主动]</span><br><span class="line">        const names = value.spilt(&apos;-&apos;);</span><br><span class="line">        this.fName = names[0];</span><br><span class="line">        this.lName = names[1];</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(obj.fullName);</span><br><span class="line">obj.fName = &apos;Bai&apos;;  //fullName被动改变</span><br><span class="line">obj.lName = &apos;Kunjuan&apos;;</span><br><span class="line">console.log(obj.fullName);</span><br><span class="line">obj.fullName = &apos;Yang-shulin&apos;;  //主动变更其他属性值</span><br><span class="line">console.log(obj.fName);</span><br><span class="line">console.log(obj.lName);</span><br></pre></td></tr></table></figure></p>
-<p>DocumentFragment    详细请至MDN(改成链接)查看<br>优：内存中保存多个element的内容容器，不与界面关联 【不会影响界面渲染】，避免过多重流</p>
-<pre><code>const ul = document.documentById(&apos;test1&apos;);
-//创建fragment
-const fragment = document.createDocumentFragment();
-//取出test1中的所有子节点保存到fragment中
-let child;
-while(child = ul.firstChild) {  //取出ul的第一个子节点，赋值给child,判断child是否为true
-    fragment.appendChild(child);  
-    //⚠️一个节点只能有一个父节点，因此一旦把child添加给fragment了，就脱离了其之前的父节点
-}
-//改变fragment中的所有需要变更的子节点
-let childs = fragment.childNodes();  //得到所有的子节点
-Array.prototype.slice.call(childs).forEach((node,index)=&gt;{
-    if(node.nodeType == 1) {  //当前节点为元素节点
-        node.textContent = &apos;新文本内容&apos;+index;
-    }
-})
-//用更改好的fragment插入到test1
-ul.appendChild();
-</code></pre><p>数据代理：通过一个对象代理对另一个对象中属性的操作(读/写)<br>vue数据代理:通过vm对象代理data对象中所有属性的操作<br>原理:Object.defineProperty [es5语法 ie8不支持]</p>
-<p>模板解析</p>
-<p align="center"><br>…<br>[未完待续]<br></p>
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/git-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaodanli">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李子栗子梨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/15/git-command/" itemprop="url">git常用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T22:05:56+08:00">
-                2018-10-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;ihoey&quot;           // 设置git用户名</span><br><span class="line">git config --global user.email &quot;mail@163.com&quot;   // 设置git邮箱</span><br><span class="line">git config --global color.ui true               // 为true是终端着色</span><br><span class="line">git config --global alias.co checkout           // 配置checkout的别名</span><br><span class="line">git config --global alias.ci commit             // 配置commit别名</span><br><span class="line">git config --global alias.cm commit             // 配置commit别名</span><br><span class="line">git config --global alias.br branch             // 配置branch别名</span><br><span class="line">git config --global alias.cp cherry-pick        // 配置cherry-pick别名</span><br><span class="line">git config --global alias.rb rebase             // 配置rebase别名</span><br><span class="line">git config -l                                   // 列举所有配置</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init                            // 创建git仓库</span><br><span class="line">git status                          // 查看文件提交状态</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -amend                   // 修改注释</span><br><span class="line">git commit --amend -m &quot;xxxx&quot;        // 修改注释</span><br><span class="line">git commit -m &quot;xxxx&quot;                // 提交文件(暂存区-&gt;本地仓库)</span><br><span class="line">git merge --squash branchname       //将多次提交合并成一个，然后git add . (等步骤)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git diff filepaht                           // 比较文件不同 (工作区 vs 暂存区)</span><br><span class="line">git diff HEAD filepath                      // 比较文件不同 (工作区 vs HEAD[当前工作分支])</span><br><span class="line">git diff --staged filepath                  // 比较文件不同 (暂存区 vs HEAD[当前工作分支])</span><br><span class="line">git diff --cached filepath                  // 比较文件不同 (暂存区 vs HEAD[当前工作分支])</span><br><span class="line">git diff branchname filepath                // 比较文件不同 (当前分支文件 vs branchname 分支文件)</span><br><span class="line">git diff commitid filepath                  // 比较文件不同 (与某次提交进行比较)</span><br><span class="line">git diff commitid1 commitid2                // 比较两次提交间的不同</span><br><span class="line">git diff branch1..branch2                   // 比较两个分支</span><br><span class="line">git diff --stat                             // 仅比较统计信息</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- filepath                     // 抛弃工作区对此文件的修改</span><br><span class="line">git checkout .                               // 抛弃工作区修改</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm filename1 filename2                          // 删除工作区文件，并且将这次删除放入暂存区</span><br><span class="line">git rm --cached filename                            // 停止追踪指定文件，但该文件会保留在工作区</span><br><span class="line">git fetch --all                                     // 刷新工作区</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="暂存区"><a href="#暂存区" class="headerlink" title="暂存区"></a>暂存区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD                                  // 清空暂存区</span><br><span class="line">git rm --cached &lt;file&gt;                          // 从暂存区删除一个文件</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="工作区-gt-暂存区"><a href="#工作区-gt-暂存区" class="headerlink" title="工作区 -&gt; 暂存区"></a>工作区 -&gt; 暂存区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add fileName                    // 添加指定文件(工作区-&gt;暂存区)</span><br><span class="line">git add .                           // 添加所有已更改文件(工作区-&gt;暂存区)</span><br><span class="line">git add *.js                        // 添加所有后缀为js的文件到暂存区</span><br><span class="line">git add filename -f                 // 强行添加一个不被版本跟踪的文件</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="重置-撤销-reset-revert"><a href="#重置-撤销-reset-revert" class="headerlink" title="重置/撤销 reset revert"></a>重置/撤销 reset revert</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">暂存区 -&gt; 工作区 ??</span><br><span class="line">git reset filename                  // 暂存区-&gt;工作区,工作区不变</span><br><span class="line">git reset -- .                      // 暂存区全部文件 -&gt; 工作区</span><br><span class="line">git reset --hard                    // 重置暂存区和工作区，与上一次commit保持一致</span><br><span class="line">git reset [commit]                  // 重置当前分支的指针为指定commit,同时重置暂存区，工作区不变</span><br><span class="line">git reset --hard [commit]           // 重置当前分支的HEAD为指定commit,同时重置暂存区和工作区，与指定commit一致</span><br><span class="line">git reset --keep [commit]           // 重置当前HEAD为指定commit,但暂存区和工作区不变</span><br><span class="line">git revert [commit]                 // 新建一个commit,用来撤销指定commit(假回滚)</span><br><span class="line">git revert HEAD                     // 恢复到最后一次提交的状态</span><br><span class="line">git reset -hard commitid            // 回滚到xx时的状态</span><br><span class="line">git reset -soft commitid            // 会将之前的修改全部进行revert</span><br><span class="line"></span><br><span class="line">git reset –mixed                    // 此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息</span><br><span class="line">git reset –soft                     // 回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</span><br><span class="line">git reset –hard                     // 彻底回退到某个版本，本地的源码也会变为上一个版本的内容</span><br><span class="line">git reset &lt;commit&gt; --soft --hard：</span><br><span class="line">--soft                              // 将所有被更改的文件回溯到“待提交”状态</span><br><span class="line">--hard                              // commit 之后，对被git追踪的文件的任何更改都被丢弃</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git log filepath                    // 查看该文件每次提交记录</span><br><span class="line">git log                             // 查看提交记录</span><br><span class="line">git log -p filepath                 // 查看每次详细修改内容的diff</span><br><span class="line">git log -p -2                       // 查看最近两次详细修改内容的diff</span><br><span class="line">git log --stat                      // 查看提交统计信息</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">git branch -l                           // 查看本地分支</span><br><span class="line">git branch -r                           // 查看远程分支</span><br><span class="line">git branch branchname                   // 创建新分支</span><br><span class="line">git branch -v                           // 查看各个分支最后提交信息</span><br><span class="line">git branch --merged                     // 查看已经被合并到当前分支的分支</span><br><span class="line">git branch --no-merged                  // 查看尚未被合并到当前分支的分支</span><br><span class="line">git checkout branchname                 // 切换到此分支</span><br><span class="line">git checkout -b branchname              // 创建新的分支，并切换到新分支</span><br><span class="line">git checkout -b [newbranch] [refbranch] // 基于refbranch分支，创建新分支，并切换</span><br><span class="line">git checkout commitid                   // 把某次历史提交记录checkout出来，但无分支信息，却环岛其他分支会自动删除</span><br><span class="line">git checkout commitid -b branchname     // 把某次历史提交记录checkout,创建成一个新分支</span><br><span class="line">git branch -d branchname                // 删除某个分支</span><br><span class="line">git branch -D branchname                // 强制删除某个分支(未被合并的分支被删除的时候需要强制)</span><br><span class="line">git checkout -f branchname              // 强制切换分支</span><br><span class="line">git checkout -f branchname              // 强制checkout分支覆盖本地文件</span><br><span class="line"></span><br><span class="line">分支合并</span><br><span class="line">git merge branchname                    // 将branch分支合并到当前分支</span><br><span class="line">git merge --no-ff branchname            // 不要fast-foward合并，这样可以生成merge提交</span><br><span class="line">git rebase master branchname            // 将master合并到branch,相当于：</span><br><span class="line">git checkout branchname &amp;&amp; git rebase master &amp;&amp; git checkout master &amp;&amp; git merge branchname</span><br><span class="line"></span><br><span class="line">远程分支管理</span><br><span class="line">git pull                                // 抓取远程仓库所有分支更新合并到本地</span><br><span class="line">git pull --no-ff                        // 不要fast-foward合并，抓取远程仓库所有分支更新合并到本地</span><br><span class="line">git fetch origin                        // 抓取远程仓库更新</span><br><span class="line">git merge origin/master                 // 远程master分支 合并到 本地当前分支</span><br><span class="line">git checkout --track origin/branchname  // 跟踪此远程分支，创建相应的本地分支</span><br><span class="line">git push                                // push所有分支</span><br><span class="line">git push origin master                  // push 本地分支 -&gt; 远程master分支</span><br><span class="line">git push -u origin master               // push 本地分支 -&gt; 远程master分支 (当无远程master分支则创建，用于初始化远程仓库)</span><br><span class="line">git push origin &lt;local_branch&gt;          // 创建远程分支(与本地分支同名)</span><br><span class="line">git push origin &lt;local_branch&gt;:&lt;remote_branch&gt;   // 创建远程分支</span><br><span class="line">git push origin :&lt;remote_branch&gt;        // 删除本地分支，再删除远程分支</span><br><span class="line">git checkout -b branchname -t origin/master //基于远程master分支创建branchname分支</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote -v                               // 查看远端地址</span><br><span class="line">git remote add origin https://gitxxxxxx.git // 要求服务已经建立同名仓库</span><br><span class="line">git remote                                  // 显示远程仓库</span><br><span class="line">git remote show origin                      // 显示origin远程库的详情</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git tag                                         // 查看tag</span><br><span class="line">git tag tagname                                 // 创建一个tag</span><br><span class="line">git push --tags                                 // 将本地tags推送到远程仓库</span><br><span class="line">git push tagname                                // 推送指定的本地tag到远程仓库</span><br><span class="line">git describe --tags --abbrev=0                  // 展示当前分支的最近的tag</span><br><span class="line">git push origin --tags                          // 一次性推送所有tag,同步到远程仓库</span><br><span class="line">git tag -d tagname                              // 删除本地仓库tag</span><br><span class="line">git push origin :refs/tags/tagname              // 删除远程tag,前提是需要先删除本地tag</span><br><span class="line">git checkout -b brachname tagname               // 切回到某个tag</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git reflog                                      #输出详细的操作历史</span><br><span class="line">~/.gitconfig                                    #用户的git配置文件目录</span><br><span class="line">gitk --all &amp;                                    #打开git图形化界面</span><br><span class="line">git chean -f                                    #删除工作目录中不被git进行版本追踪的文件</span><br><span class="line">git clean -xf                                   #删除当前目录下没有被track过的文件和文件夹</span><br><span class="line">.gitignore                                      #告诉git,哪些文件不被加入版本控制</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2350,7 +2308,7 @@ ul.appendChild();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2361,7 +2319,7 @@ ul.appendChild();
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2372,7 +2330,7 @@ ul.appendChild();
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
