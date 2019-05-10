@@ -1,7 +1,18 @@
 /* global NexT: true */
 
-$(document).ready(function () {
+$(document).ready(function(){
+	console.log('走到这里');
+    $(document).on('click', '.fold_hider', function(){
+			 console.log('.fold_hider has been click');
+        $('>.fold', this.parentNode).slideToggle();
+        $('>:first', this).toggleClass('open');
+    });
+    //默认情况下折叠
+    $("div.fold").css("display","none");
+});
 
+$(document).ready(function () {
+	console.log('不走这里？？？');
   initScrollSpy();
 
   function initScrollSpy () {
@@ -37,6 +48,7 @@ $(document).ready(function () {
   var hasVelocity = $.isFunction(html.velocity);
 
   $('.sidebar-nav li').on('click', function () {
+		console.log('fjsdfkljfkl');
     var item = $(this);
     var activeTabClassName = 'sidebar-nav-active';
     var activePanelClassName = 'sidebar-panel-active';
