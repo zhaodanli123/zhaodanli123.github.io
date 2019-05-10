@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="追风路上的少年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李子栗子梨">
-<meta property="og:url" content="http://yoursite.com/categories/vue/index.html">
+<meta name="description" content="想做个内容折叠的功能，网上找到了代码，咔咔咔复制粘贴。发现并没有折叠…….. (〒︿〒)就开始查代码找问题，原来是首页的index.html文件没有引入post-details.js文件，而文章详情页会自动引入post-details.js,所以只有详情页折叠才是生效的 (〒︿〒)^2我是通过 hexo deploy命令 生成public文件夹的，那么这个命令都做了写什么??">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo神坑">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/hexo_bug/index.html">
 <meta property="og:site_name" content="李子栗子梨">
-<meta property="og:description" content="追风路上的少年">
+<meta property="og:description" content="想做个内容折叠的功能，网上找到了代码，咔咔咔复制粘贴。发现并没有折叠…….. (〒︿〒)就开始查代码找问题，原来是首页的index.html文件没有引入post-details.js文件，而文章详情页会自动引入post-details.js,所以只有详情页折叠才是生效的 (〒︿〒)^2我是通过 hexo deploy命令 生成public文件夹的，那么这个命令都做了写什么??">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T06:36:00.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李子栗子梨">
-<meta name="twitter:description" content="追风路上的少年">
+<meta name="twitter:title" content="hexo神坑">
+<meta name="twitter:description" content="想做个内容折叠的功能，网上找到了代码，咔咔咔复制粘贴。发现并没有折叠…….. (〒︿〒)就开始查代码找问题，原来是首页的index.html文件没有引入post-details.js文件，而文章详情页会自动引入post-details.js,所以只有详情页折叠才是生效的 (〒︿〒)^2我是通过 hexo deploy命令 生成public文件夹的，那么这个命令都做了写什么??">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/vue/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/29/hexo_bug/"/>
 
 
 
 
 
-  <title>分类: vue | 李子栗子梨</title>
+  <title>hexo神坑 | 李子栗子梨</title>
   
 
 
@@ -150,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/zhaodanli123" class="github-corner" aria-label="View source on GitHub">
     <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -279,55 +281,204 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>vue<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/hexo_bug/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/07/vue_cli_feature/" itemprop="url">
-              
-                <span itemprop="name">vue-cli3都有些什么特异功能？</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">hexo神坑</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-07T16:40:00+08:00"
-              content="2019-05-07" >
-          05-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T11:21:00+08:00">
+                2019-04-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>想做个内容折叠的功能，网上找到了代码，咔咔咔复制粘贴。发现并没有折叠…….. (〒︿〒)<br>就开始查代码找问题，原来是首页的index.html文件没有引入post-details.js文件，而文章详情页会自动引入post-details.js,所以只有详情页折叠才是生效的 (〒︿〒)^2<br>我是通过 <code>hexo deploy</code>命令 生成public文件夹的，那么这个命令都做了写什么??</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/sublime_quick_find/" rel="next" title="sublime常见快捷键">
+                <i class="fa fa-chevron-left"></i> sublime常见快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/29/css_g/" rel="prev" title="css填坑指南">
+                css填坑指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +486,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -563,6 +718,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
