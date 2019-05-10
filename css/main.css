@@ -190,11 +190,9 @@ body {
   line-height: 2;
   color: #555;
   background-color: #fff;
-  background-image: url("/images/background.png");
-  background-repeat: no-repeat;
+  background-image: url("/images/bg1.jpg");
+  background-repeat: repeat;
   background-attachment: fixed;
-  background-position: center bottom;
-  background-size: cover;
 }
 @media (max-width: 767px) {
   body {
@@ -1949,7 +1947,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff29e;
+  background: #bbffc1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2788,6 +2786,7 @@ embed {
   display: inline-block;
 }
 .post {
+  background: #fff;
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px;
@@ -2795,12 +2794,20 @@ embed {
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
 body {
-  background-image: url("/images/background.png");
-  background-repeat: no-repeat;
+  background-image: url("/images/bg1.jpg");
+  background-repeat: repeat;
   background-attachment: fixed;
-  background-position: center bottom;
-  background-size: cover;
 }
 #footer a {
   color: #eee;
+}
+.hider_title {
+  font-family: "Microsoft Yahei";
+  cursor: pointer;
+}
+.close:after {
+  content: "▼";
+}
+.open:after {
+  content: "▲";
 }
