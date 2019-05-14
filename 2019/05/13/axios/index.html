@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端,axios," />
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="追风路上的少年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李子栗子梨">
-<meta property="og:url" content="http://yoursite.com/categories/vue/index.html">
+<meta name="description" content="前言在开发过程中，前端需要mock数据，以便和服务器端同时开发，互不耽误，在本地用mock数据，测试环境用接口。以前在开发过程中，我都是会在打包之前把引入的mock数据注释掉，每次都要更改代码，很可能会”手滑”，那有什么好的解决方案呢？ 为了满足需求，特意看了下axios中文说明文档，生态系统中有一个用来mock第三方库：moxios(就是这么好解决，多百度准没错 youxiu👍) #moxio">
+<meta name="keywords" content="前端,axios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios">
+<meta property="og:url" content="http://yoursite.com/2019/05/13/axios/index.html">
 <meta property="og:site_name" content="李子栗子梨">
-<meta property="og:description" content="追风路上的少年">
+<meta property="og:description" content="前言在开发过程中，前端需要mock数据，以便和服务器端同时开发，互不耽误，在本地用mock数据，测试环境用接口。以前在开发过程中，我都是会在打包之前把引入的mock数据注释掉，每次都要更改代码，很可能会”手滑”，那有什么好的解决方案呢？ 为了满足需求，特意看了下axios中文说明文档，生态系统中有一个用来mock第三方库：moxios(就是这么好解决，多百度准没错 youxiu👍) #moxio">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-14T11:16:12.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李子栗子梨">
-<meta name="twitter:description" content="追风路上的少年">
+<meta name="twitter:title" content="axios">
+<meta name="twitter:description" content="前言在开发过程中，前端需要mock数据，以便和服务器端同时开发，互不耽误，在本地用mock数据，测试环境用接口。以前在开发过程中，我都是会在打包之前把引入的mock数据注释掉，每次都要更改代码，很可能会”手滑”，那有什么好的解决方案呢？ 为了满足需求，特意看了下axios中文说明文档，生态系统中有一个用来mock第三方库：moxios(就是这么好解决，多百度准没错 youxiu👍) #moxio">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/vue/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/05/13/axios/"/>
 
 
 
 
 
-  <title>分类: vue | 李子栗子梨</title>
+  <title>axios | 李子栗子梨</title>
   
 
 
@@ -150,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/zhaodanli123" class="github-corner" aria-label="View source on GitHub">
     <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -279,55 +281,224 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>vue<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/axios/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/07/vue_cli_feature/" itemprop="url">
-              
-                <span itemprop="name">vue-cli3都有些什么特异功能？</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">axios</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-07T16:40:00+08:00"
-              content="2019-05-07" >
-          05-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T11:21:00+08:00">
+                2019-05-13
+              </time>
+            
 
-    </header>
-  </article>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/axios/" itemprop="url" rel="index">
+                    <span itemprop="name">axios</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在开发过程中，前端需要mock数据，以便和服务器端同时开发，互不耽误，在本地用mock数据，测试环境用接口。<br>以前在开发过程中，我都是会在打包之前把引入的mock数据注释掉，每次都要更改代码，很可能会”手滑”，那有什么好的解决方案呢？</p>
+<p>为了满足需求，特意看了下axios中文说明文档，生态系统中有一个用来mock第三方库：<a href="https://github.com/axios/moxios" target="_blank" rel="noopener">moxios</a><br>(就是这么好解决，多百度准没错 youxiu👍)</p>
+<p>#moxios使用方法</p>
+<p>安装moxios包：<br><code>npm install moxios --save-dev</code></p>
+<p align="center"><br>TODO …   ｄ(･∀･*)♪ﾟ<br></p>
+
+
 
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/axios/" rel="tag"># axios</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/13/commands/" rel="next" title="常用命令">
+                <i class="fa fa-chevron-left"></i> 常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/14/brew/" rel="prev" title="brew">
+                brew <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +506,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -355,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -420,6 +604,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -563,6 +763,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
