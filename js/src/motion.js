@@ -352,7 +352,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
-	console.log('走到这里');
+	  console.log('走到这里');
     $(document).on('click', '.fold_hider', function(){
 			 console.log('.fold_hider has been click');
         $('>.fold', this.parentNode).slideToggle();
