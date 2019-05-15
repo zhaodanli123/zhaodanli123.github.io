@@ -350,3 +350,14 @@ $(document).ready(function () {
   };
 
 });
+
+$(document).ready(function(){
+	console.log('走到这里');
+    $(document).on('click', '.fold_hider', function(){
+			 console.log('.fold_hider has been click');
+        $('>.fold', this.parentNode).slideToggle();
+        $('>:first', this).toggleClass('open');
+    });
+    //默认情况下折叠
+    $("div.fold").css("display","none");
+});
