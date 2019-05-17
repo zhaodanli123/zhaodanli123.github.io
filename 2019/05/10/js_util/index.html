@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="李子栗子梨">
 <meta property="og:description" content="javascript常用工具库1.Browser 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T13:08:52.491Z">
+<meta property="og:updated_time" content="2019-05-17T02:30:13.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="util">
 <meta name="twitter:description" content="javascript常用工具库1.Browser 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
@@ -466,6 +466,9 @@
 </div></div></h4><h4 id="-16"><a href="#-16" class="headerlink" title=""></a><div><div class="fold_hider"><div class="close hider_title">17.全角字转半角字</div></div><div class="fold">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function dbcToSbc(str)&#123;</span><br><span class="line">	return str.replace(/[uff01-uff5e]/g,function(a)&#123;</span><br><span class="line">            return String.fromCharCode(a.charCodeAt(0)-65248);</span><br><span class="line">        &#125;).replace(/u3000/g,&quot; &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</div></div></h4><h4 id="-17"><a href="#-17" class="headerlink" title=""></a><div><div class="fold_hider"><div class="close hider_title">18.当前用户使用设备ios</div></div><div class="fold">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var Global = &#123; //用户当前使用设备</span><br><span class="line"> 	// iPhone X、iPhone XS</span><br><span class="line"> 	isIPhoneX: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio === 3 &amp;&amp;window.screen.width === 375 &amp;&amp; window.screen.height === 812,</span><br><span class="line"> 	// iPhone XS Max</span><br><span class="line"> 	isIPhoneXSMax: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio ===3 &amp;&amp; window.screen.width === 414 &amp;&amp; window.screen.height === 896,</span><br><span class="line"> 	// iPhone XR</span><br><span class="line"> 	isIPhoneXR: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio === 2 &amp;&amp;window.screen.width === 414 &amp;&amp; window.screen.height === 896,</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+
 </div></div></h4>
       
     </div>
@@ -694,6 +697,9 @@
 
 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-16"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">17.全角字转半角字
 12345function dbcToSbc(str){	return str.replace(/[uff01-uff5e]/g,function(a){            return String.fromCharCode(a.charCodeAt(0)-65248);        }).replace(/u3000/g,&quot; &quot;);}
+
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-17"><span class="nav-number">1.0.0.18.</span> <span class="nav-text">18.当前用户使用设备ios
+12345678var Global = { //用户当前使用设备 	// iPhone X、iPhone XS 	isIPhoneX: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio === 3 &amp;&amp;window.screen.width === 375 &amp;&amp; window.screen.height === 812, 	// iPhone XS Max 	isIPhoneXSMax: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio ===3 &amp;&amp; window.screen.width === 414 &amp;&amp; window.screen.height === 896, 	// iPhone XR 	isIPhoneXR: /iphone/gi.test(window.navigator.userAgent) &amp;&amp; window.devicePixelRatio &amp;&amp; window.devicePixelRatio === 2 &amp;&amp;window.screen.width === 414 &amp;&amp; window.screen.height === 896, };
 
 </span></a></li></ol></li></ol></li></ol></li></ol></div>
             
