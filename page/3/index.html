@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/hexo_bug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/css_g/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaodanli">
@@ -313,7 +313,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/29/hexo_bug/" itemprop="url">hexo神坑</a></h1>
+                <a class="post-title-link" href="/2019/04/29/css_g/" itemprop="url">css填坑指南</a></h1>
         
 
         <div class="post-meta">
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -418,7 +418,10 @@
       
         
           
-            <p>想做个内容折叠的功能，网上找到了代码，咔咔咔复制粘贴。发现并没有折叠…….. (〒︿〒)<br>就开始查代码找问题，原来是首页的index.html文件没有引入post-details.js文件，而文章详情页会自动引入post-details.js,所以只有详情页折叠才是生效的 (〒︿〒)^2<br>我是通过 <code>hexo deploy</code>命令 生成public文件夹的，那么这个命令都做了写什么??</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>css的坑跨过了一个又一个，以前总是过了就算了，不久就又忘了 😂<br>so 开一篇文章专门记录遇到的各种css坑~~~</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ol>
+<li>背景图片旋转<p align="center"><br>TODO …   ❣️<br></p></li>
+</ol>
 
           
         
@@ -1205,7 +1208,7 @@
       
         
           
-            <p>第四章 首次登陆与线上求助<br>4.1 文字模式下指令的下达<br>4.2 …<br>4.2.1默认root的提示符为# 一般身份使用者的提示符为$<br> Linux的默认shell程序就是bash<br><img src="/img/learn-linux/linux_1.jpg" alt="2a176000bb391687d737e137f1174e7f.png"><br>加入选项设置时，通常选项前会带 - 号，例如-h<br>有时会使用选项的完整全名，则选项前带 – 号，例如–help<br>4.2.2 无论几个空格都会被识别为一个空格<br>4.2.3 enter表示启动当前行指令<br>4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行<br>4.2.5 重要的几个热键<br>    tab 命令补全<br>    ctrl+c 中断程序执行<br>    ctrl+d 直接离开命令行<br>    fn+↑ 上一屏<br>    fn+↓ 下一屏<br>    tab tab 显示所有可用指令<br>    space 显示more时可向下翻页<br>    /关键字  向下主动搜索关键字 （效果如下）<br>    ?关键字  向上主动搜索关键字<br>    n, N 利用/或者?来搜索字符串时，可以用n来继续下一个搜索，用N进行反向搜索<br>    <img src="/img/learn-linux/linux_2.jpg" alt="d196717b8f8cb6ed019eaa8798ac023b.png"></p>
+            <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>文字模式下指令的下达<br>默认root的提示符为# 一般身份使用者的提示符为$<br> Linux的默认shell程序就是bash<br><img src="/img/learn-linux/linux_1.jpg" alt="2a176000bb391687d737e137f1174e7f.png"><br>加入选项设置时，通常选项前会带 - 号，例如-h<br>有时会使用选项的完整全名，则选项前带 – 号，例如–help<br>4.2.2 无论几个空格都会被识别为一个空格<br>4.2.3 enter表示启动当前行指令<br>4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行<br>4.2.5 重要的几个热键<br>    tab 命令补全<br>    ctrl+c 中断程序执行<br>    ctrl+d 直接离开命令行<br>    fn+↑ 上一屏<br>    fn+↓ 下一屏<br>    tab tab 显示所有可用指令<br>    space 显示more时可向下翻页<br>    /关键字  向下主动搜索关键字 （效果如下）<br>    ?关键字  向上主动搜索关键字<br>    n, N 利用/或者?来搜索字符串时，可以用n来继续下一个搜索，用N进行反向搜索<br>    <img src="/img/learn-linux/linux_2.jpg" alt="d196717b8f8cb6ed019eaa8798ac023b.png"></p>
 <p>4.2.6 –help 可以帮助你如何去使用指令<br>4.2.7 man command 显示完整的操作说明(星星眼) man是manual的简写啦<br>例：输入man date后shell会打印以下信息~<br><img src="/img/learn-linux/linux_3.jpg" alt="9ae68969c49829f736f60faa3f7b60ae.png"><br>截图第一行中可以看到DATE(1) DATE表示指令名称，（1）代表”一般使用者可使用的命令” 那么是不是代表还有其他代号嘞~~ 当然啦 上截图！<br><img src="/img/learn-linux/linux_4.jpg" alt="2d0773bbd0068dfd4950c84c4db34347.png"><br>上述的表格内容可以使用”man man”来更详细的取得说明<br>TIPS:上表中的1,5,8这三个代码hin重要，也请务必将这三个数字的含义记下来！<br><img src="/img/learn-linux/linux_5.jpg" alt="bdb34ab4c6c3d839a13ce38082df6e52.png"></p>
 <p>简而言之，如何去找到所需要的指令呢？（ 以打印为例lp[line print] ）</p>
 <ol>
@@ -1215,10 +1218,19 @@
 <li>若有需要再以man去查询指令的用法</li>
 </ol>
 <p>TIPS：如果你知道某个指令，但却忘记了相关参数与选项，请先善用–help 来查询相关信息；当有任何你不知道的指令或文件格式等，但你想要了解它，请使用man/info查询</p>
-<p>4.4超简单文本编译器 nano vim 等 (本小节仅讲nano)</p>
-<p>第五章 Linux的文件权限与目录配置linux最秀的地方之一就在于他的多用户多任务环境</p>
-<p>5.1 使用者与群组</p>
-<p align="center"><br>…<br>[未完待续]<br></p>
+<h1 id="二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><a href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano" class="headerlink" title="二 超简单文本编译器 nano vim 等 (本小节仅讲nano)"></a>二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</h1><h1 id="三-Linux的文件权限与目录配置"><a href="#三-Linux的文件权限与目录配置" class="headerlink" title="三 Linux的文件权限与目录配置"></a>三 Linux的文件权限与目录配置</h1><p>在linux中任何一个文件都具有user group other三种身份的权限</p>
+<h2 id="linux文件权限概念"><a href="#linux文件权限概念" class="headerlink" title="linux文件权限概念"></a>linux文件权限概念</h2><p>当你在你的屏幕前面出现了”Permission deny”的时候，不用担心，肯定是权限设置错误啦</p>
+<h2 id="linux文件属性"><a href="#linux文件属性" class="headerlink" title="linux文件属性"></a>linux文件属性</h2><p>使用sudo切换为root身份<br>在terminal输入<code>ls -al</code>可查看文件详细信息<br><img src="/img/learn-linux/linux_6.jpg" alt="linux_6.png"></p>
+<p>d r w x r - x r - x<br>| | | | | | | | | |<br>①② ③④⑤⑥ ⑦⑧⑨ ⑩</p>
+<p>① 当为[d]则是目录<br>   当为[-]则是文件<br>   [l]表示为链接未见<br>   [b]可随机存取设备</p>
+<p>②③④ user权限三个为一组，均为“rwx”的三个参数的组合。<br>      [r] —— read<br>      [w] —— write<br>      [x] —— execute<br>      [-] —— 无权限 </p>
+<p>⑤⑥⑦ group权限</p>
+<p>⑧⑨⑩ other权限</p>
+<p>root基本上是不受系统的权限所限制，无论文件权限是什么，默认root都可存取</p>
+<h2 id="1使用者与群组"><a href="#1使用者与群组" class="headerlink" title="1使用者与群组"></a>1使用者与群组</h2><h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续]<br></p>
+
+
+
           
         
       
@@ -1953,6 +1965,156 @@ ul.appendChild();
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/fileReader/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/22/fileReader/" itemprop="url">理解fileReader</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T11:30:56+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p align="center"><br>TODO …   ｄ(･∀･*)♪ﾟ<br></p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/git-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2192,7 +2354,7 @@ ul.appendChild();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

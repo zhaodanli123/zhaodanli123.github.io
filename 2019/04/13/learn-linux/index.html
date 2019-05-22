@@ -86,23 +86,24 @@
 
 
 
-<meta name="description" content="第四章 首次登陆与线上求助4.1 文字模式下指令的下达4.2 …4.2.1默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线(">
+<meta name="description" content="一文字模式下指令的下达默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行4.2.5 重要的几个热">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/04/13/learn-linux/index.html">
 <meta property="og:site_name" content="李子栗子梨">
-<meta property="og:description" content="第四章 首次登陆与线上求助4.1 文字模式下指令的下达4.2 …4.2.1默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线(">
+<meta property="og:description" content="一文字模式下指令的下达默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行4.2.5 重要的几个热">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_1.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_2.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_3.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_4.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_5.jpg">
-<meta property="og:updated_time" content="2019-04-13T13:02:07.333Z">
+<meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_6.jpg">
+<meta property="og:updated_time" content="2019-05-22T06:13:07.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux学习笔记">
-<meta name="twitter:description" content="第四章 首次登陆与线上求助4.1 文字模式下指令的下达4.2 …4.2.1默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线(">
+<meta name="twitter:description" content="一文字模式下指令的下达默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行4.2.5 重要的几个热">
 <meta name="twitter:image" content="http://yoursite.com/img/learn-linux/linux_1.jpg">
 
 
@@ -443,7 +444,7 @@
       
 
       
-        <p>第四章 首次登陆与线上求助<br>4.1 文字模式下指令的下达<br>4.2 …<br>4.2.1默认root的提示符为# 一般身份使用者的提示符为$<br> Linux的默认shell程序就是bash<br><img src="/img/learn-linux/linux_1.jpg" alt="2a176000bb391687d737e137f1174e7f.png"><br>加入选项设置时，通常选项前会带 - 号，例如-h<br>有时会使用选项的完整全名，则选项前带 – 号，例如–help<br>4.2.2 无论几个空格都会被识别为一个空格<br>4.2.3 enter表示启动当前行指令<br>4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行<br>4.2.5 重要的几个热键<br>    tab 命令补全<br>    ctrl+c 中断程序执行<br>    ctrl+d 直接离开命令行<br>    fn+↑ 上一屏<br>    fn+↓ 下一屏<br>    tab tab 显示所有可用指令<br>    space 显示more时可向下翻页<br>    /关键字  向下主动搜索关键字 （效果如下）<br>    ?关键字  向上主动搜索关键字<br>    n, N 利用/或者?来搜索字符串时，可以用n来继续下一个搜索，用N进行反向搜索<br>    <img src="/img/learn-linux/linux_2.jpg" alt="d196717b8f8cb6ed019eaa8798ac023b.png"></p>
+        <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>文字模式下指令的下达<br>默认root的提示符为# 一般身份使用者的提示符为$<br> Linux的默认shell程序就是bash<br><img src="/img/learn-linux/linux_1.jpg" alt="2a176000bb391687d737e137f1174e7f.png"><br>加入选项设置时，通常选项前会带 - 号，例如-h<br>有时会使用选项的完整全名，则选项前带 – 号，例如–help<br>4.2.2 无论几个空格都会被识别为一个空格<br>4.2.3 enter表示启动当前行指令<br>4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行<br>4.2.5 重要的几个热键<br>    tab 命令补全<br>    ctrl+c 中断程序执行<br>    ctrl+d 直接离开命令行<br>    fn+↑ 上一屏<br>    fn+↓ 下一屏<br>    tab tab 显示所有可用指令<br>    space 显示more时可向下翻页<br>    /关键字  向下主动搜索关键字 （效果如下）<br>    ?关键字  向上主动搜索关键字<br>    n, N 利用/或者?来搜索字符串时，可以用n来继续下一个搜索，用N进行反向搜索<br>    <img src="/img/learn-linux/linux_2.jpg" alt="d196717b8f8cb6ed019eaa8798ac023b.png"></p>
 <p>4.2.6 –help 可以帮助你如何去使用指令<br>4.2.7 man command 显示完整的操作说明(星星眼) man是manual的简写啦<br>例：输入man date后shell会打印以下信息~<br><img src="/img/learn-linux/linux_3.jpg" alt="9ae68969c49829f736f60faa3f7b60ae.png"><br>截图第一行中可以看到DATE(1) DATE表示指令名称，（1）代表”一般使用者可使用的命令” 那么是不是代表还有其他代号嘞~~ 当然啦 上截图！<br><img src="/img/learn-linux/linux_4.jpg" alt="2d0773bbd0068dfd4950c84c4db34347.png"><br>上述的表格内容可以使用”man man”来更详细的取得说明<br>TIPS:上表中的1,5,8这三个代码hin重要，也请务必将这三个数字的含义记下来！<br><img src="/img/learn-linux/linux_5.jpg" alt="bdb34ab4c6c3d839a13ce38082df6e52.png"></p>
 <p>简而言之，如何去找到所需要的指令呢？（ 以打印为例lp[line print] ）</p>
 <ol>
@@ -453,10 +454,19 @@
 <li>若有需要再以man去查询指令的用法</li>
 </ol>
 <p>TIPS：如果你知道某个指令，但却忘记了相关参数与选项，请先善用–help 来查询相关信息；当有任何你不知道的指令或文件格式等，但你想要了解它，请使用man/info查询</p>
-<p>4.4超简单文本编译器 nano vim 等 (本小节仅讲nano)</p>
-<p>第五章 Linux的文件权限与目录配置linux最秀的地方之一就在于他的多用户多任务环境</p>
-<p>5.1 使用者与群组</p>
-<p align="center"><br>…<br>[未完待续]<br></p>
+<h1 id="二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><a href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano" class="headerlink" title="二 超简单文本编译器 nano vim 等 (本小节仅讲nano)"></a>二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</h1><h1 id="三-Linux的文件权限与目录配置"><a href="#三-Linux的文件权限与目录配置" class="headerlink" title="三 Linux的文件权限与目录配置"></a>三 Linux的文件权限与目录配置</h1><p>在linux中任何一个文件都具有user group other三种身份的权限</p>
+<h2 id="linux文件权限概念"><a href="#linux文件权限概念" class="headerlink" title="linux文件权限概念"></a>linux文件权限概念</h2><p>当你在你的屏幕前面出现了”Permission deny”的时候，不用担心，肯定是权限设置错误啦</p>
+<h2 id="linux文件属性"><a href="#linux文件属性" class="headerlink" title="linux文件属性"></a>linux文件属性</h2><p>使用sudo切换为root身份<br>在terminal输入<code>ls -al</code>可查看文件详细信息<br><img src="/img/learn-linux/linux_6.jpg" alt="linux_6.png"></p>
+<p>d r w x r - x r - x<br>| | | | | | | | | |<br>①② ③④⑤⑥ ⑦⑧⑨ ⑩</p>
+<p>① 当为[d]则是目录<br>   当为[-]则是文件<br>   [l]表示为链接未见<br>   [b]可随机存取设备</p>
+<p>②③④ user权限三个为一组，均为“rwx”的三个参数的组合。<br>      [r] —— read<br>      [w] —— write<br>      [x] —— execute<br>      [-] —— 无权限 </p>
+<p>⑤⑥⑦ group权限</p>
+<p>⑧⑨⑩ other权限</p>
+<p>root基本上是不受系统的权限所限制，无论文件权限是什么，默认root都可存取</p>
+<h2 id="1使用者与群组"><a href="#1使用者与群组" class="headerlink" title="1使用者与群组"></a>1使用者与群组</h2><h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续]<br></p>
+
+
+
       
     </div>
     
@@ -550,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -570,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,6 +634,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><span class="nav-number">2.</span> <span class="nav-text">二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-Linux的文件权限与目录配置"><span class="nav-number">3.</span> <span class="nav-text">三 Linux的文件权限与目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件权限概念"><span class="nav-number">3.1.</span> <span class="nav-text">linux文件权限概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件属性"><span class="nav-number">3.2.</span> <span class="nav-text">linux文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1使用者与群组"><span class="nav-number">3.3.</span> <span class="nav-text">1使用者与群组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-安装SentOS7"><span class="nav-number">4.</span> <span class="nav-text">四 安装SentOS7</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
