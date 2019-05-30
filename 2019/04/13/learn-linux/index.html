@@ -99,8 +99,8 @@
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_3.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_4.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_5.jpg">
-<meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_6.jpg">
-<meta property="og:updated_time" content="2019-05-22T06:13:07.050Z">
+<meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_6.png">
+<meta property="og:updated_time" content="2019-05-28T12:14:06.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux学习笔记">
 <meta name="twitter:description" content="一文字模式下指令的下达默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行4.2.5 重要的几个热">
@@ -490,14 +490,32 @@
 <p>TIPS：如果你知道某个指令，但却忘记了相关参数与选项，请先善用–help 来查询相关信息；当有任何你不知道的指令或文件格式等，但你想要了解它，请使用man/info查询</p>
 <h1 id="二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><a href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano" class="headerlink" title="二 超简单文本编译器 nano vim 等 (本小节仅讲nano)"></a>二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</h1><h1 id="三-Linux的文件权限与目录配置"><a href="#三-Linux的文件权限与目录配置" class="headerlink" title="三 Linux的文件权限与目录配置"></a>三 Linux的文件权限与目录配置</h1><p>在linux中任何一个文件都具有user group other三种身份的权限</p>
 <h2 id="linux文件权限概念"><a href="#linux文件权限概念" class="headerlink" title="linux文件权限概念"></a>linux文件权限概念</h2><p>当你在你的屏幕前面出现了”Permission deny”的时候，不用担心，肯定是权限设置错误啦</p>
-<h2 id="linux文件属性"><a href="#linux文件属性" class="headerlink" title="linux文件属性"></a>linux文件属性</h2><p>使用sudo切换为root身份<br>在terminal输入<code>ls -al</code>可查看文件详细信息<br><img src="/img/learn-linux/linux_6.jpg" alt="linux_6.png"></p>
-<p>d r w x r - x r - x<br>| | | | | | | | | |<br>①② ③④⑤⑥ ⑦⑧⑨ ⑩</p>
+<h2 id="linux文件属性"><a href="#linux文件属性" class="headerlink" title="linux文件属性"></a>linux文件属性</h2><p>使用sudo切换为root身份<br>在terminal输入<code>ls -al</code>可查看文件详细信息<br><img src="/img/learn-linux/linux_6.png" alt="linux_6.png"></p>
+<p>d   r   w   x   r   -   x   r   -   x</p>
+<p>①  ②  ③  ④  ⑤   ⑥  ⑦   ⑧  ⑨   ⑩</p>
 <p>① 当为[d]则是目录<br>   当为[-]则是文件<br>   [l]表示为链接未见<br>   [b]可随机存取设备</p>
 <p>②③④ user权限三个为一组，均为“rwx”的三个参数的组合。<br>      [r] —— read<br>      [w] —— write<br>      [x] —— execute<br>      [-] —— 无权限 </p>
 <p>⑤⑥⑦ group权限</p>
 <p>⑧⑨⑩ other权限</p>
 <p>root基本上是不受系统的权限所限制，无论文件权限是什么，默认root都可存取</p>
-<h2 id="1使用者与群组"><a href="#1使用者与群组" class="headerlink" title="1使用者与群组"></a>1使用者与群组</h2><h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续]<br></p>
+<h2 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h2><p>几种常用于group、user、other权限修改的指令：<br>chgrp ——&gt; 改变文件所属群组 (要被改变的群组名称必须要在/etc/group文件内存在才行)<br>chown ——&gt; 改变文件user<br>chmod ——&gt; 改变文件的权限, SUID, SGID, SBIT等特性</p>
+<p>复制文件，<code>cp 来源文件 目的文件</code>，由于cp会复制执行者的属性与权限，可通过chmod修改</p>
+<h3 id="改变权限-chmod"><a href="#改变权限-chmod" class="headerlink" title="改变权限,chmod"></a>改变权限,chmod</h3><ul>
+<li><p>数字类型改变文件权限<br>Linux文件的基本权限有9个，分别是owner/user/other三中身份各有read/white/execute权限，这九个权限是三个一组的，可以使用数字表示各个权限，各权限的分数对照表如下：<br><table><tr><td bgcolor="#FFCDC7"> &gt;r:4 &gt; w:2  &gt; x:1 </td></tr></table><br>每种身份各自的三个权限(r/w/x)分数是需要累加的，例如：权限为 [-rwxrwx—]分数为：</p>
+<blockquote>
+<p>owner = rwx = 4 + 2 + 1 = 7 &gt; group = rwx = 4 + 2 + 1 = 7 &gt; other = 0<br>所以等下我们设置权限的变更时，该文件的权限就是770啦<br>如果我们要将某文件(a.txt)的权限都设置为启用，只需要输入一下命令即可：<code>chmod 777 a.txt</code></p>
+</blockquote>
+</li>
+<li><p>符号类型改变文件权限<br><code>user group other</code>三种身份可用<code>u g o</code> 表示。此外<code>a</code>表示all,读写权限可写成<code>r w x</code><br>也就是可以使用下面的方式来看：<br><code>| chmod | u g o a | + (加入) - (除去) = (设置) | r w x | 文件或目录</code><br>将一个文件权限改成”-rwxr-xr-x”<br><code>chmod u=rwx,go=rx a.txt</code><br>如果不知道原先的文件属性，只想要给a.txt文件的三种身份都增加可写入权限：<br><code>chmod a+w a.txt</code></p>
+</li>
+</ul>
+<h2 id="目录与文件权限意义"><a href="#目录与文件权限意义" class="headerlink" title="目录与文件权限意义"></a>目录与文件权限意义</h2><ul>
+<li><p>权限对文件的重要性<br>r 可读取文件的实际内容，如读取文本文件的文字内容等<br>w 可以编辑、新增、修改文件的内容(但不含删除该文件!)<br>x 该文件具有可以被系统执行的权限</p>
+</li>
+<li><p>权限对目录的重要性<br>r 具有读取目录结构清单的权限<br>w 具有以下权限 1.创建新的文件与目录 2.删除已存在的文件与目录(不论改文件的权限是什么) 3.将已存在的文件或目录更名 4.移动该目录内的文件、目录位置<br>x 使用者能否进入该目录</p>
+</li>
+</ul>
+<h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续] 272页<br></p>
 
 
 
@@ -678,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><span class="nav-number">2.</span> <span class="nav-text">二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-Linux的文件权限与目录配置"><span class="nav-number">3.</span> <span class="nav-text">三 Linux的文件权限与目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件权限概念"><span class="nav-number">3.1.</span> <span class="nav-text">linux文件权限概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件属性"><span class="nav-number">3.2.</span> <span class="nav-text">linux文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1使用者与群组"><span class="nav-number">3.3.</span> <span class="nav-text">1使用者与群组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-安装SentOS7"><span class="nav-number">4.</span> <span class="nav-text">四 安装SentOS7</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><span class="nav-number">2.</span> <span class="nav-text">二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-Linux的文件权限与目录配置"><span class="nav-number">3.</span> <span class="nav-text">三 Linux的文件权限与目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件权限概念"><span class="nav-number">3.1.</span> <span class="nav-text">linux文件权限概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件属性"><span class="nav-number">3.2.</span> <span class="nav-text">linux文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何改变文件属性与权限"><span class="nav-number">3.3.</span> <span class="nav-text">如何改变文件属性与权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变权限-chmod"><span class="nav-number">3.3.1.</span> <span class="nav-text">改变权限,chmod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录与文件权限意义"><span class="nav-number">3.4.</span> <span class="nav-text">目录与文件权限意义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-安装SentOS7"><span class="nav-number">4.</span> <span class="nav-text">四 安装SentOS7</span></a></li></ol></div>
             
 
           </div>
