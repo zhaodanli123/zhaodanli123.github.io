@@ -1635,6 +1635,28 @@
 <li><p>权限对目录的重要性<br>r 具有读取目录结构清单的权限<br>w 具有以下权限 1.创建新的文件与目录 2.删除已存在的文件与目录(不论改文件的权限是什么) 3.将已存在的文件或目录更名 4.移动该目录内的文件、目录位置<br>x 使用者能否进入该目录</p>
 </li>
 </ul>
+<h2 id="linux文件种类与扩展名"><a href="#linux文件种类与扩展名" class="headerlink" title="linux文件种类与扩展名"></a>linux文件种类与扩展名</h2><ul>
+<li>正规文件——第一个属性为[-]</li>
+</ul>
+<ul>
+<li>纯文本文件</li>
+<li>二进制档</li>
+<li>数据格式文件</li>
+</ul>
+<ul>
+<li>目录——第一个属性为[d]</li>
+<li>链接文件——类似windows系统下的快捷方式，第一个属性为[l]</li>
+<li>设备与设备文件</li>
+<li>数据接口文件</li>
+<li>数据输送档</li>
+</ul>
+<h3 id="常用扩展名"><a href="#常用扩展名" class="headerlink" title="常用扩展名"></a>常用扩展名</h3><ul>
+<li>*.sh：脚本或批处理文件，因为批处理文件为使用shell写成的， 所以扩展名为.sh</li>
+<li>Z, .tar, .tar.gz, .zip, *.tgz: 经过打包的压缩文件</li>
+<li>.html .php<br>基本上，linux系统上的文件名只是为了让你了解该文件可能的用途，真正的执行与否仍需要权限</li>
+</ul>
+<p>文件名称的开头为小数点.时，代表这个文件为”隐藏文件”。</p>
+<h2 id="linux目录配置"><a href="#linux目录配置" class="headerlink" title="linux目录配置"></a>linux目录配置</h2><h3 id="linux目录配置的依据-——-FHS"><a href="#linux目录配置的依据-——-FHS" class="headerlink" title="linux目录配置的依据 —— FHS"></a>linux目录配置的依据 —— FHS</h3><p>FHS依据文件系统使用的频繁与否与是否允许使用者随意更改，而将目录定义为四种交互作用的形态<br>1.可分享的——可以分享给其他系统挂载使用的目录<br>2.不可分享——自己机器上运行的设备文件或者是<br>3.不变的<br>4.可变动的</p>
 <h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续] 272页<br></p>
 
 

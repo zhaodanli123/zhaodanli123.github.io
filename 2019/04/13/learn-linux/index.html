@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_4.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_5.jpg">
 <meta property="og:image" content="http://yoursite.com/img/learn-linux/linux_6.png">
-<meta property="og:updated_time" content="2019-05-28T12:14:06.828Z">
+<meta property="og:updated_time" content="2019-05-30T11:30:40.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux学习笔记">
 <meta name="twitter:description" content="一文字模式下指令的下达默认root的提示符为# 一般身份使用者的提示符为$ Linux的默认shell程序就是bash加入选项设置时，通常选项前会带 - 号，例如-h有时会使用选项的完整全名，则选项前带 – 号，例如–help4.2.2 无论几个空格都会被识别为一个空格4.2.3 enter表示启动当前行指令4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行4.2.5 重要的几个热">
@@ -515,6 +515,28 @@
 <li><p>权限对目录的重要性<br>r 具有读取目录结构清单的权限<br>w 具有以下权限 1.创建新的文件与目录 2.删除已存在的文件与目录(不论改文件的权限是什么) 3.将已存在的文件或目录更名 4.移动该目录内的文件、目录位置<br>x 使用者能否进入该目录</p>
 </li>
 </ul>
+<h2 id="linux文件种类与扩展名"><a href="#linux文件种类与扩展名" class="headerlink" title="linux文件种类与扩展名"></a>linux文件种类与扩展名</h2><ul>
+<li>正规文件——第一个属性为[-]</li>
+</ul>
+<ul>
+<li>纯文本文件</li>
+<li>二进制档</li>
+<li>数据格式文件</li>
+</ul>
+<ul>
+<li>目录——第一个属性为[d]</li>
+<li>链接文件——类似windows系统下的快捷方式，第一个属性为[l]</li>
+<li>设备与设备文件</li>
+<li>数据接口文件</li>
+<li>数据输送档</li>
+</ul>
+<h3 id="常用扩展名"><a href="#常用扩展名" class="headerlink" title="常用扩展名"></a>常用扩展名</h3><ul>
+<li>*.sh：脚本或批处理文件，因为批处理文件为使用shell写成的， 所以扩展名为.sh</li>
+<li>Z, .tar, .tar.gz, .zip, *.tgz: 经过打包的压缩文件</li>
+<li>.html .php<br>基本上，linux系统上的文件名只是为了让你了解该文件可能的用途，真正的执行与否仍需要权限</li>
+</ul>
+<p>文件名称的开头为小数点.时，代表这个文件为”隐藏文件”。</p>
+<h2 id="linux目录配置"><a href="#linux目录配置" class="headerlink" title="linux目录配置"></a>linux目录配置</h2><h3 id="linux目录配置的依据-——-FHS"><a href="#linux目录配置的依据-——-FHS" class="headerlink" title="linux目录配置的依据 —— FHS"></a>linux目录配置的依据 —— FHS</h3><p>FHS依据文件系统使用的频繁与否与是否允许使用者随意更改，而将目录定义为四种交互作用的形态<br>1.可分享的——可以分享给其他系统挂载使用的目录<br>2.不可分享——自己机器上运行的设备文件或者是<br>3.不变的<br>4.可变动的</p>
 <h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><p align="center"><br>…<br>[未完待续] 272页<br></p>
 
 
@@ -696,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><span class="nav-number">2.</span> <span class="nav-text">二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-Linux的文件权限与目录配置"><span class="nav-number">3.</span> <span class="nav-text">三 Linux的文件权限与目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件权限概念"><span class="nav-number">3.1.</span> <span class="nav-text">linux文件权限概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件属性"><span class="nav-number">3.2.</span> <span class="nav-text">linux文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何改变文件属性与权限"><span class="nav-number">3.3.</span> <span class="nav-text">如何改变文件属性与权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变权限-chmod"><span class="nav-number">3.3.1.</span> <span class="nav-text">改变权限,chmod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录与文件权限意义"><span class="nav-number">3.4.</span> <span class="nav-text">目录与文件权限意义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-安装SentOS7"><span class="nav-number">4.</span> <span class="nav-text">四 安装SentOS7</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><span class="nav-number">2.</span> <span class="nav-text">二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-Linux的文件权限与目录配置"><span class="nav-number">3.</span> <span class="nav-text">三 Linux的文件权限与目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件权限概念"><span class="nav-number">3.1.</span> <span class="nav-text">linux文件权限概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件属性"><span class="nav-number">3.2.</span> <span class="nav-text">linux文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何改变文件属性与权限"><span class="nav-number">3.3.</span> <span class="nav-text">如何改变文件属性与权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变权限-chmod"><span class="nav-number">3.3.1.</span> <span class="nav-text">改变权限,chmod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录与文件权限意义"><span class="nav-number">3.4.</span> <span class="nav-text">目录与文件权限意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux文件种类与扩展名"><span class="nav-number">3.5.</span> <span class="nav-text">linux文件种类与扩展名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用扩展名"><span class="nav-number">3.5.1.</span> <span class="nav-text">常用扩展名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux目录配置"><span class="nav-number">3.6.</span> <span class="nav-text">linux目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux目录配置的依据-——-FHS"><span class="nav-number">3.6.1.</span> <span class="nav-text">linux目录配置的依据 —— FHS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-安装SentOS7"><span class="nav-number">4.</span> <span class="nav-text">四 安装SentOS7</span></a></li></ol></div>
             
 
           </div>
