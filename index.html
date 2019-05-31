@@ -328,6 +328,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/js_q1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/31/js_q1/" itemprop="url">内外层都有overflow:auto时,滚动条问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T13:21:00+08:00">
+                2019-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当div1元素的width || height 小于 内层ul1元素时,内存元素的overflow:auto失效,<br>temp1.html ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;内外层双滚动条问题&lt;/title&gt;</span><br><span class="line">		&lt;style&gt;</span><br><span class="line">			.div1 &#123;</span><br><span class="line">				overflow: auto;</span><br><span class="line">				position: fixed;</span><br><span class="line">				font-size: 14px;</span><br><span class="line">				top: 0;</span><br><span class="line">				bottom: 0;</span><br><span class="line">				left: 0;</span><br><span class="line">				right: 0;</span><br><span class="line">				background: orange;</span><br><span class="line">				z-index: 100;</span><br><span class="line">			&#125;</span><br><span class="line">			.ul1 &#123;</span><br><span class="line">				width:700px;</span><br><span class="line">				height:400px;</span><br><span class="line">				overflow:auto;</span><br><span class="line">				background:pink;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;div class=&quot;div1&quot;&gt;</span><br><span class="line">			&lt;ul class=&quot;ul1&quot;&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">				&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;&lt;li&gt;测试1&lt;/li&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>解决方案:<br>外层容器的width不要与窗口宽度相同<br>实现方法 (缺陷:外层容器没有滚动条，在firefox中会显示滚动条)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.div1 &#123;</span><br><span class="line">	width:110%;</span><br><span class="line">	overflow-x:hidden;</span><br><span class="line">	overflow-y:auto;</span><br><span class="line">	// overflow: auto;</span><br><span class="line">	// right:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/js_comma/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1378,6 +1563,8 @@
 </li>
 <li><p><a href="https://juejin.im/post/5cce4b1cf265da0373719819" target="_blank" rel="noopener">[手把手系列之]Docker 部署 vue 项目</a></p>
 </li>
+<li><p><a href="https://www.jianshu.com/p/bd9cb7861b85" target="_blank" rel="noopener">browserslist 目标浏览器配置表</a></p>
+</li>
 </ol>
 <h3 id="调试黑科技"><a href="#调试黑科技" class="headerlink" title="调试黑科技"></a>调试黑科技</h3><ol>
 <li><p><a href="https://juejin.im/post/5cd15712e51d453a393af4c5" target="_blank" rel="noopener">Chrome运行时性能瓶颈分析</a></p>
@@ -2227,178 +2414,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/brew/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaodanli">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李子栗子梨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/14/brew/" itemprop="url">brew</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T18:21:00+08:00">
-                2019-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/brew/" itemprop="url" rel="index">
-                    <span itemprop="name">brew</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a><a href="https://brew.sh/" target="_blank" rel="noopener">官网</a></h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2453,7 +2468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
