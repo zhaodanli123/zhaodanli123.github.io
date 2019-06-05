@@ -328,6 +328,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/es6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/15/es6/" itemprop="url">es6[learn]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-15T11:20:00+08:00">
+                2019-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/es6/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1、编码风格"><a href="#1、编码风格" class="headerlink" title="1、编码风格"></a>1、编码风格</h1><h3 id="1、块级作用域"><a href="#1、块级作用域" class="headerlink" title="1、块级作用域"></a>1、块级作用域</h3><p><code>var</code>命令存在变量提升作用<code>let</code>命令不存在这个问题。建议不再使用<code>var</code>命令，而是使用<code>let</code>命令取代</p>
+<p>在<code>let</code>和<code>const</code>之间，建议优先使用<code>const</code>,尤其是在全局环境，不应该设置变量，最好设置为常量</p>
+<h3 id="2、字符串"><a href="#2、字符串" class="headerlink" title="2、字符串"></a>2、字符串</h3><p>静态字符串一律使用单引号或反引号，不使用双引号。动态字符串使用反引号。</p>
+<h3 id="3、解构赋值"><a href="#3、解构赋值" class="headerlink" title="3、解构赋值"></a>3、解构赋值</h3><p>使用数组成员对变量赋值时，优先使用解构赋值。<br>函数的参数如果是对象的成员，优先使用解构赋值。</p>
+<h3 id="4、对象"><a href="#4、对象" class="headerlink" title="4、对象"></a>4、对象</h3><p>单行定义的对象，最后一个成员不以逗号结尾。多行定义的对象，最后一个成员以逗号结尾。<br>对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">const a = &#123;&#125;;</span><br><span class="line">a.x = 3;</span><br><span class="line"></span><br><span class="line">// if reshape unavoidable</span><br><span class="line">const a = &#123;&#125;;</span><br><span class="line">Object.assign(a, &#123; x: 3 &#125;);</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">const a = &#123; x: null &#125;;</span><br><span class="line">a.x = 3;</span><br></pre></td></tr></table></figure></p>
+<p>对象的属性和方法，尽量采用简洁表达法，这样易于描述和书写。</p>
+<h3 id="5、数组"><a href="#5、数组" class="headerlink" title="5、数组"></a>5、数组</h3><p>使用扩展运算符（…）拷贝数组。<br><code>const itemsCopy = [...items];</code><br>使用 Array.from 方法，将类数组对象转为数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const foo = document.querySelectorAll(&apos;.foo&apos;);</span><br><span class="line">const nodes = Array.from(foo);</span><br></pre></td></tr></table></figure></p>
+<h3 id="6、函数"><a href="#6、函数" class="headerlink" title="6、函数"></a>6、函数</h3><p>立即执行函数可以写成箭头函数的形式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(() =&gt; &#123;</span><br><span class="line">  console.log(&apos;Welcome to the Internet.&apos;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>箭头函数取代Function.prototype.bind，不应再用 self/_this/that 绑定 this<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">const self = this;</span><br><span class="line">const boundMethod = function(...params) &#123;</span><br><span class="line">  return method.apply(self, params);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// acceptable</span><br><span class="line">const boundMethod = method.bind(this);</span><br><span class="line"></span><br><span class="line">// best</span><br><span class="line">const boundMethod = (...params) =&gt; method.apply(this, params);</span><br></pre></td></tr></table></figure></p>
+<p>简单的、单行的、不会复用的函数，建议采用箭头函数。如果函数体较为复杂，行数较多，还是应该采用传统的函数写法。</p>
+<p>所有配置项都应该集中在一个对象，放在最后一个参数，布尔值不可以直接作为参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">function divide(a, b, option = false ) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">function divide(a, b, &#123; option = false &#125; = &#123;&#125;) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不要在函数体内使用 arguments 变量，使用 rest 运算符（…）代替。因为 rest 运算符显式表明你想要获取参数，而且 arguments 是一个类似数组的对象，而 rest 运算符可以提供一个真正的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">function concatenateAll() &#123;</span><br><span class="line">  const args = Array.prototype.slice.call(arguments);</span><br><span class="line">  return args.join(&apos;&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">function concatenateAll(...args) &#123;</span><br><span class="line">  return args.join(&apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用默认值语法设置函数参数的默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">function handleThings(opts) &#123;</span><br><span class="line">  opts = opts || &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">function handleThings(opts = &#123;&#125;) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="7、Map结构"><a href="#7、Map结构" class="headerlink" title="7、Map结构"></a>7、Map结构</h3><p>注意区分 Object 和 Map，只有模拟现实世界的实体对象时，才使用 Object。如果只是需要key: value的数据结构，使用 Map 结构。因为 Map 有内建的遍历机制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let map = new Map(arr);</span><br><span class="line"></span><br><span class="line">for (let key of map.keys()) &#123;</span><br><span class="line">  console.log(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let value of map.values()) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let item of map.entries()) &#123;</span><br><span class="line">  console.log(item[0], item[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="8、Class"><a href="#8、Class" class="headerlink" title="8、Class"></a>8、Class</h3><p>总是用 Class，取代需要 prototype 的操作。因为 Class 的写法更简洁，更易于理解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">function Queue(contents = []) &#123;</span><br><span class="line">  this._queue = [...contents];</span><br><span class="line">&#125;</span><br><span class="line">Queue.prototype.pop = function() &#123;</span><br><span class="line">  const value = this._queue[0];</span><br><span class="line">  this._queue.splice(0, 1);</span><br><span class="line">  return value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">class Queue &#123;</span><br><span class="line">  constructor(contents = []) &#123;</span><br><span class="line">    this._queue = [...contents];</span><br><span class="line">  &#125;</span><br><span class="line">  pop() &#123;</span><br><span class="line">    const value = this._queue[0];</span><br><span class="line">    this._queue.splice(0, 1);</span><br><span class="line">    return value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用extends实现继承，因为这样更简单，不会有破坏instanceof运算的危险。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">const inherits = require(&apos;inherits&apos;);</span><br><span class="line">function PeekableQueue(contents) &#123;</span><br><span class="line">  Queue.apply(this, contents);</span><br><span class="line">&#125;</span><br><span class="line">inherits(PeekableQueue, Queue);</span><br><span class="line">PeekableQueue.prototype.peek = function() &#123;</span><br><span class="line">  return this._queue[0];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">class PeekableQueue extends Queue &#123;</span><br><span class="line">  peek() &#123;</span><br><span class="line">    return this._queue[0];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="9、模块"><a href="#9、模块" class="headerlink" title="9、模块"></a>9、模块</h3><p>首先，Module 语法是 JavaScript 模块的标准写法，坚持使用这种写法。使用import取代require。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">const moduleA = require(&apos;moduleA&apos;);</span><br><span class="line">const func1 = moduleA.func1;</span><br><span class="line">const func2 = moduleA.func2;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">import &#123; func1, func2 &#125; from &apos;moduleA&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>使用export取代module.exports。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// commonJS的写法</span><br><span class="line">var React = require(&apos;react&apos;);</span><br><span class="line"></span><br><span class="line">var Breadcrumbs = React.createClass(&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;nav /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">module.exports = Breadcrumbs;</span><br><span class="line"></span><br><span class="line">// ES6的写法</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class Breadcrumbs extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;nav /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default Breadcrumbs;</span><br></pre></td></tr></table></figure></p>
+<p>如果模块只有一个输出值，就使用export default，如果模块有多个输出值，就不使用export default，export default与普通的export不要同时使用。</p>
+<p>不要在模块输入中使用通配符。因为这样可以确保你的模块之中，有一个默认输出（export default）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">import * as myObject from &apos;./importModule&apos;;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">import myObject from &apos;./importModule&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>如果模块默认输出一个函数，函数名的首字母应该小写。(小驼峰写法)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function makeStyleGuide() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default makeStyleGuide;</span><br></pre></td></tr></table></figure></p>
+<p>如果模块默认输出一个对象，对象名的首字母应该大写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const StyleGuide = &#123;</span><br><span class="line">  es6: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default StyleGuide;</span><br></pre></td></tr></table></figure></p>
+<h3 id="10、ESLint的使用"><a href="#10、ESLint的使用" class="headerlink" title="10、ESLint的使用"></a>10、ESLint的使用</h3><p>在项目的根目录下新建一个.eslintrc文件，配置 ESLint<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;extends&quot;: &quot;eslint-config-airbnb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用 ESLint 检查文件，查看报错。<code>$ eslint index.js</code></p>
+<h1 id="2、Module的加载实现"><a href="#2、Module的加载实现" class="headerlink" title="2、Module的加载实现"></a>2、Module的加载实现</h1><h3 id="1、加载规则"><a href="#1、加载规则" class="headerlink" title="1、加载规则"></a>1、加载规则</h3><p>对于外部的模块脚本，有几点需要注意。<br><em>代码是在模块作用域之中运行，而不是在全局作用域运行。模块内部的顶层变量，外部不可见。
+</em>模块脚本自动采用严格模式，不管有没有声明use strict。<br><em>模块之中，可以使用import命令加载其他模块（.js后缀不可省略，需要提供绝对 URL 或相对 URL），也可以使用export命令输出对外接口。
+</em>模块之中，顶层的this关键字返回undefined，而不是指向window。也就是说，在模块顶层使用this关键字，是无意义的。<br>*同一个模块如果加载多次，将只执行一次。</p>
+<p>利用顶层的this等于undefined这个语法点，可以侦测当前代码是否在 ES6 模块之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const isNotModuleScript = this !== undefined;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、ES6模块与CommonJS模块的差异"><a href="#2、ES6模块与CommonJS模块的差异" class="headerlink" title="2、ES6模块与CommonJS模块的差异"></a>2、ES6模块与CommonJS模块的差异</h3><p>ES6 模块与 CommonJS 模块完全不同，它们有两个重大差异:<br>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。<br>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</p>
+<p>第二个差异是因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/brew/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1996,242 +2220,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/vue_cli_feature/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaodanli">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avator.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李子栗子梨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/07/vue_cli_feature/" itemprop="url">vue-cli3都有些什么特异功能？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T16:40:00+08:00">
-                2019-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>为了快速开发，少走弯路，决定好好研读下vue-cli3官方文档</p>
-<h2 id="一、使用命令"><a href="#一、使用命令" class="headerlink" title="一、使用命令"></a>一、使用命令</h2><p>在vue cli中，会默认安装@vue/cli-service，@vue/cli-service中有vue-cli-service命令。<br>项目中的package.json文件中的script表示可执行命令，可通过npm 或 yarn 调用这些script:<br>package.json ↓</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;vue-cli-service build&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>terminal ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br><span class="line">yarn serve</span><br></pre></td></tr></table></figure></p>
-<p>serve 命令会启动一个开发服务器 (基于 webpack-dev-server) 并附带开箱即用的模块热重载</p>
-<h3 id="1-1-vue-cli-service-serve命令"><a href="#1-1-vue-cli-service-serve命令" class="headerlink" title="1.1 vue-cli-service serve命令"></a>1.1 vue-cli-service serve命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service serve [options] [entry]</span><br><span class="line"></span><br><span class="line">options：</span><br><span class="line"></span><br><span class="line">  --open    在服务器启动时打开浏览器</span><br><span class="line">  --copy    在服务器启动时将 URL 复制到剪切版</span><br><span class="line">  --mode    指定环境模式 (默认值：development)</span><br><span class="line">  --host    指定 host (默认值：0.0.0.0)</span><br><span class="line">  --port    指定 port (默认值：8080)</span><br><span class="line">  --https   使用 https (默认值：false)</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">entry:</span><br><span class="line"></span><br><span class="line">  唯一入口 ↓ 设置src/main.js文件为唯一入口</span><br><span class="line">  package.json</span><br><span class="line"></span><br><span class="line">  &quot;scripts&quot;:&#123;</span><br><span class="line">	  &quot;dev&quot;: &quot;vue-cli-service serve --open --copy ./src/main.js&quot;,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>除了通过命令行参数，还可使用 vue.config.js中的devServer字段配置开发服务器</p>
-<h3 id="1-2-vue-cli-service-build命令"><a href="#1-2-vue-cli-service-build命令" class="headerlink" title="1.2 vue-cli-service build命令"></a>1.2 vue-cli-service build命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service build [options] [entry|pattern]</span><br><span class="line"></span><br><span class="line">options：</span><br><span class="line"></span><br><span class="line">  --mode        指定环境模式 (默认值：production)</span><br><span class="line">  --dest        指定输出目录 (默认值：dist)</span><br><span class="line">  --modern      面向现代浏览器带自动回退地构建应用</span><br><span class="line">  --target      app | lib | wc | wc-async (默认值：app)</span><br><span class="line">  --name        库或 Web Components 模式下的名字 (默认值：package.json 中的 &quot;name&quot; 字段或入口文件名)</span><br><span class="line">  --no-clean    在构建项目之前不清除目标目录</span><br><span class="line">  --report      生成 report.html 以帮助分析包内容</span><br><span class="line">  --report-json 生成 report.json 以帮助分析包内容</span><br><span class="line">  --watch       监听文件变化</span><br><span class="line">  </span><br><span class="line">  --report 和 --report-json 会根据构建统计生成报告，它会帮助你分析包中包含的模块们的大小。</span><br><span class="line">  --target 允许你将项目中的任何组件以一个库或 Web Components 组件的方式进行构建</span><br><span class="line">  --modern 使用现代模式构建应用，为现代浏览器交付原生支持的 ES2015 代码，并生成一个兼容老浏览器的包用来自动回退。</span><br></pre></td></tr></table></figure>
-<p>栗子 🌰  package.json ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &quot;scripts&quot;:&#123;</span><br><span class="line">&quot;build&quot;: &quot;vue-cli-service build --dest output --report --report-json&quot;,  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>如图：<br><img src="/img/vue-cli-feature/1.png" alt="1.png"></p>
-<h3 id="1-3-vue-cli-service-inspect命令"><a href="#1-3-vue-cli-service-inspect命令" class="headerlink" title="1.3 vue-cli-service inspect命令"></a>1.3 vue-cli-service inspect命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用法：vue-cli-service inspect [options] [...paths]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line"></span><br><span class="line">  --mode    指定环境模式 (默认值：development)</span><br><span class="line">  </span><br><span class="line">可使用 vue-cli-service inspect 来审查一个 Vue CLI 项目的 webpack config</span><br></pre></td></tr></table></figure>
-<h2 id="二、配置参考"><a href="#二、配置参考" class="headerlink" title="二、配置参考"></a>二、配置参考</h2><h3 id="2-1-全局配置-👏👏👏"><a href="#2-1-全局配置-👏👏👏" class="headerlink" title="2.1 全局配置 👏👏👏"></a>2.1 全局配置 👏👏👏</h3><p>命令行中输入<code>vue config</code>可审查、修改全局的cli配置<br>(我的.vuerc文件内容) ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  &quot;presets&quot;: &#123;</span><br><span class="line">    &quot;base&quot;: &#123;</span><br><span class="line">      &quot;useConfigFiles&quot;: false,</span><br><span class="line">      &quot;plugins&quot;: &#123;</span><br><span class="line">        &quot;@vue/cli-plugin-babel&quot;: &#123;&#125;,</span><br><span class="line">        &quot;@vue/cli-plugin-eslint&quot;: &#123;</span><br><span class="line">          &quot;config&quot;: &quot;standard&quot;,</span><br><span class="line">          &quot;lintOn&quot;: [</span><br><span class="line">            &quot;save&quot;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;router&quot;: true,</span><br><span class="line">      &quot;routerHistoryMode&quot;: true,</span><br><span class="line">      &quot;vuex&quot;: true,</span><br><span class="line">      &quot;cssPreprocessor&quot;: &quot;less&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;useTaobaoRegistry&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-vue-config-js"><a href="#2-2-vue-config-js" class="headerlink" title="2.2 vue.config.js"></a>2.2 vue.config.js</h3><p>该文件是一个可选的配置文件，如果项目的根目录中存在这个文件，那么它会被@vue/cli-service自动加载</p>
-<p>这个文件应该导出一个包含了选项的对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">	//选项...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="publicPath-Type-string-Default-’-‘"><a href="#publicPath-Type-string-Default-’-‘" class="headerlink" title="publicPath  [Type:string][Default:’/‘]"></a>publicPath  [Type:string][Default:’/‘]</h4><p>publicPath是部署应用包时的基本URL，默认情况下，Vue cli会假设你的应用是被部署在一个域名的根路径上。<br>例如<code>https://www.my-app.com/</code>如果应用被部署在一个子路径上，就需要用publicPath指定子路径。<br>如果应用被部署在<code>https://www.my-app.com/my-app/</code>，则设置publicPath为/my-app/<br>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === &apos;production&apos;</span><br><span class="line">    ? &apos;/production-sub-path/&apos;</span><br><span class="line">    : &apos;/&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>默认情况下，打包生成的dist目录下的html文件引用的js、css文件都为 “/“ =&gt; 根路径上<br>如图：<br><img src="/img/vue-cli-feature/5.png" alt="5.png"></p>
-<p>更改publicPath路径后 vue.config.js ↓</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">	publicPath: process.env.NODE_ENV === &apos;production&apos;</span><br><span class="line">	  ? &apos;/production-sub-path/&apos;</span><br><span class="line">	  : &apos;/&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如图：<br><img src="/img/vue-cli-feature/6.png" alt="6.png"></p>
-<h4 id="outputDir-Type-string-Default-’dist’"><a href="#outputDir-Type-string-Default-’dist’" class="headerlink" title="outputDir [Type:string][Default:’dist’]"></a>outputDir [Type:string][Default:’dist’]</h4><p>运行 vue-cli-service build 时生成的生产环境构建文件的目录<br>另:目标目录在构建之前会被清除 (构建时传入 –no-clean 可关闭该行为)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">	outputDir: &apos;dist_test --no-clean&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="assetsDir-Type-string-Default-’’"><a href="#assetsDir-Type-string-Default-’’" class="headerlink" title="assetsDir [Type:string][Default:’’]"></a>assetsDir [Type:string][Default:’’]</h4><p>放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。</p>
-<h4 id="indexPath-Type-string-Default-’index-html’"><a href="#indexPath-Type-string-Default-’index-html’" class="headerlink" title="indexPath [Type:string][Default:’index.html’]"></a>indexPath [Type:string][Default:’index.html’]</h4><p>指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径。<br>如图：<img src="/img/vue-cli-feature/2.png" alt="2.png"></p>
-<h4 id="filenameHashing-Type-Boolean-Default-true"><a href="#filenameHashing-Type-Boolean-Default-true" class="headerlink" title="filenameHashing [Type:Boolean][Default:true]"></a>filenameHashing [Type:Boolean][Default:true]</h4><p>默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存<br>如图：<img src="/img/vue-cli-feature/3.png" alt="3.png">   -&gt;   <img src="/img/vue-cli-feature/4.png" alt="4.png"></p>
-<h4 id="pages-Type-object-Default-undefined"><a href="#pages-Type-object-Default-undefined" class="headerlink" title="pages [Type:object][Default:undefined]"></a>pages [Type:object][Default:undefined]</h4><p>在multi-page模式下构建应用时，每个page都应该有一个对应的js入口文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">用法：</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  pages: &#123;</span><br><span class="line">    page1: &#123;</span><br><span class="line">      // page 的入口</span><br><span class="line">      entry: &apos;src/page1/main.js&apos;,</span><br><span class="line">      // 模板来源</span><br><span class="line">      template: &apos;src/page1/page1.html&apos;,</span><br><span class="line">      // 在 dist/index.html 的输出</span><br><span class="line">      filename: &apos;page1.html&apos;,</span><br><span class="line">      // 当使用 title 选项时，</span><br><span class="line">      // template 中的 title 标签需要是 &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span><br><span class="line">      title: &apos;页面title&apos;,</span><br><span class="line">      // 在这个页面中包含的块，默认情况下会包含</span><br><span class="line">      // 提取出来的通用 chunk 和 vendor chunk。</span><br><span class="line">      chunks: [&apos;chunk-vendors&apos;, &apos;chunk-common&apos;, &apos;index&apos;]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 当使用只有入口的字符串格式时，</span><br><span class="line">    // 模板会被推导为 `public/page2.html`</span><br><span class="line">    // 并且如果找不到的话，就回退到 `public/index.html`。</span><br><span class="line">    // 输出文件名会被推导为 `page2.html`。</span><br><span class="line">    page2: &apos;src/subpage/main.js&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>package.json ↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var pages = &#123;</span><br><span class="line">	page1:&#123;</span><br><span class="line">		entry:&apos;src/page/page1/main.js&apos;,</span><br><span class="line">		template:&apos;src/page/page1/page1.html&apos;,</span><br><span class="line">		filename:&apos;page1.html&apos;,</span><br><span class="line">		title:&apos;page1&apos;,</span><br><span class="line">	&#125;,</span><br><span class="line">	page2:&apos;src/page/page2/main.js&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">	outputDir: &apos;dist_test&apos;,</span><br><span class="line">	filenameHashing: false,    //静态文件不自动生成hash</span><br><span class="line">	pages:pages</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行  <code>npm run build</code>  打包生成dist_test目录如下<br> <table style="border:none;"><tr><td style="border:none;background-color:#f5faff"><br>├── favicon.ico<br>├── index.html<br>├── js<br>│   ├── chunk-vendors.js<br>│   ├── chunk-vendors.js.map<br>│   ├── page1.js<br>│   ├── page1.js.map<br>│   ├── page2.js<br>│   └── page2.js.map<br>├── page1.html<br>├── page2.html<br>├── report.html<br>└── report.json<br></td></tr></table></p>
-<h4 id="lintOnSave-Type-boolean-‘error’-Default-true"><a href="#lintOnSave-Type-boolean-‘error’-Default-true" class="headerlink" title="lintOnSave  [Type:boolean || ‘error’][Default:true]"></a>lintOnSave  [Type:boolean || ‘error’][Default:true]</h4><p>设置为 true 时，eslint-loader 会将 lint 错误输出为编译警告。默认情况下，警告仅仅会被输出到命令行，且不会使得编译失败。<br>如果你希望让 lint 错误在开发时直接显示在浏览器中，你可以使用 lintOnSave: ‘error’。这会强制 eslint-loader 将 lint 错误输出为编译错误，同时也意味着 lint 错误将会导致编译失败。<br>当 lintOnSave 是一个 truthy 的值时，eslint-loader 在开发和生产构建下都会被启用。如果你想要在生产构建时禁用 eslint-loader，你可以用如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  lintOnSave: process.env.NODE_ENV !== &apos;production&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="transpileDependencies-Type-string-RegExp-Default"><a href="#transpileDependencies-Type-string-RegExp-Default" class="headerlink" title="transpileDependencies [Type:string || RegExp][Default:[]]"></a>transpileDependencies [Type:string || RegExp][Default:[]]</h4><p>默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。</p>
-<h4 id="productionSourceMap-Type-boolean-Default-true"><a href="#productionSourceMap-Type-boolean-Default-true" class="headerlink" title="productionSourceMap [Type:boolean][Default:true]"></a>productionSourceMap [Type:boolean][Default:true]</h4><p>如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  productionSourceMap:false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/vue-cli-feature/7.png" alt="7.png"> -&gt; <img src="/img/vue-cli-feature/8.png" alt="8.png"></p>
-<h4 id="crossorigin-Type-string-Default-undefined"><a href="#crossorigin-Type-string-Default-undefined" class="headerlink" title="crossorigin [Type:string][Default:undefined]"></a>crossorigin [Type:string][Default:undefined]</h4><p>TODO…</p>
-<h4 id="integrity-Type-boolean-Default-true"><a href="#integrity-Type-boolean-Default-true" class="headerlink" title="integrity [Type:boolean][Default:true]"></a>integrity [Type:boolean][Default:true]</h4><p>在生成的 HTML 中的 <code>&lt;link rel=&quot;stylesheet&quot;&gt;</code> 和 <code>&lt;script&gt;</code> 标签上启用 Subresource Integrity (SRI)。如果你构建后的文件是部署在 CDN 上的，启用该选项可以提供额外的安全性。<br>需要注意的是该选项仅影响由 html-webpack-plugin 在构建时注入的标签 - 直接写在模版 (public/index.html) 中的标签不受影响。<br>另外，当启用 SRI 时，preload resource hints 会被禁用，因为 Chrome 的一个 bug 会导致文件被下载两次。</p>
-<h4 id="configureWebpack-Type-object-Function"><a href="#configureWebpack-Type-object-Function" class="headerlink" title="configureWebpack [Type:object || Function]"></a>configureWebpack [Type:object || Function]</h4><p>如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。<br>如果这个值是一个函数，则会接收被解析的配置作为参数。该函数及可以修改配置并不返回任何东西，也可以返回一个被克隆或合并过的配置版本。<br>更多细节可查阅：<a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F" target="_blank" rel="noopener">配合 webpack &gt; 简单的配置方式</a><br><a href="https://www.webpackjs.com/concepts/configuration/" target="_blank" rel="noopener">webpack官网配置</a><br>demo如下： vue.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const UglifyJsPlugin = require(&apos;uglifyjs-webpack-plugin&apos;);    //清除注释</span><br><span class="line"></span><br><span class="line">//Object</span><br><span class="line">module.exports = &#123;</span><br><span class="line">	configWebpack:&#123;</span><br><span class="line">		plugins:[</span><br><span class="line">			new UglifyJsPlugin(),</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//Function</span><br><span class="line">module.exports = &#123;</span><br><span class="line">	configWebpack: config =&gt;&#123;</span><br><span class="line">		var plugins = [</span><br><span class="line">			new UglifyJsPlugin()</span><br><span class="line">		]；</span><br><span class="line">		config.plugins = [</span><br><span class="line">			...config.plugins,</span><br><span class="line">			...plugins</span><br><span class="line">		];</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="chainWebpack-Type-Function"><a href="#chainWebpack-Type-Function" class="headerlink" title="chainWebpack [Type:Function]"></a>chainWebpack [Type:Function]</h4><p>是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改<br>你需要熟悉 <a href="https://github.com/mozilla-neutrino/webpack-chain#getting-started" target="_blank" rel="noopener">webpack-chain 的 API</a> 并<a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-service/lib/config" target="_blank" rel="noopener">阅读一些源码</a>以便了解如何最大程度利用好这个选项，但是比起直接修改 webpack 配置，它的表达能力更强，也更为安全。<br>demo如下 vue.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  chainWebpack: config =&gt; &#123;</span><br><span class="line">    config.module</span><br><span class="line">      .rule(&apos;vue&apos;)</span><br><span class="line">      .use(&apos;vue-loader&apos;)</span><br><span class="line">        .loader(&apos;vue-loader&apos;)</span><br><span class="line">        .tap(options =&gt; &#123;</span><br><span class="line">          // 修改它的选项...</span><br><span class="line">          return options</span><br><span class="line">        &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="css-modules-Type-boolean-Default-false"><a href="#css-modules-Type-boolean-Default-false" class="headerlink" title="css.modules [Type:boolean][Default:false]"></a>css.modules [Type:boolean][Default:false]</h4><p>TODO..</p>
-<h4 id="css-extract-Type-boolean-Default-生产环境下是-true，开发环境下是-false"><a href="#css-extract-Type-boolean-Default-生产环境下是-true，开发环境下是-false" class="headerlink" title="css.extract [Type:boolean][Default: 生产环境下是 true，开发环境下是 false]"></a>css.extract [Type:boolean][Default: 生产环境下是 true，开发环境下是 false]</h4><p>TODO…</p>
-<h4 id="devServer-Type-object"><a href="#devServer-Type-object" class="headerlink" title="devServer [Type:object]"></a>devServer [Type:object]</h4><p><a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="noopener">所有webpack-dev-server的选项</a>都支持</p>
-<h4 id="devServer-proxy"><a href="#devServer-proxy" class="headerlink" title="devServer.proxy"></a>devServer.proxy</h4><p>TODO…..</p>
-<h4 id="parallel-Type-boolean-Default-require-‘os’-cpus-length-gt-1"><a href="#parallel-Type-boolean-Default-require-‘os’-cpus-length-gt-1" class="headerlink" title="parallel[Type:boolean][Default: require(‘os’).cpus().length &gt; 1]"></a>parallel[Type:boolean][Default: require(‘os’).cpus().length &gt; 1]</h4><p>是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。</p>
-<h4 id="pluginOptions-Type-object"><a href="#pluginOptions-Type-object" class="headerlink" title="pluginOptions [Type:object]"></a>pluginOptions [Type:object]</h4><p>这是一个不进行任何 schema 验证的对象，因此它可以用来传递任何第三方插件选项。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  pluginOptions: &#123;</span><br><span class="line">    foo: &#123;</span><br><span class="line">      // 插件可以作为 `options.pluginOptions.foo` 访问这些选项。</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h4><p>Babel 可以通过 babel.config.js 进行配置。<br>TIP</p>
-<p>Vue CLI 使用了 Babel 7 中的新配置格式 <code>babel.config.js</code>。和 <code>.babelrc</code> 或 <code>package.json</code> 中的 babel 字段不同，这个配置文件不会使用基于文件位置的方案，而是会一致地运用到项目根目录以下的所有文件，包括 node_modules 内部的依赖。我们推荐在 Vue CLI 项目中始终使用 <code>babel.config.js</code> 取代其它格式。</p>
-<h4 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h4><p>TypeScript 可以通过 tsconfig.json 来配置。</p>
-<p>更多细节可查阅 <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank" rel="noopener">@vue/cli-plugin-typescript</a></p>
-<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p>Jest<br>更多细节可查阅 <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest" target="_blank" rel="noopener">@vue/cli-plugin-unit-jest</a></p>
-<p>Mocha (配合 mocha-webpack)<br>更多细节可查阅 <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-mocha" target="_blank" rel="noopener">@vue/cli-plugin-unit-mocha</a></p>
-<h2 id="三、模式"><a href="#三、模式" class="headerlink" title="三、模式"></a>三、模式</h2><p>模式是 Vue CLI 项目中一个重要的概念。默认情况下，一个 Vue CLI 项目有三个模式：</p>
-<ul>
-<li><code>development</code> 模式用于 <code>vue-cli-service serve</code></li>
-<li><code>production</code> 模式用于 <code>vue-cli-service build</code> 和 <code>vue-cli-service test:e2e</code></li>
-<li><code>test</code> 模式用于 <code>vue-cli-service test:unit</code></li>
-</ul>
-<p>注意模式不同于 <code>NODE_ENV</code>，一个模式可以包含多个环境变量。也就是说，每个模式都会将 <code>NODE_ENV</code> 的值设置为模式的名称——比如在 <code>development</code> 模式下 <code>NODE_ENV</code> 的值会被设置为 “development”。<br>你可以通过为 <code>.env</code> 文件增加后缀来设置某个模式下特有的环境变量。比如，如果你在项目根目录创建一个名为 <code>.env.development</code> 的文件，那么在这个文件里声明过的变量就只会在 <code>development</code> 模式下被载入。</p>
-<h3 id="示例：Staging-模式"><a href="#示例：Staging-模式" class="headerlink" title="示例：Staging 模式"></a>示例：Staging 模式</h3><p>假设我们有一个应用包含以下 <code>.env</code> 文件：</p>
-<p><code>VUE_APP_TITLE=My App</code><br>和 <code>.env.staging</code> 文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=production</span><br><span class="line">VUE_APP_TITLE=My App (staging)</span><br></pre></td></tr></table></figure></p>
-<p><code>vue-cli-service build</code> 会加载可能存在的 <code>.env、.env.production</code> 和 <code>.env.production.local</code> 文件然后构建出生产环境应用；</p>
-<p><code>vue-cli-service build --mode staging</code> 会在 <code>staging</code> 模式下加载可能存在的 <code>.env、.env.staging</code> 和 <code>.env.staging.local</code> 文件然后构建出生产环境应用。</p>
-<p>这两种情况下，根据 <code>NODE_ENV</code>，构建出的应用都是生产环境应用，但是在 <code>staging</code> 版本中，<code>process.env.VUE_APP_TITLE</code> 被覆写成了另一个值。</p>
-<h3 id="在客户端侧代码中使用环境变量"><a href="#在客户端侧代码中使用环境变量" class="headerlink" title="在客户端侧代码中使用环境变量"></a>在客户端侧代码中使用环境变量</h3><p>只有以 <code>VUE_APP_</code> 开头的变量会被 <code>webpack.DefinePlugin</code> 静态嵌入到客户端侧的包中。你可以在应用的代码中这样访问它们：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(process.env.VUE_APP_SECRET)</span><br></pre></td></tr></table></figure></p>
-<p>在构建过程中，<code>process.env.VUE_APP_SECRET</code> 将会被相应的值所取代。在 <code>VUE_APP_SECRET=secret</code> 的情况下，它会被替换为 “sercet”。</p>
-<p>除了 VUE_APP_* 变量之外，在你的应用代码中始终可用的还有两个特殊的变量：</p>
-<p>NODE_ENV - 会是 “development”、”production” 或 “test” 中的一个。具体的值取决于应用运行的模式。<br>BASE_URL - 会和 vue.config.js 中的 publicPath 选项相符，即你的应用会部署到的基础路径。<br>所有解析出来的环境变量都可以在 public/index.html 中以 HTML 插值中介绍的方式使用。</p>
-<h2 id="GitLab-Pages"><a href="#GitLab-Pages" class="headerlink" title="GitLab Pages"></a>GitLab Pages</h2><p>根据<a href="https://docs.gitlab.com/ee/user/project/pages/" target="_blank" rel="noopener">gitlab pages文档</a>的描述,所有的配置都在根目录中的.gitlab-ci.yml 文件中。下面的范例是一个很好的入门:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># .gitlab-ci.yml 文件应放在你仓库的根目录下 </span><br><span class="line"></span><br><span class="line">pages: # 必须定义一个名为 pages 的 job</span><br><span class="line">  image: node:latest</span><br><span class="line">  stage: deploy</span><br><span class="line">  script:</span><br><span class="line">    - npm ci</span><br><span class="line">    - npm run build</span><br><span class="line">    - mv public public-vue # GitLab Pages 的钩子设置在 public 文件夹</span><br><span class="line">    - mv dist public # 重命名 dist 文件夹 (npm run build 之后的输出位置)</span><br><span class="line">  artifacts:</span><br><span class="line">    paths:</span><br><span class="line">      - public # artifact path 一定要在 /public , 这样 GitLab Pages 才能获取</span><br><span class="line">  only:</span><br><span class="line">    - master</span><br></pre></td></tr></table></figure></p>
-<p>在推送到仓库之前提交 .gitlab-ci.yml 和 vue.config.js 文件。GitLab CI 的管道将会被触发: 当成功时候, 到 Settings &gt; Pages 查看关于网站的链接。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2286,7 +2274,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2297,7 +2285,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2308,7 +2296,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
