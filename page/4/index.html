@@ -328,6 +328,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/webpack_bug_fix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/11/webpack_bug_fix/" itemprop="url">webpack打包时会打包其他独立页面的js文件[走查纠错]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T22:05:56+08:00">
+                2019-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>前言</strong>：在开发过程中，遇到一个神奇的问题，Vue多页面配置，打包时，会莫名其妙产生了两个chunk文件，而且这个文件十分庞大，仔细看了下，这个页面中根本没有引入这个文件/(ㄒoㄒ)/~~   怎么肥四呢~  正好趁着坑还热乎！ 抓紧去webpack官网看下 打包究竟是怎样的一个流程~</p>
+<p><strong>PS:</strong><br><a href="https://webpack.docschina.org/concepts/" target="_blank" rel="noopener">https://webpack.docschina.org/concepts/</a>  webpack官网<br><a href="https://webpack.docschina.org/plugins" target="_blank" rel="noopener">https://webpack.docschina.org/plugins</a> webpack插件列表， 福音啊~~<br><a href="https://github.com/webpack-contrib/awesome-webpack#webpack-plugins" target="_blank" rel="noopener">https://github.com/webpack-contrib/awesome-webpack#webpack-plugins</a>  更多第三方插件，查看 awesome-webpack列表</p>
+<p>插件接口(plugin interface) 功能极其强大，可以用来处理各种各样的任务。[删]</p>
+<hr>
+<h2 id="核心文档梳理-基于v4-29-6版本-↓"><a href="#核心文档梳理-基于v4-29-6版本-↓" class="headerlink" title="核心文档梳理 (基于v4.29.6版本) ↓"></a><strong>核心文档梳理 (基于v4.29.6版本) ↓</strong></h2><h4 id="1-entry"><a href="#1-entry" class="headerlink" title="1.entry"></a>1.entry</h4><p>每个html对应一个entry入口起点</p>
+<p>值：string || array || object</p>
+<h5 id="1-1-单个入口（简写）语法"><a href="#1-1-单个入口（简写）语法" class="headerlink" title="1.1 单个入口（简写）语法"></a>1.1 单个入口（简写）语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-------------单入口 ↓-------------</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        main: &apos;入口文件相对路径.js&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">简写：</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &apos;入口文件相对路径.js&apos;</span><br><span class="line">&#125;</span><br><span class="line">-------------多入口 ↓-------------</span><br><span class="line">使用场景：一次注入多个依赖文件，并将他们的依赖导向到一个chunk</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: [&apos;入口文件相对路径1.js&apos;,&apos;入口文件相对路径2.js&apos;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-对象语法"><a href="#1-2-对象语法" class="headerlink" title="1.2 对象语法"></a>1.2 对象语法</h5><p>对于多页面应用程序来说，页面之间都是相互独立的，这就需要有多个入口分离打包<br>同时，随着入口起点的增多，多页面应用能够复用入口起点之间的大量代码/模块，使用 optimization.splitChunks【<strong>有待深入</strong>】 为页面间共享的应用程序代码创建 bundle，可以极大地优化应用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: &apos;./xxx/app.js&apos;,</span><br><span class="line">    adminApp: &apos;./xxx/adminApp.js&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-output"><a href="#2-output" class="headerlink" title="2.output"></a>2.output</h4><p>控制webpack如何向硬盘写入便以文件。多个entry起点，仅会指定一个output配置</p>
+<p>app-&gt;应用程序<br>vendor-&gt;第三方库</p>
+<p align="center"><br>…<br>[未完待续]<br></p>
+
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/npmPublish/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1205,7 +1404,7 @@ ul.appendChild();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1216,7 +1415,7 @@ ul.appendChild();
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1227,7 +1426,7 @@ ul.appendChild();
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

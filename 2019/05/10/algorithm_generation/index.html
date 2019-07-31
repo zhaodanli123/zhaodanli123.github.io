@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="1.两数之和 TODO …   ｄ(･∀･*)♪ﾟ">
+<meta name="description" content="分类解题 ###数组 832.翻转图像遍历一次，使用位运算异或将0/1反转，使用es6解构将x,y交换 [x,y]=[y,x] 977.有序数组的平方TODO 1051. 高度检查器1.两数之和遍历一次，以空间换时间，空间复杂度O(n)，时间复杂度O(n)123456789101112131415161718192021/** * @param &amp;#123;number[]&amp;#125; nums">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode算法解析">
 <meta property="og:url" content="http://yoursite.com/2019/05/10/algorithm_generation/index.html">
 <meta property="og:site_name" content="李子栗子梨">
-<meta property="og:description" content="1.两数之和 TODO …   ｄ(･∀･*)♪ﾟ">
+<meta property="og:description" content="分类解题 ###数组 832.翻转图像遍历一次，使用位运算异或将0/1反转，使用es6解构将x,y交换 [x,y]=[y,x] 977.有序数组的平方TODO 1051. 高度检查器1.两数之和遍历一次，以空间换时间，空间复杂度O(n)，时间复杂度O(n)123456789101112131415161718192021/** * @param &amp;#123;number[]&amp;#125; nums">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-23T03:46:03.147Z">
+<meta property="og:updated_time" content="2019-07-16T14:06:59.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode算法解析">
-<meta name="twitter:description" content="1.两数之和 TODO …   ｄ(･∀･*)♪ﾟ">
+<meta name="twitter:description" content="分类解题 ###数组 832.翻转图像遍历一次，使用位运算异或将0/1反转，使用es6解构将x,y交换 [x,y]=[y,x] 977.有序数组的平方TODO 1051. 高度检查器1.两数之和遍历一次，以空间换时间，空间复杂度O(n)，时间复杂度O(n)123456789101112131415161718192021/** * @param &amp;#123;number[]&amp;#125; nums">
 
 
 
@@ -449,7 +449,11 @@
       
 
       
-        <p>1.两数之和</p>
+        <p>分类解题</p>
+<p>###数组</p>
+<h4 id="832-翻转图像"><a href="#832-翻转图像" class="headerlink" title="832.翻转图像"></a>832.翻转图像</h4><p>遍历一次，使用位运算异或将0/1反转，使用es6解构将x,y交换 [x,y]=[y,x]</p>
+<h4 id="977-有序数组的平方"><a href="#977-有序数组的平方" class="headerlink" title="977.有序数组的平方"></a>977.有序数组的平方</h4><p>TODO</p>
+<h4 id="1051-高度检查器"><a href="#1051-高度检查器" class="headerlink" title="1051. 高度检查器"></a>1051. 高度检查器</h4><h4 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h4><p>遍历一次，以空间换时间，空间复杂度O(n)，时间复杂度O(n)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @param &#123;number&#125; target</span><br><span class="line"> * @return &#123;number[]&#125;</span><br><span class="line"> */</span><br><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    let result = [];</span><br><span class="line">    let heads = &#123;&#125;;//key-value: 值 - 键</span><br><span class="line">	let needs = &#123;&#125;;//key-value: 值 - true</span><br><span class="line">    nums.forEach(function(item,index,arr)&#123;</span><br><span class="line">    		if(needs[item])&#123;</span><br><span class="line">           let left = heads[target-item];</span><br><span class="line">           result = [left,index];</span><br><span class="line">           return;</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           heads[item] = index;</span><br><span class="line">           needs[target-item] = true;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p align="center"><br>TODO …   ｄ(･∀･*)♪ﾟ<br></p>
 
 
@@ -482,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/10/js_book_learn/" rel="next" title="你不知道的javascript【learn】">
-                <i class="fa fa-chevron-left"></i> 你不知道的javascript【learn】
+              <a href="/2019/05/10/html2canvas/" rel="next" title="html2canvas">
+                <i class="fa fa-chevron-left"></i> html2canvas
               </a>
             
           </div>
@@ -492,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/10/html2canvas/" rel="prev" title="html2canvas">
-                html2canvas <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/10/js_util/" rel="prev" title="util">
+                util <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -566,7 +579,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,7 +590,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +601,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -611,6 +624,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#832-翻转图像"><span class="nav-number">1.</span> <span class="nav-text">832.翻转图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#977-有序数组的平方"><span class="nav-number">2.</span> <span class="nav-text">977.有序数组的平方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1051-高度检查器"><span class="nav-number">3.</span> <span class="nav-text">1051. 高度检查器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-两数之和"><span class="nav-number">4.</span> <span class="nav-text">1.两数之和</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
