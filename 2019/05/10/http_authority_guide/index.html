@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="TODO …   ❣️">
+<meta name="description" content="第一部分：web的基础第1章节：http概述web浏览器/服务器和相关的web应用程序都是通过http相互通信的 web客户端和服务器web内容都是存储在web服务器上的。web服务器所使用的是http协议，因此常常会被称为http服务器 媒体类型http给每种要通过web传输的对象都打上了名为MIME类型的数据格式标签。MIME类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由">
 <meta name="keywords" content="http,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http权威指南 [学习笔记]">
 <meta property="og:url" content="http://yoursite.com/2019/05/10/http_authority_guide/index.html">
 <meta property="og:site_name" content="李子栗子梨">
-<meta property="og:description" content="TODO …   ❣️">
+<meta property="og:description" content="第一部分：web的基础第1章节：http概述web浏览器/服务器和相关的web应用程序都是通过http相互通信的 web客户端和服务器web内容都是存储在web服务器上的。web服务器所使用的是http协议，因此常常会被称为http服务器 媒体类型http给每种要通过web传输的对象都打上了名为MIME类型的数据格式标签。MIME类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:53.306Z">
+<meta property="og:updated_time" content="2019-08-01T13:44:59.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http权威指南 [学习笔记]">
-<meta name="twitter:description" content="TODO …   ❣️">
+<meta name="twitter:description" content="第一部分：web的基础第1章节：http概述web浏览器/服务器和相关的web应用程序都是通过http相互通信的 web客户端和服务器web内容都是存储在web服务器上的。web服务器所使用的是http协议，因此常常会被称为http服务器 媒体类型http给每种要通过web传输的对象都打上了名为MIME类型的数据格式标签。MIME类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由">
 
 
 
@@ -460,7 +460,179 @@
       
 
       
-        <p align="center"><br>TODO …   ❣️<br></p>
+        <h1 id="第一部分：web的基础"><a href="#第一部分：web的基础" class="headerlink" title="第一部分：web的基础"></a>第一部分：web的基础</h1><h2 id="第1章节：http概述"><a href="#第1章节：http概述" class="headerlink" title="第1章节：http概述"></a>第1章节：http概述</h2><p>web浏览器/服务器和相关的web应用程序都是通过http相互通信的</p>
+<h3 id="web客户端和服务器"><a href="#web客户端和服务器" class="headerlink" title="web客户端和服务器"></a>web客户端和服务器</h3><p>web内容都是存储在web服务器上的。web服务器所使用的是http协议，因此常常会被称为http服务器</p>
+<h3 id="媒体类型"><a href="#媒体类型" class="headerlink" title="媒体类型"></a>媒体类型</h3><p>http给每种要通过web传输的对象都打上了名为MIME类型的数据格式标签。<br>MIME类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由一条斜杠来分割</p>
+<h3 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h3><p>URI有两种形式，分别称为URL和URN</p>
+<p>URL 统一资源定位符是资源表示服最常见的形式，url描述了一台特定服务器上某资源的特定位置</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>一个http事务由一条(从客户端法网服务器的)请求命令和一个(从服务器发回客户端的)响应结果组成<br>这种通信是通过名为http报文的格式化数据块进行的</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>每条http请求报文都包含一个方法</p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>报文是如何通过传输控制协议连接从一个地方搬移到另一个地方去的</p>
+<h4 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h4><p>http是个应用层协议，http无需操心网络通信的具体细节，http无需操心网络通信的具体细节，它把联网的细节都交给了通用可靠的因特网传输协议（TCP/IP）<br>TCP提供了：</p>
+<ul>
+<li>无差错的数据传输</li>
+<li>按序传输(数据总是会按照发送的顺序到达)</li>
+<li>未分段的数据流(可以在任意时刻以任意尺寸将数据发送出去)<br>只要建立了TCP连接，客户端和服务器之间的报文交换就不会丢失，不会被破坏，不会在接收时出现错序</li>
+</ul>
+<h4 id="连接-IP地址-端口号"><a href="#连接-IP地址-端口号" class="headerlink" title="连接/IP地址/端口号"></a>连接/IP地址/端口号</h4><p>在http客户端向服务器发送报文之前，需要用网际协议(IP)地址和端口号在客户端和服务器之间建立一条TCP/IP连接</p>
+<h3 id="web的组织结构"><a href="#web的组织结构" class="headerlink" title="web的组织结构"></a>web的组织结构</h3><p>代理——位于客户端和服务器之间的http中间实体<br>缓存——http的仓库，使常用页面的副本可以保存在离客户端更近的地方<br>网关——连接其他应用程序的特殊web服务器<br>隧道——对http通信报文进行盲转发的特殊代理<br>Agent代理——发起自动Http请求的半智能web客户端</p>
+<h4 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h4><p>http代理服务器是web安全、应用集成以及性能优化的重要组成模块<br>(如图)代理位于客户端和服务器之间，接收所有客户端的http请求，并将这些请求转发给服务器(可能会对请求进行修改之后转发) 对用户来说，这些应用程序就是一个代理，代表用户访问服务器<br>出于安全考虑，通常会将代理作为转发所有web流量的可信任中间节点使用。</p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>web缓存或者代理缓存是一种特殊的http代理服务器，可以将经过代理传送的常用文档复制保存起来，下一个请求同一文档的客户端就可以享受缓存的私有副本所提供的服务<br>客户端从附近的缓存下载文档会比从远程web服务器下载快很多。http定义了很多功能，使得缓存更加高效，第7章会详细讲解</p>
+<h4 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h4><p>网关(gateway)是一种特殊的服务器，作为其他服务器的中间实体使用。通常用于将http流量转换成其他的协议。网关接受请求时就好像自己是资源的源端服务器，客户端看不出来自己是否正在与一个网关进行通信</p>
+<h4 id="隧道-TODO"><a href="#隧道-TODO" class="headerlink" title="隧道  TODO"></a>隧道  TODO</h4><p>隧道是建立起来之后，就会在两条连接之间对原始数据进行盲转发的http应用程序<br>http隧道通常用来在一条或多条http连接上转发非http数据，转发时不会窥探数据<br>http隧道的一种常见用途是通过Http连接承载加密的安全套接字层(SSL)流量，这样SSL流量皆可以穿过只允许web流量通过的防火墙了</p>
+<h4 id="Agent代理"><a href="#Agent代理" class="headerlink" title="Agent代理"></a>Agent代理</h4><p>用户Agent代理，是代表用户发起http请求的客户端程序，所有发布we请求的应用程序都是Http  Agent代理.到目前为止，我们只提到过一种Http代理：web浏览器，但用户Agent代理还有很多其他类型<br>比如，有些自己会在web上闲逛的自动用户Agent代理，可以在无人监视的情况下发布Http事务并获取内容。这些自动代理的名字通常都很生动，比如”网络蜘蛛” “web机器人”</p>
+<h2 id="第2章节：url与资源"><a href="#第2章节：url与资源" class="headerlink" title="第2章节：url与资源"></a>第2章节：url与资源</h2><h3 id="浏览因特网资源"><a href="#浏览因特网资源" class="headerlink" title="浏览因特网资源"></a>浏览因特网资源</h3><p>url是浏览器寻找信息时所需的资源位置，通过Url，人类和应用程序才能找到、使用、共享网上大量的数据资源。url是人们对http和其他协议的常用访问点：一个人将浏览器指向一个url，浏览器就会在幕后发送适当的协议报文来获取人们所期望的资源</p>
+<h3 id="url的语法"><a href="#url的语法" class="headerlink" title="url的语法"></a>url的语法</h3><p>大部分url方案的url语法都建立在这个由9部分构成的通用格式上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</span><br></pre></td></tr></table></figure></p>
+<p>表2-1：通用url组件<br>TODO</p>
+<h3 id="url快捷方式"><a href="#url快捷方式" class="headerlink" title="url快捷方式"></a>url快捷方式</h3><h2 id="第3章节：http报文"><a href="#第3章节：http报文" class="headerlink" title="第3章节：http报文"></a>第3章节：http报文</h2><p>如何创建报文，以及如何理解他们<br>了解如下概念：</p>
+<ul>
+<li>报文是如何流动的</li>
+<li>http报文的三个组成部分(起始行、首部、实体的主体部分)</li>
+<li>请求和响应报文之间的区别</li>
+<li>请求报文支持的各种功能(方法)</li>
+<li>和响应报文一起返回的各种状态码</li>
+<li>各种各样的http首部都是用来做什么的</li>
+</ul>
+<h3 id="报文流"><a href="#报文流" class="headerlink" title="报文流"></a>报文流</h3><p>http报文是在http应用程序之间发送的数据块。这些数据块以一些文本形式的元信息开头，这些信息描述了报文的内容及含义、</p>
+<h4 id="报文流入源端服务器"><a href="#报文流入源端服务器" class="headerlink" title="报文流入源端服务器"></a>报文流入源端服务器</h4><p>http使用术语流入(inbound)和流出(outbound)来描述事务处理的方向。报文流入源端服务器，工作完成之后，会流回用户的Agent代理中</p>
+<h4 id="报文向下游流动"><a href="#报文向下游流动" class="headerlink" title="报文向下游流动"></a>报文向下游流动</h4><p>http报文会像河水一样流动，不管是请求报文还是响应报文，所有报文都会向下游流动。所有报文的发送者都在接受者的上游</p>
+<h3 id="报文的组成部分"><a href="#报文的组成部分" class="headerlink" title="报文的组成部分"></a>报文的组成部分</h3><h4 id="报文首部"><a href="#报文首部" class="headerlink" title="报文首部"></a>报文首部</h4><h5 id="首部分类"><a href="#首部分类" class="headerlink" title="首部分类"></a>首部分类</h5><p>http规范定义了几种首部字段。应用程序也可以随意发明自己所用的首部。http首部可以分为以下几类：</p>
+<ul>
+<li>通用首部   既可以出现在请求报文中，也可以出现在响应报文中</li>
+<li>请求首部    提供更多有关请求的信息</li>
+<li>响应首部    提供更多有关响应的信息</li>
+<li>实体首部    描述主体的长度和内容，或者资源本身</li>
+<li>扩展首部    规范中没有定义的新首部</li>
+</ul>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a>安全方法</h4><p>http定义了一组被称为安全方法的方法。GET方法和HEAD方法都被认为是安全的，这就意味着使用GET或HEAD方法的HTTP请求都不会产生什么动作(http请求不会在服务器上产生什么结果)</p>
+<h4 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h4><p>HEAD方法与GET方法的行为类似，但服务器在响应中只返回首部。不会返回实体的主体部分。这就允许客户端在未获取实际资源的情况下，对资源的首部进行检查。使用HEAD可以：</p>
+<ul>
+<li>在不获取资源的情况下了解资源的情况</li>
+<li>通过查看响应中的状态码，看看某个对象是否存在</li>
+<li>通过查看首部，测试资源是否被修改了<br>服务器开发者必须确保返回的首部与get请求所返回的首部完全相同</li>
+</ul>
+<h4 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h4><p>用来向服务器输入数据</p>
+<h4 id="TERACE"><a href="#TERACE" class="headerlink" title="TERACE"></a>TERACE</h4><p>客户端发起一个请求时，这个请求可能要穿过防火墙、代理、网关或其他一些应用程序。每个中间节点都可能会修改原始的HTTP请求,TRACE方法允许客户端在最终将请求发送给服务器时，看看它变成了什么样子<br>TRACE请求会在目的服务器端发起一个”环回”诊断。行程最后一站的服务器会弹回一条TRACE响应，并在响应主体中携带它收到的原始请求报文。这样客户端就可以查看在所有中间http应用程序组成的请求/响应链上，原始报文是否，以及如何被毁坏或修改过</p>
+<h4 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h4><p>OPTIONS方法请求web服务器告知其支持的各种功能。可以询问服务器通常支持哪些方法，或者对某些特殊资源支持哪些方法</p>
+<h4 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h4><p>DELETE方法所做的事情就是请服务器删除URL所指定的资源。但是，客户端应用程序无法保证删除操作一定会被执行。因为HTTP规范允许服务器在不通知客户端的情况下撤销请求</p>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><h5 id="100-100-信息性状态码"><a href="#100-100-信息性状态码" class="headerlink" title="100 ~ 100 信息性状态码"></a>100 ~ 100 信息性状态码</h5><p>TODO</p>
+<h5 id="200-299-成功状态码"><a href="#200-299-成功状态码" class="headerlink" title="200 ~ 299 成功状态码"></a>200 ~ 299 成功状态码</h5><h5 id="300-399-重定向状态码"><a href="#300-399-重定向状态码" class="headerlink" title="300 ~ 399 重定向状态码"></a>300 ~ 399 重定向状态码</h5><p>重定向状态码要么告知客户端使用替代位置来访问他们所感兴趣的资源，要么就提供一个替代的响应而不是资源的内容，<br>如果资源已被移动，可发送一个重定向状态码和一个可选的Location首部来告知客户端资源已被移走，以及现在可以在哪里找到它，这样，浏览器就可以在不打扰使用者的情况下，透明地转入新的位置了</p>
+<p>TODO</p>
+<h5 id="400-499-客户端错误状态码"><a href="#400-499-客户端错误状态码" class="headerlink" title="400 ~ 499 客户端错误状态码"></a>400 ~ 499 客户端错误状态码</h5><p>有时客户端会发送一些服务器无法处理的东西，比如格式错误的请求报文，或者最常见的是，请求一个不存在的url</p>
+<h5 id="500-599-服务器错误状态码"><a href="#500-599-服务器错误状态码" class="headerlink" title="500 ~ 599 服务器错误状态码"></a>500 ~ 599 服务器错误状态码</h5><h3 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h3><h4 id="通用首部"><a href="#通用首部" class="headerlink" title="通用首部"></a>通用首部</h4><p>通用的信息性首部</p>
+<ul>
+<li>Connection: 允许客户端和服务器指定与请求/响应连接有关的选项</li>
+<li>Date: 提供日期和时间标志，说明报文是什么时间创建的</li>
+<li>MIME-Version: 给出了发送端使用的MIME版本</li>
+<li>Trailer: 如果报文采用了分块传输编码方式，就可以用这个首部列出位于报文trailer部分的首部集合</li>
+<li>Transfer-Encoding: 告知接收端为了保证报文的可靠传输，对报文采用了什么编码方式</li>
+<li>Update: 给出了发送端可能想要”升级”使用的新版本或协议</li>
+<li>Via: 显示了报文经过的中间节点(代理、网关)<br>通用缓存首部<br>http/1.0引入了第一个允许http应用程序缓存对象本地副本的首部，这样就不需要总是直接从源端服务器获取了，最新的http版本有非常丰富的缓存参数集。</li>
+<li>Cache-Control: 用于随报文传送缓存指示</li>
+<li>Pragma: 另一种随报文传送指示的方式，但并不专用于缓存</li>
+</ul>
+<h4 id="请求首部"><a href="#请求首部" class="headerlink" title="请求首部"></a>请求首部</h4><p>信息性首部</p>
+<ul>
+<li>Cient-Ip: 提供了运行客户端的机器的IP地址</li>
+<li>From: 提供了客户端用户的E-mail地址</li>
+<li>Host: 给出了接受请求的服务器的的主机名和端口号</li>
+<li>Referer: 提供了包含当前请求URI的文档的URL</li>
+<li>UA-Color: 提供了与客户端显示器的显示颜色有关的信息</li>
+<li>VA-CPU: 给出了客户端CPU的类型或制造商</li>
+<li>UA-Disp: 提供了与客户端显示器(屏幕)能力有关的信息</li>
+<li>UA-OS: 给出了运行在客户端机器上的操作系统名称及版本</li>
+<li>UA-Pixels: 提供了客户端显示器的像素信息</li>
+<li>User-Agent: 将发起请求的应用程序名称告知服务器</li>
+</ul>
+<p>Accept首部<br>Accept首部为客户端提供了一种将其喜好和能力告知服务器的方式，包括他们想要什么，可以使用什么，以及最重要的，他们不想要什么，这样，服务器就可以根据这些额外信息，对要发送的内容作出更明智的决定，Accept首部会使连接的两端都受益。客户端会得到他们想要的内容，服务器则不会浪费时间和带宽发送客户端无法使用的东西</p>
+<ul>
+<li>Accept: 告诉服务器能够发送哪些媒体类型</li>
+<li>Accept-Charset: 告诉服务器能够发送哪些字符集</li>
+<li>Accept-Encoding: 告诉服务器能够发送哪些编码方式</li>
+<li>Accept-Language: 告诉服务器能够发送哪些语言</li>
+<li>TE: 告诉服务器可以使用哪些扩展传输编码</li>
+</ul>
+<p>条件请求首部<br>有时客户端希望为请求加上某些限制。要求服务器在对请求进行响应之前确保某个条件为真</p>
+<ul>
+<li>Expect: 允许客户端列出某请求所要求的服务器行为</li>
+<li>If-Match: 如果实体标记与文档当前的实体标记相匹配，就获取这份文档</li>
+<li>If-Modified-Since: 除非在某个指定的日止之后资源被修改过，否则就限制这个请求</li>
+<li>If-None-Match: 如果提供的实体标记与当前文档的实体标记不符，就获取这份文档</li>
+<li>If-Range: 允许对文档的某个范围进行条件请求</li>
+<li>If-Unmodified-Since: 除非在某个指定日期之后资源没有被修改过，否则就限制这个请求</li>
+<li>Range: 如果服务器支持范围请求，就请求资源的指定范围</li>
+</ul>
+<p>安全请求首部<br>http本身就支持一种简单的机制，可以对请求进行质询/响应认证。这种机制要求客户端在获取特定的资源之前，先对自身进行认证，这样就可以使事务稍微安全一些。</p>
+<ul>
+<li>Authorization: 包含了客户端提供给服务器，以便对其自身进行认证的数据</li>
+<li>cookie: 客户端用它想服务器传送一个令牌———它并不是真正的安全首部，但确实隐含了安全功能</li>
+</ul>
+<p>代理请求首都<br>随着因特网上代理的普遍应用，人们定义了几个首都来协助其更好的工作。</p>
+<ul>
+<li>Max-Forward: 在通往源服务器的路径上，将请求转发给其他代理或网管的最大次数——与TRACE方法一同使用</li>
+<li>Proxy-Authorization: 与Authorization首部相同，但这个首部是在与代理进行认证时使用的</li>
+<li>Proxy-Connection: 与Connection首部相同，但这个首部是在与代理建立连接时使用的</li>
+</ul>
+<h4 id="响应首部"><a href="#响应首部" class="headerlink" title="响应首部"></a>响应首部</h4><p>信息性首部</p>
+<ul>
+<li>Age: (从最初创建开始)响应持续时间</li>
+<li>Public: 服务器为其资源支持的请求方法列表</li>
+<li>Retry-After: 如果资源不可用的话，在此日期或时间重试</li>
+<li>Server: 服务器应用程序软件的名称和版本</li>
+<li>Title: 对HTML文档来说，就是HTML文档的源端给出的标题</li>
+<li>Warning: 比原因短语中更详细的一些警告报文</li>
+</ul>
+<p>协商首部<br>如果资源有多种表示方式，http/1.1可以为服务器和客户端提供对资源进行协商的能力。</p>
+<ul>
+<li>Accept-Range: 对此资源来说，服务器可接受的范围类型</li>
+<li>Vary: 服务器查看的其他首部的列表，可能会使响应发生变化，也就是说，这是一个首部列表，服务器会根据这些首部的内容挑选出最适合的资源版本发送给客户端</li>
+</ul>
+<p>安全响应首部</p>
+<ul>
+<li>Proxy-Authenticate: 来自代理的对客户端的质询列表</li>
+<li>Set-Cookie: 不是真正的安全首部，但隐含有安全功能，可以在客户端设置一个令牌，以便服务器对客户端进行标识</li>
+<li>WWW-Authenticate: 来自服务器的对客户端的质询列表</li>
+</ul>
+<h4 id="实体首部"><a href="#实体首部" class="headerlink" title="实体首部"></a>实体首部</h4><p>实体首部提供了有关实体及其内容的大量信息，实体首部可以告知报文的接受者在对什么进行处理</p>
+<ul>
+<li>Allow: 列出了可以对此实体执行的请求方法</li>
+<li>Location: 告知客户端实体实际上位于何处，用于将接收端定向到资源的位置(url)上去</li>
+</ul>
+<p>内容首部<br>内容首部提供了与实体内容有关的特定信息，说明了其类型、尺寸以及处理它所需要的其他有用信息</p>
+<ul>
+<li>Content-Base: 解析主体中的相对URL时使用的基础URL</li>
+<li>Content-Encoding: 对主体执行的任意编码方式</li>
+<li>COntent-Language: 理解主体时最适宜使用的自然语言</li>
+<li>Content-Length: 主体的长度或尺寸</li>
+<li>Content-Location: 资源实际所处的位置</li>
+<li>Content-MD5: 主体的MD5校验</li>
+<li>Content-Range: 在整个资源中此实体表示的字节范围</li>
+<li>Content-Type: 这个主体的对象类型</li>
+</ul>
+<p>实体缓存首部<br>通用的缓存首部说明了如何或者什么时候进行缓存。实体的缓存首部提供了与被缓存实体有关的信息——比如，验证已缓存的资源副本是否仍然有效所需的信息，以及更好地估计已缓存资源何时失效所需的线索</p>
+<ul>
+<li>Etag: 与此实体先挂你的实体标记</li>
+<li>Expires: 实体不再有效，要从原始的源端再次获取此实体的日期和时间</li>
+<li>Last-modified: 这个实体最后一次被修改的日期和时间</li>
+</ul>
+<h2 id="第4章节：连接管理"><a href="#第4章节：连接管理" class="headerlink" title="第4章节：连接管理"></a>第4章节：连接管理</h2><p>http连接是http报文传输的关键通道。<br>本章将学到：</p>
+<ul>
+<li>HTTP是如何使用TCP连接的</li>
+<li>TCP连接的时延，瓶颈已经存在的障碍</li>
+<li>HTTP的优化，包括并行连接、keep-alive(持久连接)和管道化连接</li>
+<li>管理连接时应该以及不应该做的事情</li>
+</ul>
+<h3 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h3><p>TCP/IP是全球计算机及网络设备都在使用的一种常用的分组交换网络分层协议集。客户端应用程序可以打开一条TCP/IP连接，连接到可能运行在世界任何地方的服务器应用陈程序。一旦连接建立起来了，在客户端和服务器的计算器之间交换的报文就永远不会丢失、受损、失序</p>
+<h4 id="TCP的可靠数据管道"><a href="#TCP的可靠数据管道" class="headerlink" title="TCP的可靠数据管道"></a>TCP的可靠数据管道</h4><p>HTTP连接实际上就是TCP连接及其使用规则。</p>
+<p>要想正确、快速地发送数据，就需要了解TCP的一些基本知识：<br>TCP为HTTP提供了一条可靠的 比特传输管道 。从TCP连接一端填入的字节会从另一端以原有的顺序、正确的传送过来<br>[如图]</p>
+<h4 id="TCP流是分段的、由IP分组传送"><a href="#TCP流是分段的、由IP分组传送" class="headerlink" title="TCP流是分段的、由IP分组传送"></a>TCP流是分段的、由IP分组传送</h4><p>TCP的数据是通过名为IP分组(或IP数据报)的小数据块来发送的。这样的话，HTTP就是”HTTP over TCP over IP”这个”协议栈”中的最顶层。其安全版本HTTPS就是在HTTP和TCP之间插入了一个(称为TLS或SSL)密码加密层<br>[如图]</p>
+<p>HTTP要传送一条报文时，会以流的形式将报文数据的内容通过一条打开的TCP连接按序传输。TCP收到数据流之后，会将数据流砍成称作段的小数据块，并将段封装在IP分组里，通过因特网进行传输<br>每个TCP段都由IP分组来承载，从一个IP地址发送到另一个IP地址的。每个IP分组中都包括</p>
+<ul>
+<li>一个IP分组首部(通常为20字节)—— 包含了源和目的IP地址、长度、其他的一些标记。</li>
+<li>一个TCP段首部(通常为20字节)—— 包含了TCP端口号、TCP控制标记、以及用于数据排序和完整性检查的一些数字值</li>
+<li>一个TCP数据块(0或者多个字节)</li>
+</ul>
+<h4 id="保持TCP连接持续不断的运行"><a href="#保持TCP连接持续不断的运行" class="headerlink" title="保持TCP连接持续不断的运行"></a>保持TCP连接持续不断的运行</h4><p align="center"><br>TODO …   ❣️<br></p>
 
 
 
@@ -559,8 +731,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,6 +805,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分：web的基础"><span class="nav-number">1.</span> <span class="nav-text">第一部分：web的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章节：http概述"><span class="nav-number">1.1.</span> <span class="nav-text">第1章节：http概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#web客户端和服务器"><span class="nav-number">1.1.1.</span> <span class="nav-text">web客户端和服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">媒体类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URI"><span class="nav-number">1.1.3.</span> <span class="nav-text">URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">1.1.4.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">1.1.6.</span> <span class="nav-text">连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">TCP/IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接-IP地址-端口号"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">连接/IP地址/端口号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web的组织结构"><span class="nav-number">1.1.7.</span> <span class="nav-text">web的组织结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代理"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网关"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">网关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隧道-TODO"><span class="nav-number">1.1.7.4.</span> <span class="nav-text">隧道  TODO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Agent代理"><span class="nav-number">1.1.7.5.</span> <span class="nav-text">Agent代理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章节：url与资源"><span class="nav-number">1.2.</span> <span class="nav-text">第2章节：url与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览因特网资源"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览因特网资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url的语法"><span class="nav-number">1.2.2.</span> <span class="nav-text">url的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url快捷方式"><span class="nav-number">1.2.3.</span> <span class="nav-text">url快捷方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章节：http报文"><span class="nav-number">1.3.</span> <span class="nav-text">第3章节：http报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报文流"><span class="nav-number">1.3.1.</span> <span class="nav-text">报文流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#报文流入源端服务器"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">报文流入源端服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#报文向下游流动"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">报文向下游流动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报文的组成部分"><span class="nav-number">1.3.2.</span> <span class="nav-text">报文的组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#报文首部"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">报文首部</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首部分类"><span class="nav-number">1.3.2.1.1.</span> <span class="nav-text">首部分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全方法"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">安全方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HEAD"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TERACE"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">TERACE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OPTIONS"><span class="nav-number">1.3.3.5.</span> <span class="nav-text">OPTIONS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DELETE"><span class="nav-number">1.3.3.6.</span> <span class="nav-text">DELETE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码"><span class="nav-number">1.3.4.</span> <span class="nav-text">状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#100-100-信息性状态码"><span class="nav-number">1.3.4.0.1.</span> <span class="nav-text">100 ~ 100 信息性状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#200-299-成功状态码"><span class="nav-number">1.3.4.0.2.</span> <span class="nav-text">200 ~ 299 成功状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#300-399-重定向状态码"><span class="nav-number">1.3.4.0.3.</span> <span class="nav-text">300 ~ 399 重定向状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#400-499-客户端错误状态码"><span class="nav-number">1.3.4.0.4.</span> <span class="nav-text">400 ~ 499 客户端错误状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#500-599-服务器错误状态码"><span class="nav-number">1.3.4.0.5.</span> <span class="nav-text">500 ~ 599 服务器错误状态码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首部"><span class="nav-number">1.3.5.</span> <span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用首部"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">通用首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求首部"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">请求首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应首部"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">响应首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体首部"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">实体首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章节：连接管理"><span class="nav-number">1.4.</span> <span class="nav-text">第4章节：连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP连接"><span class="nav-number">1.4.1.</span> <span class="nav-text">TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP的可靠数据管道"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">TCP的可靠数据管道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流是分段的、由IP分组传送"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">TCP流是分段的、由IP分组传送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保持TCP连接持续不断的运行"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">保持TCP连接持续不断的运行</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
