@@ -328,6 +328,397 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/learn-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaodanli">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avator.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李子栗子梨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/learn-linux/" itemprop="url">linux学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T15:05:56+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机/操作系统/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>文字模式下指令的下达<br>默认root的提示符为# 一般身份使用者的提示符为$<br> Linux的默认shell程序就是bash<br><img src="/img/learn-linux/linux_1.jpg" alt="2a176000bb391687d737e137f1174e7f.png"><br>加入选项设置时，通常选项前会带 - 号，例如-h<br>有时会使用选项的完整全名，则选项前带 – 号，例如–help<br>4.2.2 无论几个空格都会被识别为一个空格<br>4.2.3 enter表示启动当前行指令<br>4.2.4 指令太长，可以使用反斜线()+回车符(enter)换行<br>4.2.5 重要的几个热键<br>    tab 命令补全<br>    ctrl+c 中断程序执行<br>    ctrl+d 直接离开命令行<br>    fn+↑ 上一屏<br>    fn+↓ 下一屏<br>    tab tab 显示所有可用指令<br>    space 显示more时可向下翻页<br>    /关键字  向下主动搜索关键字 （效果如下）<br>    ?关键字  向上主动搜索关键字<br>    n, N 利用/或者?来搜索字符串时，可以用n来继续下一个搜索，用N进行反向搜索<br>    <img src="/img/learn-linux/linux_2.jpg" alt="d196717b8f8cb6ed019eaa8798ac023b.png"></p>
+<p>4.2.6 –help 可以帮助你如何去使用指令<br>4.2.7 man command 显示完整的操作说明(星星眼) man是manual的简写啦<br>例：输入man date后shell会打印以下信息~<br><img src="/img/learn-linux/linux_3.jpg" alt="9ae68969c49829f736f60faa3f7b60ae.png"><br>截图第一行中可以看到DATE(1) DATE表示指令名称，（1）代表”一般使用者可使用的命令” 那么是不是代表还有其他代号嘞~~ 当然啦 上截图！<br><img src="/img/learn-linux/linux_4.jpg" alt="2d0773bbd0068dfd4950c84c4db34347.png"><br>上述的表格内容可以使用”man man”来更详细的取得说明<br>TIPS:上表中的1,5,8这三个代码hin重要，也请务必将这三个数字的含义记下来！<br><img src="/img/learn-linux/linux_5.jpg" alt="bdb34ab4c6c3d839a13ce38082df6e52.png"></p>
+<p>简而言之，如何去找到所需要的指令呢？（ 以打印为例lp[line print] ）</p>
+<ol>
+<li>man lp ，找到相关说明</li>
+<li>lp[tab][tab] 找到以lp开头的指令</li>
+<li>找到相关指令后， –help 查基本语法</li>
+<li>若有需要再以man去查询指令的用法</li>
+</ol>
+<p>TIPS：如果你知道某个指令，但却忘记了相关参数与选项，请先善用–help 来查询相关信息；当有任何你不知道的指令或文件格式等，但你想要了解它，请使用man/info查询</p>
+<h1 id="二-超简单文本编译器-nano-vim-等-本小节仅讲nano"><a href="#二-超简单文本编译器-nano-vim-等-本小节仅讲nano" class="headerlink" title="二 超简单文本编译器 nano vim 等 (本小节仅讲nano)"></a>二 超简单文本编译器 nano vim 等 (本小节仅讲nano)</h1><h1 id="三-Linux的文件权限与目录配置"><a href="#三-Linux的文件权限与目录配置" class="headerlink" title="三 Linux的文件权限与目录配置"></a>三 Linux的文件权限与目录配置</h1><p>在linux中任何一个文件都具有user group other三种身份的权限</p>
+<h2 id="linux文件权限概念"><a href="#linux文件权限概念" class="headerlink" title="linux文件权限概念"></a>linux文件权限概念</h2><p>当你在你的屏幕前面出现了”Permission deny”的时候，不用担心，肯定是权限设置错误啦</p>
+<h2 id="linux文件属性"><a href="#linux文件属性" class="headerlink" title="linux文件属性"></a>linux文件属性</h2><p>使用sudo切换为root身份<br>在terminal输入<code>ls -al</code>可查看文件详细信息<br><img src="/img/learn-linux/linux_6.png" alt="linux_6.png"></p>
+<p>d   r   w   x   r   -   x   r   -   x</p>
+<p>①  ②  ③  ④  ⑤   ⑥  ⑦   ⑧  ⑨   ⑩</p>
+<p>① 当为[d]则是目录<br>   当为[-]则是文件<br>   [l]表示为链接未见<br>   [b]可随机存取设备</p>
+<p>②③④ user权限三个为一组，均为“rwx”的三个参数的组合。<br>      [r] —— read<br>      [w] —— write<br>      [x] —— execute<br>      [-] —— 无权限 </p>
+<p>⑤⑥⑦ group权限</p>
+<p>⑧⑨⑩ other权限</p>
+<p>root基本上是不受系统的权限所限制，无论文件权限是什么，默认root都可存取</p>
+<h2 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h2><p>几种常用于group、user、other权限修改的指令：<br>chgrp ——&gt; 改变文件所属群组 (要被改变的群组名称必须要在/etc/group文件内存在才行)<br>chown ——&gt; 改变文件user<br>chmod ——&gt; 改变文件的权限, SUID, SGID, SBIT等特性</p>
+<p>复制文件，<code>cp 来源文件 目的文件</code>，由于cp会复制执行者的属性与权限，可通过chmod修改</p>
+<h3 id="改变权限-chmod"><a href="#改变权限-chmod" class="headerlink" title="改变权限,chmod"></a>改变权限,chmod</h3><ul>
+<li><p>数字类型改变文件权限<br>Linux文件的基本权限有9个，分别是owner/user/other三中身份各有read/white/execute权限，这九个权限是三个一组的，可以使用数字表示各个权限，各权限的分数对照表如下：<br><table><tr><td bgcolor="#FFCDC7"> &gt;r:4 &gt; w:2  &gt; x:1 </td></tr></table><br>每种身份各自的三个权限(r/w/x)分数是需要累加的，例如：权限为 [-rwxrwx—]分数为：</p>
+<blockquote>
+<p>owner = rwx = 4 + 2 + 1 = 7 &gt; group = rwx = 4 + 2 + 1 = 7 &gt; other = 0<br>所以等下我们设置权限的变更时，该文件的权限就是770啦<br>如果我们要将某文件(a.txt)的权限都设置为启用，只需要输入一下命令即可：<code>chmod 777 a.txt</code></p>
+</blockquote>
+</li>
+<li><p>符号类型改变文件权限<br><code>user group other</code>三种身份可用<code>u g o</code> 表示。此外<code>a</code>表示all,读写权限可写成<code>r w x</code><br>也就是可以使用下面的方式来看：<br><code>| chmod | u g o a | + (加入) - (除去) = (设置) | r w x | 文件或目录</code><br>将一个文件权限改成”-rwxr-xr-x”<br><code>chmod u=rwx,go=rx a.txt</code><br>如果不知道原先的文件属性，只想要给a.txt文件的三种身份都增加可写入权限：<br><code>chmod a+w a.txt</code></p>
+</li>
+</ul>
+<h2 id="目录与文件权限意义"><a href="#目录与文件权限意义" class="headerlink" title="目录与文件权限意义"></a>目录与文件权限意义</h2><ul>
+<li><p>权限对文件的重要性<br>r 可读取文件的实际内容，如读取文本文件的文字内容等<br>w 可以编辑、新增、修改文件的内容(但不含删除该文件!)<br>x 该文件具有可以被系统执行的权限</p>
+</li>
+<li><p>权限对目录的重要性<br>r 具有读取目录结构清单的权限<br>w 具有以下权限 1.创建新的文件与目录 2.删除已存在的文件与目录(不论改文件的权限是什么) 3.将已存在的文件或目录更名 4.移动该目录内的文件、目录位置<br>x 使用者能否进入该目录</p>
+</li>
+</ul>
+<h2 id="linux文件种类与扩展名"><a href="#linux文件种类与扩展名" class="headerlink" title="linux文件种类与扩展名"></a>linux文件种类与扩展名</h2><ul>
+<li>正规文件——第一个属性为[-]</li>
+</ul>
+<ul>
+<li>纯文本文件</li>
+<li>二进制档</li>
+<li>数据格式文件</li>
+</ul>
+<ul>
+<li>目录——第一个属性为[d]</li>
+<li>链接文件——类似windows系统下的快捷方式，第一个属性为[l]</li>
+<li>设备与设备文件</li>
+<li>数据接口文件</li>
+<li>数据输送档</li>
+</ul>
+<h3 id="常用扩展名"><a href="#常用扩展名" class="headerlink" title="常用扩展名"></a>常用扩展名</h3><ul>
+<li>*.sh：脚本或批处理文件，因为批处理文件为使用shell写成的， 所以扩展名为.sh</li>
+<li>Z, .tar, .tar.gz, .zip, *.tgz: 经过打包的压缩文件</li>
+<li>.html .php<br>基本上，linux系统上的文件名只是为了让你了解该文件可能的用途，真正的执行与否仍需要权限</li>
+</ul>
+<p>文件名称的开头为小数点.时，代表这个文件为”隐藏文件”。</p>
+<h2 id="linux目录配置"><a href="#linux目录配置" class="headerlink" title="linux目录配置"></a>linux目录配置</h2><h3 id="linux目录配置的依据-——-FHS"><a href="#linux目录配置的依据-——-FHS" class="headerlink" title="linux目录配置的依据 —— FHS"></a>linux目录配置的依据 —— FHS</h3><p>FHS依据文件系统使用的频繁与否与是否允许使用者随意更改，而将目录定义为四种交互作用的形态<br>1.可分享的——可以分享给其他系统挂载使用的目录<br>2.不可分享——自己机器上运行的设备文件或者是<br>3.不变的<br>4.可变动的</p>
+<h4 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h4><p>依据FHS的基本定义， /usr(unix software resource缩写)里面放置的数据属于可分享的与不可变动的，</p>
+<h4 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h4><p>/var目录主要针对常态性变动的文件，包括cache, log file,某些软件运行所产生的文件，程序文件(lock file, run file)</p>
+<h4 id="目录树架构图"><a href="#目录树架构图" class="headerlink" title="目录树架构图"></a>目录树架构图</h4><p><img src="/img/learn-linux/linux_7.jpg" alt="linux_7.jpg"></p>
+<h1 id="四-安装SentOS7"><a href="#四-安装SentOS7" class="headerlink" title="四 安装SentOS7"></a>四 安装SentOS7</h1><h1 id="六-Linux的文件与目录管理"><a href="#六-Linux的文件与目录管理" class="headerlink" title="六 Linux的文件与目录管理"></a>六 Linux的文件与目录管理</h1><h2 id="目录的相关操作"><a href="#目录的相关操作" class="headerlink" title="目录的相关操作"></a>目录的相关操作</h2><p>常见的处理目录的指令</p>
+<ul>
+<li>cd : 变换目录 [change directory]</li>
+<li>pwd : 显示当前目录 [print working directory]</li>
+<li>mkdir : 创建一个新的目录</li>
+<li>rmdir : 删除一个空的目录</li>
+</ul>
+<p>“~” 表示主文件夹 <code>cd ~</code> 可以回到个人的主文件夹中</p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><p>默认情况下，需要一层一层创建才行<br>加上<code>-p</code> 选项后，可以直接下达<code>mkdir -p  /home/bird/testing/test1</code>系统会依序创建目录，如果该目录已存在则跳过</p>
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h3><p>目录需要一层一层删除，被删除的目录里不能存在其他目录或文件</p>
+<h2 id="关于可执行文件路径的变量：-PATH"><a href="#关于可执行文件路径的变量：-PATH" class="headerlink" title="关于可执行文件路径的变量： $PATH"></a>关于可执行文件路径的变量： $PATH</h2><p>当我们在执行一个指令的时候，举例来说”ls”，系统会按照PATH的设置去每个PATH定义的目录下搜寻文件名为ls的可执行文件，如果PATH定义的目录中含有多个文件名为”ls”的可执行文件，那么先搜寻到的同名指令先被执行<br><code>echo $PATH</code>命令，会打印出环境变量<br><code>echo</code>是打印，PATH前面加$表示后面接的是变量，所以会显示出目前的PATH<br>PATH 这个变量的内容是由一堆目录组成，每个目录中间用冒号隔开，每个目录是有顺序之分的。</p>
+<h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><p>复制、删除、移动： cp rm mv</p>
+<h3 id="cp-（复制文件-目录）"><a href="#cp-（复制文件-目录）" class="headerlink" title="cp （复制文件/目录）"></a>cp （复制文件/目录）</h3><p>选项与参数</p>
+<ul>
+<li>-p : 连同文件的属性(权限、用户、时间)一起复制过去，而非使用默认属性(备份常用)</li>
+<li>-i : 若目标文件已经存在，在覆盖时会先询问动作的进行</li>
+<li>-a : 将文件的所有特性一起复制</li>
+<li>-r : 递回持续复制，用于目录的复制行为</li>
+<li>-L : 进行硬式链接的链接文件创建，而非复制文件本身</li>
+</ul>
+<p>eg:<br><code>cp ~/.bashrc /tmp/bashrc</code> 将.bashrc复制到/tmp下，并更名为bashrc<br><code>cp /var/log/wtmp .</code> .表示复制到当前目录<br><code>cp -a /var/log wtemp wtemp_2</code> 将文件的所有特性一起复制<br><code>cp -r /etc/ /tmp</code>  复制 /etc/目录下的所有内容到/tmp下</p>
+<h3 id="rm-移除文件或目录"><a href="#rm-移除文件或目录" class="headerlink" title="rm (移除文件或目录)"></a>rm (移除文件或目录)</h3><p>选项与参数</p>
+<ul>
+<li>-f : force忽略不存在的文件，不会出现警告信息</li>
+<li>-i : 互动模式，在删除前会询问使用者是否动作</li>
+<li>-r : 递回删除</li>
+</ul>
+<p>eg:<br><code>rm -i bashrc</code> 删除bashrc文件<br><code>rm -i bashrc*</code>通过万用字符<em> 将bashrc开头的文件名都删除 </em> 星号表示0到无穷多个任意字符</p>
+<h3 id="mv-移动文件与目录，或更名"><a href="#mv-移动文件与目录，或更名" class="headerlink" title="mv(移动文件与目录，或更名)"></a>mv(移动文件与目录，或更名)</h3><p>选项与参数</p>
+<ul>
+<li>-f : force如果目标文件已经存在，不会询问而直接覆盖</li>
+<li>-i : 若目标文件已经存在，就询问是否覆盖</li>
+<li>-u : 若目标文件已经存在，且source比较新，才会更新(update)</li>
+</ul>
+<h3 id="取得路径的文件名称与目录名称"><a href="#取得路径的文件名称与目录名称" class="headerlink" title="取得路径的文件名称与目录名称"></a>取得路径的文件名称与目录名称</h3><p>eg:<br><code>basename /etc/sysconfig/network</code> 取得最后的文件名<br><code>dirname /etc/sysconfig/network</code> 取得最后的目录名</p>
+<h3 id="文件内容查阅"><a href="#文件内容查阅" class="headerlink" title="文件内容查阅"></a>文件内容查阅</h3><ul>
+<li>cat : 由第一行开始显示文本内容</li>
+<li>tac : 从最后一行开始显示</li>
+<li>nl : 显示的时候，顺便输出行号</li>
+<li>more : 一页一页显示文件内容</li>
+<li>less : 和more类似，但可以往前翻页</li>
+<li>head : 只看头几行</li>
+<li>tail : 只看尾几行</li>
+<li>od : 以二进制的方式读取文件内容</li>
+</ul>
+<h3 id="修改文件时间或创建新文件：touch"><a href="#修改文件时间或创建新文件：touch" class="headerlink" title="修改文件时间或创建新文件：touch"></a>修改文件时间或创建新文件：touch</h3><p><code>date; ll bashrc; ll --time=atime bashrc; ll --time=ctime bashrc</code> 分号“;”代表连续指令的下达，可以在一行指令当中写入多重指令，这些指令会依序执行。</p>
+<h2 id="文件与目录的默认权限与隐藏权限"><a href="#文件与目录的默认权限与隐藏权限" class="headerlink" title="文件与目录的默认权限与隐藏权限"></a>文件与目录的默认权限与隐藏权限</h2><h3 id="文件默认权限：-umask"><a href="#文件默认权限：-umask" class="headerlink" title="文件默认权限： umask"></a>文件默认权限： umask</h3><p>unask是指定“目前使用者在创建文件或目录时的权限默认值”<br>可通过以下两种指令查看<br><code>umask</code>  <code>umask -S</code><br><code>umask 022</code> 设置umask权限</p>
+<h2 id="指令与文件的搜索"><a href="#指令与文件的搜索" class="headerlink" title="指令与文件的搜索"></a>指令与文件的搜索</h2><h3 id="which-寻找可执行文件"><a href="#which-寻找可执行文件" class="headerlink" title="which (寻找可执行文件)"></a>which (寻找可执行文件)</h3><h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><h3 id="文件文件名搜索"><a href="#文件文件名搜索" class="headerlink" title="文件文件名搜索"></a>文件文件名搜索</h3><p>whereis 找系统中某些特定目录下面的文件<br>locate 利用数据库来搜寻文件名</p>
+<h1 id="九-vim程序编辑器"><a href="#九-vim程序编辑器" class="headerlink" title="九 vim程序编辑器"></a>九 vim程序编辑器</h1><p>为什么要学vim呢？<br>1.所有unix like系统都会内置vi文本编辑器<br>2.很多个别软件的编辑接口都会主动调vi 【重点】<br>3.vim具有程序编辑的能力，可以主动的以字体颜色辨别语法的正确性，方便程序设计；<br>4.程序简单，编辑速度相当快</p>
+<h2 id="vi的使用"><a href="#vi的使用" class="headerlink" title="vi的使用"></a>vi的使用</h2><p>基本上共分为三种模式，分别是“一般指令模式”，“编辑模式”，”命令行命令模式”：</p>
+<ul>
+<li>一般指令模式<br>  以vi打开一个文件就是直接进入一般指令模式</li>
+<li>编辑模式<br>  在一般指令模式下，按下”i” “I” “o” “O” “a” “A” “r” “R”等任何一个字母之后才会进入编辑模式。<br>  要回到一般指令模式，则必须按下“ESC”按键即可退出编辑模式</li>
+<li>命令行命令模式<br>  在一般模式中，输入” : / ?”三个钟的任何一个按钮，就可以将光标移动到最下面那一列。在这个模式当中，可以提供你“搜寻数据”的动作，而读取、存盘(white)、大量取代字符、离开(quit)vi、显示行号等等的动作则是在此模式中达成的</li>
+</ul>
+<h3 id="按键说明"><a href="#按键说明" class="headerlink" title="按键说明"></a>按键说明</h3><h4 id="一般指令模式可用的按钮说明，关闭表移动、复制粘贴、搜寻取代等"><a href="#一般指令模式可用的按钮说明，关闭表移动、复制粘贴、搜寻取代等" class="headerlink" title="一般指令模式可用的按钮说明，关闭表移动、复制粘贴、搜寻取代等"></a>一般指令模式可用的按钮说明，关闭表移动、复制粘贴、搜寻取代等</h4><p><img src="/img/learn-linux/linux_8.png" alt="linux_8.png"><br><img src="/img/learn-linux/linux_9.png" alt="linux_9.png"><br><img src="/img/learn-linux/linux_10.png" alt="linux_10.png"></p>
+<h3 id="一般指令模式切换到编辑模式的可用的按钮说明"><a href="#一般指令模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般指令模式切换到编辑模式的可用的按钮说明"></a>一般指令模式切换到编辑模式的可用的按钮说明</h3><p><img src="/img/learn-linux/linux_11.png" alt="linux_11.png"></p>
+<h3 id="一般指令模式切换到命令行界面的可用按钮说明"><a href="#一般指令模式切换到命令行界面的可用按钮说明" class="headerlink" title="一般指令模式切换到命令行界面的可用按钮说明"></a>一般指令模式切换到命令行界面的可用按钮说明</h3><p><img src="/img/learn-linux/linux_12.png" alt="linux_12.png"></p>
+<h2 id="vim的额外功能"><a href="#vim的额外功能" class="headerlink" title="vim的额外功能"></a>vim的额外功能</h2><p>同事友情提供的vim思维导图<br><img src="/img/learn-linux/linux_13.png" alt="linux_13.png"></p>
+<h1 id="BASH"><a href="#BASH" class="headerlink" title="BASH"></a>BASH</h1><h2 id="bash-shell-的功能"><a href="#bash-shell-的功能" class="headerlink" title="bash shell 的功能"></a>bash shell 的功能</h2><ul>
+<li>命令编修能力（history）:<br>  能够记忆使用过的命令，这些指令记录在你的主文件夹内的.bash_history中，.bash_history记录的是前一次登录以前所执行的命令，而这一次登录所执行的命令都被暂存在内存中，当你成功登出系统后，该指令记忆才会记录到.bash_history中</li>
+<li>命令与文件补全功能 (tab键的好处)</li>
+<li>命令别名设置功能 (alias)<br>  在命令行输入 <code>alias</code> 就可以知道目前的命令别名有哪些了<br>  <code>alias ll=&#39;ls -al&#39;</code> 可直接设置别名</li>
+<li>程序化脚本 (shell script)</li>
+<li>万用字符： * 星号</li>
+</ul>
+<h2 id="指令的下达与快速标记按钮"><a href="#指令的下达与快速标记按钮" class="headerlink" title="指令的下达与快速标记按钮"></a>指令的下达与快速标记按钮</h2><p>当指令太长，可通过反斜线()加回车键[enter]的形式跳脱，下一行最前面就会自动出现&gt;符号<br>当要删除一长串错误的指令时，可通过下列两个组合键:</p>
+<ul>
+<li>ctrl + u / ctrl + k</li>
+</ul>
+<ul>
+<li>从光标处向前删除指令串 / 从光标处向后删除指令串</li>
+</ul>
+<ul>
+<li>ctrl + a / ctrl + e</li>
+</ul>
+<ul>
+<li>让光标移动到整个指令串的最前面 / 让光标移动到整个指令串的最后面</li>
+</ul>
+<h2 id="变量的取用与设置：echo，变量设置规则-unset"><a href="#变量的取用与设置：echo，变量设置规则-unset" class="headerlink" title="变量的取用与设置：echo，变量设置规则 unset"></a>变量的取用与设置：echo，变量设置规则 unset</h2><p>可以使用 <code>echo $变量名</code> 或 <code>echo ${变量名}</code>取用变量</p>
+<h3 id="设置或修改变量的内容"><a href="#设置或修改变量的内容" class="headerlink" title="设置或修改变量的内容"></a>设置或修改变量的内容</h3><p>使用等号表达式<code>=</code>就好啦<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myname(变量名) = 123</span><br><span class="line">echo myname</span><br></pre></td></tr></table></figure></p>
+<h3 id="变量的设置规则"><a href="#变量的设置规则" class="headerlink" title="变量的设置规则"></a>变量的设置规则</h3><ul>
+<li>变量与变量内容用 <code>=</code> 连接</li>
+<li>等号两边不能直接接空白字符</li>
+<li>变量名称只能是英文字母或数字，并且不能以数字开头</li>
+<li>值中如果有空白字符，可用双引号或单引号包住 （双引号中可放变量，单引号中只能放纯文本）</li>
+<li>可用\将特殊字符转义</li>
+<li>若该变量需要在其他子程序执行，则需要以export来使变量变成环境变量：”export PATH”</li>
+<li>通常大写字符为系统默认变量，自行设置变量可以使用小写字符，方便判断</li>
+<li>取消变量的方法：unset <code>unset myname</code></li>
+</ul>
+<h3 id="环境变量的功能"><a href="#环境变量的功能" class="headerlink" title="环境变量的功能"></a>环境变量的功能</h3><p>查阅shell中默认的环境变量<br><code>env</code> or <code>export</code></p>
+<p>以下为小弟我本人的环境变量，懒得贴图了，直接上手粘！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TMPDIR=/var/folders/g2/37j_jdzj0r5fkpqt5x40nz480000gn/T/</span><br><span class="line">XPC_FLAGS=0x0</span><br><span class="line">Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.DfBySdnMtL/Render</span><br><span class="line">TERM=xterm-256color</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.fJOM7N4nto/Listeners</span><br><span class="line">SECURITYSESSIONID=186a7</span><br><span class="line">XPC_SERVICE_NAME=0</span><br><span class="line">TERM_PROGRAM=Apple_Terminal</span><br><span class="line">TERM_PROGRAM_VERSION=404</span><br><span class="line">TERM_SESSION_ID=9BE3D49E-883B-4B2B-8A36-95D53498D377</span><br><span class="line">SHELL=/bin/zsh</span><br><span class="line">HOME=/Users/zhaodanli</span><br><span class="line">LOGNAME=zhaodanli</span><br><span class="line">USER=zhaodanli</span><br><span class="line">PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</span><br><span class="line">SHLVL=1</span><br><span class="line">PWD=/Users/zhaodanli</span><br><span class="line">OLDPWD=/Users/zhaodanli</span><br><span class="line">_=/usr/bin/env</span><br></pre></td></tr></table></figure></p>
+<p>上面的键值对都是啥意思？我们来一！个！一！个！分！析！<br>HOME —— 代表使用者的主文件夹<br>SHELL —— 目前这个环境使用的shell是哪支程序<br>PATH —— 可执行文件搜索的路径，目录与目录中间以冒号分隔<br>LANG —— 语系数据</p>
+<p>用<code>set</code>观察所有变量(环境变量 + 自订变量)<br>(懒得贴图了，直接上手粘！)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">&apos;!&apos;=49751</span><br><span class="line">&apos;#&apos;=0</span><br><span class="line">&apos;$&apos;=28217</span><br><span class="line">&apos;*&apos;=(  )</span><br><span class="line">-=569XZilms</span><br><span class="line">0=-zsh</span><br><span class="line">&apos;?&apos;=0</span><br><span class="line">@=(  )</span><br><span class="line">ARGC=0</span><br><span class="line">Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.DfBySdnMtL/Render</span><br><span class="line">CDPATH=&apos;&apos;</span><br><span class="line">COLORFGBG=&apos;12;8&apos;</span><br><span class="line">COLORTERM=truecolor</span><br><span class="line">COLUMNS=119</span><br><span class="line">CPUTYPE=x86_64</span><br><span class="line">EGID=20</span><br><span class="line">EUID=501</span><br><span class="line">FIGNORE=&apos;&apos;</span><br><span class="line">FPATH=/usr/local/share/zsh/site-functions:/usr/share/zsh/site-functions:/usr/share/zsh/5.3/functions</span><br><span class="line">GID=20</span><br><span class="line">HISTCHARS=&apos;!^#&apos;</span><br><span class="line">HISTCMD=74</span><br><span class="line">HISTSIZE=30</span><br><span class="line">HOME=/Users/zhaodanli</span><br><span class="line">HOST=zhaodanlideMacBook-Air.local</span><br><span class="line">IFS=$&apos; \t\n\C-@&apos;</span><br><span class="line">ITERM_PROFILE=Default</span><br><span class="line">ITERM_SESSION_ID=w1t0p0:76A29E5F-591E-44CB-B999-C0C6AFACFD3F</span><br><span class="line">KEYBOARD_HACK=&apos;&apos;</span><br><span class="line">KEYTIMEOUT=40</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">LINENO=94</span><br><span class="line">LINES=21</span><br><span class="line">LISTMAX=100</span><br><span class="line">LOGCHECK=60</span><br><span class="line">LOGNAME=zhaodanli</span><br><span class="line">MACHTYPE=x86_64</span><br><span class="line">MAILCHECK=60</span><br><span class="line">MAILPATH=&apos;&apos;</span><br><span class="line">MANPATH=&apos;&apos;</span><br><span class="line">MODULE_PATH=/usr/lib/zsh/5.3</span><br><span class="line">NULLCMD=cat</span><br><span class="line">OLDPWD=/Users/zhaodanli</span><br><span class="line">OPTARG=&apos;&apos;</span><br><span class="line">OPTIND=1</span><br><span class="line">OSTYPE=darwin17.0</span><br><span class="line">PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</span><br><span class="line">PPID=28214</span><br><span class="line">PROMPT=&apos;%d $&gt; &apos;</span><br><span class="line">PROMPT2=&apos;%_&gt; &apos;</span><br><span class="line">PROMPT3=&apos;?# &apos;</span><br><span class="line">PROMPT4=&apos;+%N:%i&gt; &apos;</span><br><span class="line">PS1=&apos;%d $&gt; &apos;</span><br><span class="line">PS2=&apos;%_&gt; &apos;</span><br><span class="line">PS3=&apos;?# &apos;</span><br><span class="line">PS4=&apos;+%N:%i&gt; &apos;</span><br><span class="line">PSVAR=&apos;&apos;</span><br><span class="line">PWD=/Users/zhaodanli/danli/sina_project/lottery_pc</span><br><span class="line">RANDOM=29048</span><br><span class="line">READNULLCMD=more</span><br><span class="line">SAVEHIST=0</span><br><span class="line">SECONDS=33670</span><br><span class="line">SHELL=/bin/zsh</span><br><span class="line">SHLVL=1</span><br><span class="line">SPROMPT=&apos;zsh: correct &apos;\&apos;&apos;%R&apos;\&apos;&apos; to &apos;\&apos;&apos;%r&apos;\&apos;&apos; [nyae]? &apos;</span><br><span class="line">SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.fJOM7N4nto/Listeners</span><br><span class="line">TERM=xterm-256color</span><br><span class="line">TERM_PROGRAM=iTerm.app</span><br><span class="line">TERM_PROGRAM_VERSION=3.2.9</span><br><span class="line">TERM_SESSION_ID=w1t0p0:76A29E5F-591E-44CB-B999-C0C6AFACFD3F</span><br><span class="line">TIMEFMT=&apos;%J  %U user %S system %P cpu %*E total&apos;</span><br><span class="line">TMPDIR=/var/folders/g2/37j_jdzj0r5fkpqt5x40nz480000gn/T/</span><br><span class="line">TMPPREFIX=/tmp/zsh</span><br><span class="line">TRY_BLOCK_ERROR=-1</span><br><span class="line">TRY_BLOCK_INTERRUPT=-1</span><br><span class="line">TTY=/dev/ttys000</span><br><span class="line">TTYIDLE=0</span><br><span class="line">UID=501</span><br><span class="line">USER=zhaodanli</span><br><span class="line">USERNAME=zhaodanli</span><br><span class="line">VENDOR=apple</span><br><span class="line">WATCH=&apos;&apos;</span><br><span class="line">WATCHFMT=&apos;%n has %a %l from %m.&apos;</span><br><span class="line">WORDCHARS=&apos;*?_-.[]~=/&amp;;!#$%^()&#123;&#125;&lt;&gt;&apos;</span><br><span class="line">XPC_FLAGS=0x0</span><br><span class="line">XPC_SERVICE_NAME=0</span><br><span class="line">ZSH_ARGZERO=-zsh</span><br><span class="line">ZSH_EVAL_CONTEXT=toplevel</span><br><span class="line">ZSH_NAME=zsh</span><br><span class="line">ZSH_PATCHLEVEL=zsh-5.3-0-g4cfdbdb</span><br><span class="line">ZSH_SUBSHELL=0</span><br><span class="line">ZSH_VERSION=5.3</span><br><span class="line">_=set</span><br><span class="line">__CF_USER_TEXT_ENCODING=0x0:25:52</span><br><span class="line">aliases</span><br><span class="line">argv=(  )</span><br><span class="line">builtins</span><br><span class="line">cdpath=(  )</span><br><span class="line">commands</span><br><span class="line">dirstack</span><br><span class="line">dis_aliases</span><br><span class="line">dis_builtins</span><br><span class="line">dis_functions</span><br><span class="line">dis_galiases</span><br><span class="line">dis_patchars</span><br><span class="line">dis_reswords</span><br><span class="line">dis_saliases</span><br><span class="line">fignore=(  )</span><br><span class="line">fpath=( /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.3/functions )</span><br><span class="line">funcfiletrace</span><br><span class="line">funcsourcetrace</span><br><span class="line">funcstack</span><br><span class="line">functions</span><br><span class="line">functrace</span><br><span class="line">galiases</span><br><span class="line">histchars=&apos;!^#&apos;</span><br><span class="line">history</span><br><span class="line">historywords</span><br><span class="line">jobdirs</span><br><span class="line">jobstates</span><br><span class="line">jobtexts</span><br><span class="line">keymaps</span><br><span class="line">mailpath=(  )</span><br><span class="line">manpath=(  )</span><br><span class="line">module_path=( /usr/lib/zsh/5.3 )</span><br><span class="line">modules</span><br><span class="line">nameddirs</span><br><span class="line">options</span><br><span class="line">parameters</span><br><span class="line">patchars</span><br><span class="line">path=( /usr/bin /bin /usr/sbin /sbin /usr/local/bin )</span><br><span class="line">pipestatus=( 0 )</span><br><span class="line">prompt=&apos;%d $&gt; &apos;</span><br><span class="line">psvar=(  )</span><br><span class="line">reswords</span><br><span class="line">saliases</span><br><span class="line">signals=( EXIT HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2 ZERR DEBUG )</span><br><span class="line">status=0</span><br><span class="line">termcap</span><br><span class="line">terminfo</span><br><span class="line">userdirs</span><br><span class="line">watch=(  )</span><br><span class="line">widgets</span><br><span class="line">zle_bracketed_paste=( $&apos;\C-[[?2004h&apos; $&apos;\C-[[?2004l&apos; )</span><br><span class="line">zsh_eval_context=( toplevel )</span><br><span class="line">zsh_scheduled_events</span><br></pre></td></tr></table></figure></p>
+<p>PS1 —— 提示字符的设置<br>$ —— 关于本shell的pid(process id 线程id)，想要知道我们的shell的pid,可用通过 <code>echo $$</code> 得到<br>? —— 关于上个执行指令的回传值</p>
+<p><code>env</code> 和 <code>set</code>两者之间的差异在于”该变量是否会被子程序所继续引用”<br>当你登录linux并取得一个bash后，这个bash就是一个独立程序了，这个程序是通过pid来识别的，接下来在这个bash下所下达的任何指令都是由这个bash衍生出来的，哪些被下达的指令就被称为子程序了。<br>而子程序只会继承父程序的环境变量，子程序不会继承父程序的自订变量。所以原本bash的自订变量在进入子程序后就会消失。</p>
+<p>如何让自订变量变成环境变量？？？<br>当当当当 ~ 锵 ~<br><code>export 变量名</code><br>执行以上操作后，就可以分享自己的变量设置给后来调用的文件或其他程序了</p>
+<p>其实呢， 环境变量可以看做是全局变量， 自订变量可以看做的局部变量</p>
+<h3 id="命令别名的设置"><a href="#命令别名的设置" class="headerlink" title="命令别名的设置"></a>命令别名的设置</h3><p>执行以下命令<code>alias lm=&#39;ls -al | more&#39;</code>即可执行lm指令</p>
+<h3 id="历史命令-history"><a href="#历史命令-history" class="headerlink" title="历史命令 history"></a>历史命令 history</h3><p>通过执行<code>history</code>查看历史命令<br>执行<code>!n</code>可以选择下达第n个指令</p>
+<h3 id="万用字符与特殊符号"><a href="#万用字符与特殊符号" class="headerlink" title="万用字符与特殊符号"></a>万用字符与特殊符号</h3><ul>
+<li><code>*</code>代表”0到无穷多个”任意字符</li>
+<li><code>?</code>代表“一定有一个”任意字符</li>
+<li><code>[-]</code>若有减号在中括号内时，代表”在编码顺序内的所有字符”例如[0-9]表示所有数字</li>
+<li><code>[^]</code>若中括号内的第一个字符为^表示取反<br>实例：<br><code>ll -d /etc/cron*</code> 找出/ect/下以cron开头的文件名<br><code>ll -d /etc/?????</code> 找出/etc/下刚好是我五个字母的文件名<br><code>ll -d /etc/[^a-z]</code>找出/etc/下文件名非小写字母开头的文件名</li>
+</ul>
+<h3 id="命令执行的判断依据：-amp-amp"><a href="#命令执行的判断依据：-amp-amp" class="headerlink" title="命令执行的判断依据： ; , &amp;&amp; ||"></a>命令执行的判断依据： ; , &amp;&amp; ||</h3><p>很多指令需要在一次输入去执行，而不想分次执行时，可通过一次输入多重指令方式<br><code>cmd ; cmd</code>  分号前的指令执行完成后就会立刻接着执行后面的指令。</p>
+<p>若前一个指令执行的结果为正确，在linux下面会回传一个$?=0的值，可通过短路语句判断后续操作是否要继续执行<br><code>cmd1 &amp;&amp; cmd2</code> 若cmd1执行完毕且执行正确($?=0)，则开始执行cmd2<br><code>ls /temp/vbird &amp;&amp; echo &quot;exist&quot; || echo &quot;not exist&quot;</code>  //如果vbird存在则打印exist，否则打印not exist</p>
+<h3 id="管道命令-pipe"><a href="#管道命令-pipe" class="headerlink" title="管道命令 pipe |"></a>管道命令 pipe |</h3><p>管道命令”|”仅能处理有前面一个指令传来的正确信息，对于错误信息没有处理能力</p>
+<h3 id="頡取命令-cur-grep"><a href="#頡取命令-cur-grep" class="headerlink" title="頡取命令: cur grep"></a>頡取命令: cur grep</h3><p>将一段数据经过分析后，取出我们所想要的，或者是经由分析关键字，取得我们所想要的那一行！<br>cut——将一段信息的某一段给他“切”出来，处理的信息是以行为单位</p>
+<p>grep分析一行信息，若当中有我们所需要的信息，就将该行拿出来<br>语法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grep [-acinv]  [--color=auto] &apos;搜寻字串&apos; filename</span><br><span class="line">选项与参数</span><br><span class="line">-a : 将binary文件以text文件的方式搜寻数据</span><br><span class="line">-c : 计算找到&apos;搜寻字串&apos;的次数</span><br><span class="line">-i : 忽略大小写的不同</span><br><span class="line">-n : 随便输出行号</span><br><span class="line">-v : 反向选择，即显示出没有&apos;搜寻字串&apos;内容的那一行</span><br></pre></td></tr></table></figure></p>
+<p>eg:将last中，有root字符的那行取出<br><code>last | grep &#39;root&#39;</code></p>
+<p>eg:将last中，没有root字符的那行取出<br><code>last | grep -v &#39;root&#39;</code></p>
+<h3 id="排序命令：-sort-wc-uniq"><a href="#排序命令：-sort-wc-uniq" class="headerlink" title="排序命令： sort wc uniq"></a>排序命令： sort wc uniq</h3><h2 id="Linux的账号与群组"><a href="#Linux的账号与群组" class="headerlink" title="Linux的账号与群组"></a>Linux的账号与群组</h2><h3 id="使用者识别码-UID-user-id-与-GID-group-id"><a href="#使用者识别码-UID-user-id-与-GID-group-id" class="headerlink" title="使用者识别码 UID(user id)  与 GID(group id)"></a>使用者识别码 UID(user id)  与 GID(group id)</h3><h3 id="使用者功能"><a href="#使用者功能" class="headerlink" title="使用者功能"></a>使用者功能</h3><p>不论是useradd/usermod/userdel,都是系统管理员能够使用的指令，一般身份使用者可使用以下常用的账号数据变更与查询指令:<br>1.<code>id</code><br>查新某人或者自己的相关uid/gid等信息<br>2.<code>finger</code><br>查阅很多使用者相关的信息，是一个比较危险的指令</p>
+<h3 id="使用者身份切换"><a href="#使用者身份切换" class="headerlink" title="使用者身份切换"></a>使用者身份切换</h3><p>安全起见，尽量使用一般身份使用者来操作linux的日常作业，等到需要设置系统环境时，才变换身份为root来进行系统管理。</p>
+<p>如何让一般使用者转变身份成为root呢？主要有以下两种方式：</p>
+<ol>
+<li><p>以<code>su-</code>直接将身份变成root即可，但是这个指令却需要root的密码，也就是说如果你要以su变成root的话，你的一般使用者就必须要有root的密码才行；</p>
+</li>
+<li><p>以<code>sudo</code>指令执行root的指令串，由于sudo需要实现设置妥当，且sudo需要输入使用着自己的密码，因此多人共同管理同一部主机时，sudo要比su更加好用且安全。</p>
+</li>
+</ol>
+<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>若要完整的切换到新使用者的环境，必须要使用<code>su - username</code>或者<code>su -l username</code>才会连同PATH/USER/MAIL等变量都转成新使用者的环境<br>使用root切换成为任何使用者时，并不需要输入新使用者的密码</p>
+<p>虽然使用su很方便，但是缺点是：当主机是多人共管时，如果大家都要使用su来切换成为Root身份，那么每个人都要知道root的密码，很不安全</p>
+<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>sudo的执行仅需要自己的密码即可，由于sudo可以让你以其他用户的身份(通常是使用root的身份来执行指令)，因此并非所有人都能够执行sudo,仅有规范到/etc/sudoers内的</p>
+<h4 id="sudo的指令用法"><a href="#sudo的指令用法" class="headerlink" title="sudo的指令用法"></a>sudo的指令用法</h4><p>由于一开始系统默认仅有root可以执行sudo</p>
+<p>sudo默认仅有root能使用，因为sudo的执行是这样的流程：<br>1.当使用者执行sudo时，系统于/etc/sudoers文件中搜寻该使用者是否有执行sudo的权限<br>2.若使用者具有可执行sudo的权限后，便让使用者”输入使用者自己的密码”来确认<br>3.若密码输入成功，便开始进行sudo后续借接的指令(但root执行sudo时，不需要输入密码)<br>4.若想要切换的身份与执行者身份相同，那也不需要输入密码</p>
+<p>/etc/sudoers文件要通过<code>visudo</code>修改<br>为什么要使用visudo呢，因为/ect/sudoers是有设置语法的，如果设置错误会造成无法使用sudo指令的不良后货。<br>因此才会使用visudoo去修改，并在结束离开修改画面时，系统会去检验/etc/sudoers的语法</p>
+<h3 id="linux主机上的使用者讯息传递"><a href="#linux主机上的使用者讯息传递" class="headerlink" title="linux主机上的使用者讯息传递"></a>linux主机上的使用者讯息传递</h3><h4 id="查询使用者-w-who-last-lastlog"><a href="#查询使用者-w-who-last-lastlog" class="headerlink" title="查询使用者:w, who, last, lastlog"></a>查询使用者:w, who, last, lastlog</h4><p>w who: 查看已登录在系统上面的使用者</p>
+<h4 id="使用者对谈：write-mesg-wall"><a href="#使用者对谈：write-mesg-wall" class="headerlink" title="使用者对谈：write, mesg, wall"></a>使用者对谈：write, mesg, wall</h4><p>write可以直接将讯息传给接受者。</p>
+<h3 id="磁盘配额-Quota-的应用与实作"><a href="#磁盘配额-Quota-的应用与实作" class="headerlink" title="磁盘配额(Quota)的应用与实作"></a>磁盘配额(Quota)的应用与实作</h3><p align="center"><br>…<br>[未完待续] 692页<br></p>
+
+<!-- 时间要用在正事上-->
+<!-- 书到用时方恨少 -->
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/webpack_bug_fix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1404,7 +1795,7 @@ ul.appendChild();
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1415,7 +1806,7 @@ ul.appendChild();
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
