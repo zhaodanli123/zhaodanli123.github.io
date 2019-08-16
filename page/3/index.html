@@ -988,7 +988,70 @@
 </ul>
 <h3 id="8-3资源网关"><a href="#8-3资源网关" class="headerlink" title="8.3资源网关"></a>8.3资源网关</h3><p>最常见的网关、应用程序服务器，会将目标服务器与网关集合在一个服务器中实现。应用程序服务器是服务器端网关，与客户端通过http进行通信，并与服务器端的应用程序相连。</p>
 <p>请求需要使用网关的资源时，服务器会请辅助应用程序来处理请求。服务器会将辅助应用程序所需的数据传送给他。通常就是整条请求，或者用户想在数据库上运行的请求之类的东西。<br><img src="/img/http_authority/http6.png" alt="6.png"></p>
-<h4 id="8-3-1-CGI"><a href="#8-3-1-CGI" class="headerlink" title="8.3.1 CGI"></a>8.3.1 CGI</h4><p>CGI(Common Gateway Interface)通用网关接口</p>
+<h4 id="8-3-1-CGI"><a href="#8-3-1-CGI" class="headerlink" title="8.3.1 CGI"></a>8.3.1 CGI</h4><p>CGI(Common Gateway Interface)通用网关接口<br>CGI协议为外部翻译器与现有的HTTP服务器提供了一种简洁的接口方式。</p>
+<h3 id="8-5-隧道"><a href="#8-5-隧道" class="headerlink" title="8.5 隧道"></a>8.5 隧道</h3><p>我们已经讨论了几种不同的方式，通过这些方式可以用HTTP对不同类型的资源进行访问，或者使用HTTP来启动应用程序到应用程序的通信。在本节中，我们要看看HTTP的另一种方法——web隧道，这种方式可以<strong>通过HTTP应用程序访问使用非HTTP协议的应用程序</strong>。</p>
+<h4 id="8-5-1-用Connect建立HTTP隧道"><a href="#8-5-1-用Connect建立HTTP隧道" class="headerlink" title="8.5.1 用Connect建立HTTP隧道"></a>8.5.1 用Connect建立HTTP隧道</h4><p>web隧道是用HTTP的CONNECT方法建立起来的。<br>CONNECT方法请求隧道网关创建一条到达任意目的服务器和端口的tcp连接，并对客户端和服务器之间的后续进行盲转发。<br>下图显示了CONNECT方法如何建立起一条到达网关的隧道。<br><img src="/img/http_authority/http7.png" alt="7.png"></p>
+<h5 id="1-CONNECT请求"><a href="#1-CONNECT请求" class="headerlink" title="1.CONNECT请求"></a>1.CONNECT请求</h5><p>除了起始行之外，CONNECT的语法与其他HTTP方法类似。一个后面跟着冒号和端口号的主机名取代了请求URI。主机和端口都必须制定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONNECT home.netscape.com:443 HTTP/1.0</span><br><span class="line">User-Agent: Mozilla/4.0</span><br></pre></td></tr></table></figure></p>
+<p>和其他HTTP报文一样，起始行之后，有零个或多个HTTP请求首部字段。</p>
+<h5 id="2-CONNECT响应"><a href="#2-CONNECT响应" class="headerlink" title="2.CONNECT响应"></a>2.CONNECT响应</h5><p>发送了请求之后，客户端会等待来自网关的响应。和普通HTTP报文一样，响应码200表示成功。按照惯例，响应中的原因短语通常被设置为”Connection Established”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 200 Connection Established</span><br><span class="line">Proxy-agent: Netscape-Proxy/1.1</span><br></pre></td></tr></table></figure></p>
+<p>与普通HTTP响应不同，这个响应并不需要包含Content-Type首部，此时连接只是对原始字节进行转接，不再是报文的承载者，所以不需要使用内容类型了</p>
+<h4 id="8-5-2-数据隧道、定时、连接管理"><a href="#8-5-2-数据隧道、定时、连接管理" class="headerlink" title="8.5.2 数据隧道、定时、连接管理"></a>8.5.2 数据隧道、定时、连接管理</h4><p>管道化数据对网关是不透明的，所以网关不能对分组的顺序和分组流作任何假设。一旦隧道尽力起来了，数据就可以在任意时间流向任意方向了。（隧道的两端必须做好在任意时刻接受来自连接任一端分组的准备，而且必须将数据立即转发出去。</p>
+<h4 id="8-5-3-SSL隧道"><a href="#8-5-3-SSL隧道" class="headerlink" title="8.5.3 SSL隧道"></a>8.5.3 SSL隧道</h4><p>最初开发web隧道是为了通过防火墙来传输加密的SSL流量。很多组织都会将所有流量通过分组过滤路由器和代理服务器以隧道方式传输，以提升安全性。但有些协议，比如加密SSL,其信息是加密的，无法通过传统的代理服务器转发。隧道会通过一条HTTP链接来传输SSL流量，以穿过端口80的HTTP防火墙<br><img src="/img/http_authority/http8.png" alt="8.png"></p>
+<p>为了让SSL流量经现存的代理防火墙进行传输，HTTP中添加了一项隧道特性，在此特性中，可以将原始的加密数据放在HTTP报文中好，通过普通的HTTP信道传送。<br>通常会用隧道将非HTTP流量传过端口过滤防火墙。但是，这项特性可能会被滥用，使得恶意协议通过HTTP隧道流入某个组织内部。</p>
+<h4 id="8-5-4-SSL隧道与HTTP-HTTPS网关的对比"><a href="#8-5-4-SSL隧道与HTTP-HTTPS网关的对比" class="headerlink" title="8.5.4 SSL隧道与HTTP/HTTPS网关的对比"></a>8.5.4 SSL隧道与HTTP/HTTPS网关的对比</h4><h4 id="8-5-6-隧道的安全性考虑"><a href="#8-5-6-隧道的安全性考虑" class="headerlink" title="8.5.6 隧道的安全性考虑"></a>8.5.6 隧道的安全性考虑</h4><p>岁到网关无法验证目前使用的协议是否就是他原本打算经过隧道传输的协议。因此，比如说，一些喜欢捣乱的用户可能会通过本打算用于SSL的隧道，越过公司防火墙传递因特网游戏流量，而恶意用户可能会用隧道打开Telnet会话，或用隧道绕过公司的E-mail扫描器来发送E-mail</p>
+<p>为了降低对隧道的滥用，网关应该职位特定的知名端口，比如HTTPS的端口443打开隧道<br><img src="/img/http_authority/http9.png" alt="9.png"></p>
+<h3 id="8-6-中继"><a href="#8-6-中继" class="headerlink" title="8.6 中继"></a>8.6 中继</h3><p>HTTP中继(relay)是没有完全遵循HTTP规范的简单HTTP代理。中继负责处理HTTP中建立连接的部分，然后对字节进行盲转发。<br>HTTP很复杂，所以实现基本的代理功能并对流量进行盲转发，而且不执行任何首 部和方法逻辑，有时是很有用的。盲中继很容易实现，所以有时会提供简单的过滤、 诊断或内容转换功能。但这种方式可能潜在严重的互操作问题，所以部署的时候要 特别小心。<br>某些简单盲中继实现中存在的一个更常见(也更声名狼藉的)问题是，由于它们无 法正确处理 Connection 首部，所以有潜在的挂起 keep-alive 连接的可能。<br>下图对这种情况进行了说明。<br><img src="/img/http_authority/http10.png" alt="10.png"></p>
+<h2 id="第9章-web机器人"><a href="#第9章-web机器人" class="headerlink" title="第9章 web机器人"></a>第9章 web机器人</h2><p>本章我们来仔细了解一下被称为 Web 机器人(Web robot)的自活跃(self-animating) 用户代理，以继续我们的 HTTP 架构之旅。</p>
+<p>Web 机器人是能够在无需人类干预的情况下自动进行一系列 Web 事务处理的软件 程序。很多机器人会从一个 Web 站点逛到另一个 Web 站点，获取内容，跟踪超链， 并对它们找到的数据进行处理。比如”爬虫”</p>
+<h3 id="9-1-爬虫及爬行方式"><a href="#9-1-爬虫及爬行方式" class="headerlink" title="9.1 爬虫及爬行方式"></a>9.1 爬虫及爬行方式</h3><p>Web 爬虫是一种机器人，它们会递归地对各种信息性 Web 站点进行遍历，获取第 一个 Web 页面，然后获取那个页面指向的所有 Web 页面(<strong>超链</strong>)，然后是那些页面指向的 所有 Web 页面，依此类推。</p>
+<h4 id="9-1-1-从哪儿开始-根集"><a href="#9-1-1-从哪儿开始-根集" class="headerlink" title="9.1.1 从哪儿开始:根集"></a>9.1.1 从哪儿开始:根集</h4><p>爬虫开始访问的 URL 初始集合 被称作根集(root set)</p>
+<h4 id="9-1-2-链接的提取以及相对链接的标准化"><a href="#9-1-2-链接的提取以及相对链接的标准化" class="headerlink" title="9.1.2 链接的提取以及相对链接的标准化"></a>9.1.2 链接的提取以及相对链接的标准化</h4><p>爬虫在 Web 上移动时，会不停地对 HTML 页面进行解析。它要对所解析的每个页 面上的 URL 链接进行分析，并将这些链接添加到需要爬行的页面列表中去，并这些链接从相对 URL 转换为绝对形式。</p>
+<h4 id="9-1-3-避免环路的出现"><a href="#9-1-3-避免环路的出现" class="headerlink" title="9.1.3 避免环路的出现"></a>9.1.3 避免环路的出现</h4><p>机器人在 Web 上爬行时，要特别小心不要陷入循环，或环路(cycle)之中</p>
+<h4 id="9-1-4-循环与复制"><a href="#9-1-4-循环与复制" class="headerlink" title="9.1.4 循环与复制"></a>9.1.4 循环与复制</h4><p>环路对爬虫的害处：</p>
+<ul>
+<li>使爬虫陷入循环，爬虫会消耗掉很多网络带宽在不停地获取相同的页面上</li>
+<li>如果爬虫与被循环请求的web服务器连接良好，它会击垮Web站点，阻止所有真实用户访问这个站点</li>
+<li>爬虫应用程序会被重复的内容所充斥，毫无意义</li>
+</ul>
+<h4 id="9-1-5-面包屑留下的痕迹"><a href="#9-1-5-面包屑留下的痕迹" class="headerlink" title="9.1.5 面包屑留下的痕迹"></a>9.1.5 面包屑留下的痕迹</h4><p>由于 URL 的数量巨大，所以， 要使用复杂的数据结构以便快速判定哪些 URL 是曾经访问过的 (数据量越大，越要设计复杂的数据结构)，数据结构在访问速 度和内存使用方面都应该是非常高效的(时间复杂度、空间复杂度)，机器人至少要用到搜索树或散列表，以快速判定某个 URL 是否被访问过。</p>
+<p>这里列出了大规模Web爬虫对其访问过的地址进行管理时使用的一些有用的技术</p>
+<ul>
+<li>树和散列表<br>复杂的机器人可能会用搜索树或散列表来记录已访问的 URL</li>
+<li>有损的存在位图<br>为了减小空间，一些大型爬虫会使用有损数据结构，比如存在位数组，用一个散列函数将每个 URL 都转换成一个定长的数字，这个数字在 数组中有个相关的“存在位”，如果存在位已经置位了，爬虫就认为已经爬行过那个 URL 了。</li>
+<li>检查点<br>一定要将已访问 URL 列表保存到硬盘上，以防机器人程序崩溃</li>
+<li>分类<br>随着 Web 的扩展，在一台计算机上通过单个机器人来完成爬行就变得不太现实 了。那台计算机可能没有足够的内存、磁盘空间、计算能力，或网络带宽来完成 爬行任务。有些大型 Web 机器人会使用机器人“集群”，每个独立的计算机是一个机器人， 以汇接方式工作。为每个机器人分配一个特定的 URL“片”，由其负责爬行。这 些机器人配合工作，爬行整个 Web。机器人个体之间可能需要相互通信，来回传 送 URL，以覆盖出故障的对等实体的爬行范围，或协调其工作。</li>
+</ul>
+<h4 id="9-1-8-文件系统连接环路"><a href="#9-1-8-文件系统连接环路" class="headerlink" title="9.1.8 文件系统连接环路"></a>9.1.8 文件系统连接环路</h4><p>文件系统中的符号连接会造成特定的潜在环路<br><img src="/img/http_authority/http11.png" alt="11.png"><br>图 9-3b 的问题是 subdir/ 是个指向“/”的环路，但由于 URL 看起来有所不同，所以 机器人无法单从 URL 本身判断出文档是相同的。毫无戒备的机器人就有了陷入循环 的危险。如果没有某种循环检测方式，这个环路就会继续下去，通常会持续到 URL 的长度超过机器人或服务器的限制为止。</p>
+<h4 id="9-1-9-动态虚拟Web空间"><a href="#9-1-9-动态虚拟Web空间" class="headerlink" title="9.1.9 动态虚拟Web空间"></a>9.1.9 动态虚拟Web空间</h4><p><img src="/img/http_authority/http12.png" alt="12.png"></p>
+<h4 id="9-1-10-避免循环和重复"><a href="#9-1-10-避免循环和重复" class="headerlink" title="9.1.10 避免循环和重复"></a>9.1.10 避免循环和重复</h4><p>没有什么简单明了的方式可以避免所有的环路。实际上，经过良好设计的机器人中 要包含一组试探方式，以避免环路的出现。</p>
+<p>在机器人会遇到的各种危险的Web中，有些技术的使用可以使机器人有更好的表现。</p>
+<ul>
+<li>规范化 URL<br>将URL转换为标准形式以避免语法上的别名</li>
+<li>广度优先的爬行<br>以广度优先的方式来调度 URL 去访问 Web 站点，就可以将环路的影响最小化</li>
+<li>节流<br>限制一段时间内机器人可以从一个 Web 站点获取的页面数量</li>
+<li>限制 URL 的大小<br>用 URL 长度来限 制爬虫可能会带来些麻烦;但如果每当请求的 URL 达到某个特定长度时，都记 录一次错误的话，就可以为用户提供一种检查某特定站点上所发生情况的方法。</li>
+<li>URL/ 站点黑名单</li>
+<li>模式检测</li>
+<li>内容指纹<br>用内容指纹的机器人会获取页面内容中的字节，并计算出一个校验和，MD5 这样的报文摘要函数就常被用于指纹计算。</li>
+</ul>
+<h3 id="9-2-机器人"><a href="#9-2-机器人" class="headerlink" title="9.2 机器人"></a>9.2 机器人</h3><p>机器人和所有其他 HTTP 客户端程序并没有什么区别。它们也要遵守 HTTP 规范中 的规则。发出 HTTP 请求并将自己广播成 HTTP/1.1 客户端的机器人也要使用正确 的 HTTP 请求首部。<br>很多机器人都试图只实现请求它们所查找内容所需的最小HTTP集。</p>
+<h3 id="9-2-1-识别请求首部"><a href="#9-2-1-识别请求首部" class="headerlink" title="9.2.1 识别请求首部"></a>9.2.1 识别请求首部</h3><p>在追踪错误爬虫的所有者，以及向服务器提供机器人所能处理的内容类型时，这些 信息都是很有用的。鼓励机器人实现者们使用的基本识别首部包括如下内容。</p>
+<ul>
+<li>User-Agent<br>将发起请求的机器人名字告知服务器。</li>
+<li>From<br>提供机器人的用户 / 管理者的 E-mail 地址。</li>
+<li>Accept<br>告知服务器可以发送哪些媒体类型。10 这有助于确保机器人只接收它感兴趣的内 容(文本、图片等)。</li>
+<li>Referer<br>提供包含了当前请求 URL 的文档的 URL。<br>（这怎么能知道呢，还有再多存出一份referer url吗？）</li>
+</ul>
+<h4 id="9-2-2-虚拟主机"><a href="#9-2-2-虚拟主机" class="headerlink" title="9.2.2 虚拟主机"></a>9.2.2 虚拟主机</h4><h4 id="9-2-3-条件请求"><a href="#9-2-3-条件请求" class="headerlink" title="9.2.3 条件请求"></a>9.2.3 条件请求</h4><h4 id="9-2-4-对响应的处理"><a href="#9-2-4-对响应的处理" class="headerlink" title="9.2.4 对响应的处理"></a>9.2.4 对响应的处理</h4><p>很多机器人的兴趣主要在于用简单的 GET 方法来获取所请求的内容，所以，一般不 会在处理响应的方式上花费太多时间。但是，使用了某些 HTTP 特性(比如条件请 求)的机器人，以及那些想要更好地探索服务器，并与服务器进行交互的机器人则 要能够对各种不同类型的 HTTP 响应进行处理。</p>
+<h5 id="1-状态码"><a href="#1-状态码" class="headerlink" title="1. 状态码"></a>1. 状态码</h5><h5 id="2-实体"><a href="#2-实体" class="headerlink" title="2. 实体"></a>2. 实体</h5><p>机器人实现者可能会去扫描 HTML 文 档的 HEAD 组件，以查找 http-equiv 信息。???</p>
+<h4 id="9-2-5-User-Agent导向"><a href="#9-2-5-User-Agent导向" class="headerlink" title="9.2.5 User-Agent导向"></a>9.2.5 User-Agent导向</h4><p>站点管理者应该设计一个处理机器人请求的策略。比如，它们可以为所有其他特性 不太丰富的浏览器和机器人开发一些页面，而不是将其内容限定在特定浏览器所支 持的范围。</p>
+<h3 id="9-3-行为不当的机器人"><a href="#9-3-行为不当的机器人" class="headerlink" title="9.3 行为不当的机器人"></a>9.3 行为不当的机器人</h3><p>• 失控机器人<br>机器人发起HTTP请求的速度要比人类快得多，它们通常都运 行在具有快速网络链路的高速计算机上,如果机器人陷入了环路之中，就可能会向Web服务器发出大量的负载——很可能会使服务器过载.<br>• 失效的 URL<br>• 很长的错误 URL<br>由于环路和编程错误的存在，机器人可能会向 Web 站点请求一些很大的、无意 义的 URL。如果 URL 足够长的话，就会降低 Web 服务器的性能，使Web服务器的访问日志杂乱不堪.</p>
+<h3 id="9-4-拒绝机器人访问"><a href="#9-4-拒绝机器人访问" class="headerlink" title="9.4 拒绝机器人访问"></a>9.4 拒绝机器人访问</h3><p>管理员提供了一个被称为“拒绝机器人访问标准”的标准，但通常只是根据存储访问控制信息的文件而将其称为robots.txt。<br><img src="/img/http_authority/http13.png" alt="13.png"></p>
+<p>…暂时省略较多机器人相关内容</p>
+<h3 id="9-6-搜索引擎"><a href="#9-6-搜索引擎" class="headerlink" title="9.6 搜索引擎"></a>9.6 搜索引擎</h3><p>得到最广泛使用的<strong>web机器人</strong>都是因特网<strong>搜索引擎</strong>。<br>现在 Web 上很多最流行的站点都是搜索引擎。(百度)，很多 Web 用户将其作为起始点，它 们会为用户提供宝贵的服务，帮助用户找到他们感兴趣的信息。<br>Web 爬虫为因特网搜索引擎提供信息，它们获取 Web 上的文档，并允许搜索引擎 创建与本书后面的索引类似的索引，用以说明哪些文档中有哪些词存在。搜索引擎 是 Web 机器人的主要来源</p>
+<h4 id="9-6-1-大格局"><a href="#9-6-1-大格局" class="headerlink" title="9.6.1 大格局"></a>9.6.1 大格局</h4><p>搜索引擎要用复杂的爬虫 来获取数十亿 Web 页面，还要使用复杂的查询引擎来处理数百万用户产生的查 询负荷。</p>
+<h4 id="9-6-2-现代搜索引擎结构"><a href="#9-6-2-现代搜索引擎结构" class="headerlink" title="9.6.2 现代搜索引擎结构"></a>9.6.2 现代搜索引擎结构</h4><p>现在的搜索引擎都构建了一些名为“全文索引”的复杂本地数据库，装载了全世界 的 Web 页面，搜索引擎爬虫会搜集 Web 页面，把它们带回家，并将其添加到全文索引中去。</p>
+<h4 id="9-6-3-全文索引"><a href="#9-6-3-全文索引" class="headerlink" title="9.6.3 全文索引"></a>9.6.3 全文索引</h4><p>全文索引就是一个数据库，创建了索引之后，就不需要对文档自身进行扫描了。<br><img src="/img/http_authority/http14.png" alt="14.png"></p>
 <p align="center"><br>TODO …   ❣️<br></p>
 
 
