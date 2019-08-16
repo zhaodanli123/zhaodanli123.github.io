@@ -934,7 +934,7 @@
 <li>如果再验证显示内容内有发生变化，缓存只需要获取新的首部，包括一个新的过期日期，并对缓存中的首部进行更新就行了</li>
 </ul>
 <h4 id="7-8-4-用条件方法进行再验证"><a href="#7-8-4-用条件方法进行再验证" class="headerlink" title="7.8.4 用条件方法进行再验证"></a>7.8.4 用条件方法进行再验证</h4><p>HTTP的条件方法可以高效地实现再验证。HTTP允许缓存向原始服务器发送一个”条件get”，请求服务器只有在文档与缓存中现有的副本不同时，才回送对象主体，通过这种方式，将新鲜度检测和对象获取结合成了单个条件GET,向GET请求报文中添加一些特殊的条件首部，就可以发起条件GET。只有条件为真时，web服务器才会返回对象。</p>
-<p>HTTP定义了5个条件请求首部，对缓存再验证来说最有用的2个首部是If-Modified-Since和If-None-Match,所有的条件首部都以前缀”If”开头<br><img src="/img/http_authority/http1.jpg" alt="1.png"></p>
+<p>HTTP定义了5个条件请求首部，对缓存再验证来说最有用的2个首部是If-Modified-Since和If-None-Match,所有的条件首部都以前缀”If”开头<br><img src="/img/http_authority/http1.png" alt="1.png"></p>
 <h4 id="7-8-6-If-None-Match-实体标签再验证"><a href="#7-8-6-If-None-Match-实体标签再验证" class="headerlink" title="7.8.6 If-None-Match:实体标签再验证"></a>7.8.6 If-None-Match:实体标签再验证</h4><p>有些情况下仅使用最后修改日期进行再验证是不够的。</p>
 <ul>
 <li>有些文档可能会被周期性地重写，但实际包含的数据常常是一样的，尽管内容没有变化，但修改日期会发生变化。</li>
@@ -943,7 +943,7 @@
 <li>有些服务器提供的文档会在亚秒间隙发生变化，对这些服务器来说，以一秒为粒度的修改日期可能不够用。</li>
 </ul>
 <p>为了解决这些问题，HTTP允许用户对被称为实体标签(ETag)的”版本标识符”进行比较。实体标签是附加到文档上的任意标签，他们可能包含了文档的序列号或版本名，或者是文档内容的校验和其他指纹信息。</p>
-<p>当发布者对文档进行修改时，可以修改文档的实体标签来说明这个新的版本。这样，如果实体标签被修改了，缓存就可以用If-None-Match条件首部来GET文档的新副本了。<br><img src="/img/http_authority/http2.jpg" alt="2.png"> </p>
+<p>当发布者对文档进行修改时，可以修改文档的实体标签来说明这个新的版本。这样，如果实体标签被修改了，缓存就可以用If-None-Match条件首部来GET文档的新副本了。<br><img src="/img/http_authority/http2.png" alt="2.png"> </p>
 <h4 id="7-8-8-什么时候应该使用实体标签和最近修改日期"><a href="#7-8-8-什么时候应该使用实体标签和最近修改日期" class="headerlink" title="7.8.8 什么时候应该使用实体标签和最近修改日期"></a>7.8.8 什么时候应该使用实体标签和最近修改日期</h4><p>如果服务器回送一个实体标签，HTTP/1.1客户端就必须使用实体标签验证器，如果服务器只回送了一个Last-Modified值，客户端就可以使用If-modified-Since验证，如果实体标签和最后修改日期都提供了，客户端就应该使用这两种再验证方案，这样HTTP/1.0和HTTP/1.1缓存就都可以正确响应了。</p>
 <p>除非HTTP/1.1原始服务器无法生成标签验证器(ETag),否则就应该发送一个出去(服务器端应做的)，如果使用弱实体标签有优势的话，发送的可能就是个弱实体标签，而不是强实体标签。而且最好同时发送一个最近修改值。<br>如果HTTP/1.1缓存或服务器收到的请求既带有If-Modified-Since，又带有实体标签条件首部，那么只有这两个条件都满足时，才能返回304Not Modified响应。</p>
 <h3 id="7-9-控制缓存的能力"><a href="#7-9-控制缓存的能力" class="headerlink" title="7.9 控制缓存的能力"></a>7.9 控制缓存的能力</h3><p>服务器可以通过HTTP定义的几种方式来指定在文档过期之前可以将其缓存多长时间。按照优先级递减的顺序，服务器可以：</p>
@@ -962,7 +962,7 @@
 <h4 id="7-9-3"><a href="#7-9-3" class="headerlink" title="7.9.3"></a>7.9.3</h4><p>Expires响应首部<br><strong>不推荐使用Expires首部</strong>，他指定的是实际的过期日期而不是秒数，有些服务器还会回送一个Expires:0响应首部，试图将文档置于永远过期的状态。</p>
 <h4 id="7-9-4"><a href="#7-9-4" class="headerlink" title="7.9.4"></a>7.9.4</h4><p>must-revalidate响应首部<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control:must-revalidate</span><br></pre></td></tr></table></figure></p>
 <p>在事先没有跟元素是服务器进行再验证的情况下，不能提供这个对象的陈旧副本，缓存仍然可以随意提供新鲜的副本。如果在缓存进行must-revalidate新鲜度检查时，原始服务器不可用，缓存就必须返回一条504Gateway Timeout错误</p>
-<h4 id="7-9-6-客户端的新鲜度限制"><a href="#7-9-6-客户端的新鲜度限制" class="headerlink" title="7.9.6 客户端的新鲜度限制"></a>7.9.6 客户端的新鲜度限制</h4><p>web浏览器都有refresh或reload按钮，可以强制对浏览器或代理缓存中可能过期的内容进行刷新。refresh按钮会发布一个附加了Cache-Control请求首部的GET方法，这个请求会强制进行再验证， 或者无条件地从服务器获取文档。refresh的确切行为取决于特定的浏览器、文档、连接缓存的配置<br><img src="/img/http_authority/http3.jpg" alt="3.png"></p>
+<h4 id="7-9-6-客户端的新鲜度限制"><a href="#7-9-6-客户端的新鲜度限制" class="headerlink" title="7.9.6 客户端的新鲜度限制"></a>7.9.6 客户端的新鲜度限制</h4><p>web浏览器都有refresh或reload按钮，可以强制对浏览器或代理缓存中可能过期的内容进行刷新。refresh按钮会发布一个附加了Cache-Control请求首部的GET方法，这个请求会强制进行再验证， 或者无条件地从服务器获取文档。refresh的确切行为取决于特定的浏览器、文档、连接缓存的配置<br><img src="/img/http_authority/http3.png" alt="3.png"></p>
 <h3 id="7-10-设置缓存控制"><a href="#7-10-设置缓存控制" class="headerlink" title="7.10 设置缓存控制"></a>7.10 设置缓存控制</h3><p>本章简要介绍Apache web服务器是怎样支持缓存控制的。</p>
 <h4 id="7-10-2-通过HTTP-EQUIV控制HTML缓存"><a href="#7-10-2-通过HTTP-EQUIV控制HTML缓存" class="headerlink" title="7.10.2 通过HTTP-EQUIV控制HTML缓存"></a>7.10.2 通过HTTP-EQUIV控制HTML缓存</h4><p>HTTP服务器响应首部用于回送稳当的待其信息以及缓存控制信息。web服务器与配置文件进行交互，为所提供的文档分配正确的Cache-Control首部</p>
 <p>为了让作者在无需与web服务器的配置文件进行交互的情况下，能够更容易地为所提供的HTML文档分配HTTP首部信息，HTML2.0定义了<code>&lt;META HTTP-EQUIV&gt;</code>标签。<br>例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;META HTTP-EUQIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache&quot;&gt;</span><br></pre></td></tr></table></figure></p>
@@ -979,15 +979,15 @@
 </ul>
 <h3 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h3><p>HTTP扩展和接口的发展是由用户需求驱动的。要再web上发布更复杂资源的需求出现时，人们很快就明确了一点；单个应用程序无法处理所有这些能想到的资源。</p>
 <p>为了解决这个问题，开发者提出了网关的概念，网关可以作为某种翻译器使用，它抽象出了一种能够到达资源的方法。网关是资源和应用程序之间的粘合剂。应用程序可以请求网关来处理某条请求，网关可以提供一条响应。网关可以向数据库发送查询语句，或者生成动态的内容，就像一个门一样，进去一条请求，出来一个响应。</p>
-<p>图8-1显示的是一种资源网关。在这里，服务器就是作为连接数据库内容的网关使用的，客户端只是在通过http请求资源，而服务器在与网关进行交互以获取资源。<br><img src="/img/http_authority/http4.jpg" alt="4.png"></p>
-<p>有些网关会自动将HTTP流量转换为其他协议，这样http客户端无需了解其他协议，就可以与其他应用程序进行交互了(图8-2)<br><img src="/img/http_authority/http5.jpg" alt="5.png"></p>
+<p>图8-1显示的是一种资源网关。在这里，服务器就是作为连接数据库内容的网关使用的，客户端只是在通过http请求资源，而服务器在与网关进行交互以获取资源。<br><img src="/img/http_authority/http4.png" alt="4.png"></p>
+<p>有些网关会自动将HTTP流量转换为其他协议，这样http客户端无需了解其他协议，就可以与其他应用程序进行交互了(图8-2)<br><img src="/img/http_authority/http5.png" alt="5.png"></p>
 <p>客户端和服务器端网关</p>
 <ul>
 <li>服务器端网关： 通过HTTP与客户端对话，通过其他协议与服务器通信</li>
 <li>客户端网关： 通过其他协议与客户端对话，通过http与服务器通信</li>
 </ul>
 <h3 id="8-3资源网关"><a href="#8-3资源网关" class="headerlink" title="8.3资源网关"></a>8.3资源网关</h3><p>最常见的网关、应用程序服务器，会将目标服务器与网关集合在一个服务器中实现。应用程序服务器是服务器端网关，与客户端通过http进行通信，并与服务器端的应用程序相连。</p>
-<p>请求需要使用网关的资源时，服务器会请辅助应用程序来处理请求。服务器会将辅助应用程序所需的数据传送给他。通常就是整条请求，或者用户想在数据库上运行的请求之类的东西。<br><img src="/img/http_authority/http6.jpg" alt="6.png"></p>
+<p>请求需要使用网关的资源时，服务器会请辅助应用程序来处理请求。服务器会将辅助应用程序所需的数据传送给他。通常就是整条请求，或者用户想在数据库上运行的请求之类的东西。<br><img src="/img/http_authority/http6.png" alt="6.png"></p>
 <h4 id="8-3-1-CGI"><a href="#8-3-1-CGI" class="headerlink" title="8.3.1 CGI"></a>8.3.1 CGI</h4><p>CGI(Common Gateway Interface)通用网关接口</p>
 <p align="center"><br>TODO …   ❣️<br></p>
 
